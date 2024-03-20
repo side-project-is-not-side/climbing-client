@@ -1,0 +1,3 @@
+echo "🧹 Find unused files..."
+
+pnpm knip
