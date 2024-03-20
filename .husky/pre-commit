@@ -1,0 +1,3 @@
+echo "🔍 lint check before commit"
+
+npx lint-staged
