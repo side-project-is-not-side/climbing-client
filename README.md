@@ -25,9 +25,7 @@
 
 - 주소별 페이지가 위치하는 폴더입니다.
 
-  - App router를 사용하는 상황에서는
-
-  - 단순히 widgets, features, entities에 있는 컴포넌트들을 모아서 export 하면 root app 폴더에서 import 해서 사용하는건지 ?
+- 현재 App routeing를 사용하는 상황에서는 Widgets, Features, Entities에 있는 컴포넌트들을 모아서 export하면, root에 위치한 App 폴더에서 import 해서 사용합니다.
 
 ### Widgets
 
