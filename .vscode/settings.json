@@ -2,6 +2,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
+  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
+
   "todo-tree.general.tags": ["TODO", "FIXME", "NAME", "NOTE"],
   "todo-tree.highlights.customHighlight": {
     "TODO": {
