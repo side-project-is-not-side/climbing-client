@@ -1,18 +1,23 @@
+'use client';
+
 import { useEffect } from 'react';
 
-import { Coordinates, ImageIcon, NaverMap, TMarker } from '../types';
+import { generateMarkerIcon } from '../lib/generateMarkerIcon';
+import { Coordinates, TMarker, TNaverMap } from '../types';
 
 type Props = {
-  map: NaverMap;
+  map: TNaverMap;
   coordinates: Coordinates;
-  icon: ImageIcon;
+  isSelected: boolean;
   onClick?: () => void;
 };
 
-function Marker({ map, coordinates, icon, onClick }: Props) {
+function Marker({ map, coordinates, isSelected, onClick }: Props) {
   useEffect(() => {
     let marker: TMarker = null;
     if (map) {
+      const icon = generateMarkerIcon(isSelected);
+
       marker = new naver.maps.Marker({
         map: map,
         position: new naver.maps.LatLng(...coordinates),
