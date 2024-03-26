@@ -1,7 +1,7 @@
 {
   "Primary": {
     "400": {
-      "value": "#f95552",
+      "value": "#ff5544",
       "type": "color",
       "parent": "#2 Semantic/Mode 1",
       "description": ""
@@ -77,10 +77,11 @@
       "description": ""
     },
     "400": {
-      "value": "#f95552",
+      "value": "#ff5544",
       "type": "color",
       "parent": "#1 Primitive/Mode 1",
-      "description": ""
+      "description": "",
+      "oldValue": "#f95552"
     },
     "500": {
       "value": "#ff4538",
@@ -186,6 +187,208 @@
     "type": "color",
     "parent": "Collection 1/Mode 2",
     "description": ""
+  },
+  "fontFamilies": {
+    "noto-sans": {
+      "value": "Noto Sans",
+      "type": "fontFamilies"
+    },
+    "noto-sans-kr": {
+      "value": "Noto Sans KR",
+      "type": "fontFamilies"
+    }
+  },
+  "lineHeights": {
+    "0": {
+      "value": "AUTO",
+      "type": "lineHeights"
+    },
+    "1": {
+      "value": "150%",
+      "type": "lineHeights"
+    }
+  },
+  "fontWeights": {
+    "noto-sans-0": {
+      "value": "Bold",
+      "type": "fontWeights"
+    },
+    "noto-sans-kr-1": {
+      "value": "Bold",
+      "type": "fontWeights"
+    },
+    "noto-sans-kr-2": {
+      "value": "Regular",
+      "type": "fontWeights"
+    },
+    "noto-sans-kr-3": {
+      "value": "Medium",
+      "type": "fontWeights"
+    }
+  },
+  "fontSize": {
+    "0": {
+      "value": 10,
+      "type": "fontSizes"
+    },
+    "1": {
+      "value": 13,
+      "type": "fontSizes"
+    },
+    "2": {
+      "value": 14,
+      "type": "fontSizes"
+    },
+    "3": {
+      "value": 15,
+      "type": "fontSizes"
+    },
+    "4": {
+      "value": 18,
+      "type": "fontSizes"
+    },
+    "5": {
+      "value": 24,
+      "type": "fontSizes"
+    }
+  },
+  "letterSpacing": {
+    "0": {
+      "value": 0,
+      "type": "letterSpacing"
+    },
+    "1": {
+      "value": "0%",
+      "type": "letterSpacing"
+    }
+  },
+  "paragraphSpacing": {
+    "0": {
+      "value": 0,
+      "type": "paragraphSpacing"
+    }
+  },
+  "Noto Sans KR 24 B": {
+    "value": {
+      "fontFamily": "Noto Sans",
+      "fontWeight": "Bold",
+      "lineHeight": "AUTO",
+      "fontSize": 24,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Display 1"
+  },
+  "Noto Sans KR 18 B": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Bold",
+      "lineHeight": "AUTO",
+      "fontSize": 18,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Header 1"
+  },
+  "Noto Sans KR 15 B": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Bold",
+      "lineHeight": "AUTO",
+      "fontSize": 15,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Header 2"
+  },
+  "Noto Sans KR 14 R": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Regular",
+      "lineHeight": "AUTO",
+      "fontSize": 14,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Text 1"
+  },
+  "Noto Sans KR 13 M": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Medium",
+      "lineHeight": "AUTO",
+      "fontSize": 13,
+      "letterSpacing": "0%",
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography"
+  },
+  "Noto Sans KR 10 B": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Medium",
+      "lineHeight": "150%",
+      "fontSize": 10,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Bottom tab - active"
+  },
+  "Noto Sans KR 10 M": {
+    "value": {
+      "fontFamily": "Noto Sans KR",
+      "fontWeight": "Medium",
+      "lineHeight": "150%",
+      "fontSize": 10,
+      "letterSpacing": 0,
+      "paragraphSpacing": 0,
+      "paragraphIndent": "0px",
+      "textCase": "none",
+      "textDecoration": "none"
+    },
+    "type": "typography",
+    "description": "Bottom tab - active"
+  },
+  "textCase": {
+    "none": {
+      "value": "none",
+      "type": "textCase"
+    }
+  },
+  "textDecoration": {
+    "none": {
+      "value": "none",
+      "type": "textDecoration"
+    }
+  },
+  "paragraphIndent": {
+    "0": {
+      "value": "0px",
+      "type": "dimension"
+    }
   },
   "tokenSetOrder": {
     "0": {

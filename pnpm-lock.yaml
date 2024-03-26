@@ -46,6 +46,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.0.1
     version: 10.4.18(postcss@8.4.36)
+  change-case:
+    specifier: ^5.4.3
+    version: 5.4.3
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1549,6 +1552,10 @@ packages:
       sentence-case: 3.0.4
       snake-case: 3.0.4
       tslib: 2.6.2
+    dev: true
+
+  /change-case@5.4.3:
+    resolution: {integrity: sha512-4cdyvorTy/lViZlVzw2O8/hHCLUuHqp4KpSSP3DlauhFCf3LdnfF+p5s0EAhjKsU7bqrMzu7iQArYfoPiHO2nw==}
     dev: true
 
   /chokidar@3.6.0:

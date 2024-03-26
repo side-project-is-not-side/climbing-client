@@ -6,7 +6,7 @@ const config: Config = {
   theme: {
     colors: {
       primary: {
-        400: '#f95552',
+        400: '#ff5544',
       },
       neutral: {
         50: '#f4f7f8',
@@ -22,7 +22,7 @@ const config: Config = {
         100: '#ffced4',
         200: '#f59c9c',
         300: '#ed7676',
-        400: '#f95552',
+        400: '#ff5544',
         500: '#ff4538',
         600: '#f03b37',
         700: '#dd3031',
