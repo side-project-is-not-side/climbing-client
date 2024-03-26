@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "build-transform": "npx token-transformer tokens.json tokens/global.json global",
-    "build-tailwind-config": "ts-node ./scripts/runTailwindTransform.mjs",
+    "build-tailwind-config": "node ./scripts/runTailwindTransform.mjs",
     "set-tokens": "pnpm run build-transform && pnpm run build-tailwind-config"
   },
   "lint-staged": {
