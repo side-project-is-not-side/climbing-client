@@ -1,4 +1,5 @@
-import { Coordinates } from "./types";
+import { Coordinates } from './types';
 
-export const INITIAL_CENTER: Coordinates = [37.5262411, 126.99289439];
+export const INITIAL_CENTER: Coordinates = [127.0276188, 37.4979517];
 export const INITIAL_ZOOM = 10;
+export const MIN_ZOOM = 9;
