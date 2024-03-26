@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import type { Metadata } from 'next';
 
+import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -20,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className={inter.className}>
       <body>
-        <main className="mx-auto h-full max-w-3xl">
+        <main className="w-full h-full">
           <SWRConfigContext>{children}</SWRConfigContext>
+          <BottomNavigation />
         </main>
       </body>
     </html>
