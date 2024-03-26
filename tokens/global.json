@@ -1,0 +1,208 @@
+{
+  "Primary": {
+    "400": {
+      "value": "#f95552",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    }
+  },
+  "Neutral": {
+    "50": {
+      "value": "#f4f7f8",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "300": {
+      "value": "#c4c4c4",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "400": {
+      "value": "#8b8d8e",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "700": {
+      "value": "#222427",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "800": {
+      "value": "#151518",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "Black": {
+      "value": "#000000",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    },
+    "White": {
+      "value": "#ffffff",
+      "type": "color",
+      "parent": "#2 Semantic/Mode 1",
+      "description": ""
+    }
+  },
+  "Red": {
+    "50": {
+      "value": "#ffecef",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "100": {
+      "value": "#ffced4",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "200": {
+      "value": "#f59c9c",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "300": {
+      "value": "#ed7676",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "400": {
+      "value": "#f95552",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "500": {
+      "value": "#ff4538",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "600": {
+      "value": "#f03b37",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "700": {
+      "value": "#dd3031",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "800": {
+      "value": "#d0292a",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "900": {
+      "value": "#c21b1d",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    }
+  },
+  "Grayscale": {
+    "50": {
+      "value": "#f4f7f8",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "100": {
+      "value": "#e9e9e9",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "200": {
+      "value": "#d9d9d9",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "300": {
+      "value": "#c4c4c4",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "400": {
+      "value": "#8b8d8e",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "500": {
+      "value": "#7b7b7b",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "600": {
+      "value": "#555555",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "700": {
+      "value": "#222427",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "800": {
+      "value": "#151518",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "Black": {
+      "value": "#000000",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    },
+    "White": {
+      "value": "#ffffff",
+      "type": "color",
+      "parent": "#1 Primitive/Mode 1",
+      "description": ""
+    }
+  },
+  "Color": {
+    "value": "#ffffff",
+    "type": "color",
+    "parent": "Collection 1/Mode 2",
+    "description": ""
+  },
+  "tokenSetOrder": {
+    "0": {
+      "value": "Collection 1/Mode 1",
+      "type": "other"
+    },
+    "1": {
+      "value": "Collection 1/Mode 2",
+      "type": "other"
+    },
+    "2": {
+      "value": "#1 Primitive/Mode 1",
+      "type": "other"
+    },
+    "3": {
+      "value": "#2 Semantic/Mode 1",
+      "type": "other"
+    }
+  }
+}

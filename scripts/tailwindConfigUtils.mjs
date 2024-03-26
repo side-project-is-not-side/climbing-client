@@ -14,7 +14,6 @@ export const makeSdObject = (obj, keys, value) => {
     obj = obj[key];
   }
 
-  // https://v2.tailwindcss.com/docs/upgrading-to-v2#update-default-theme-keys-to-default
   if (keys[lastIndex] === 'DEFAULT') {
     obj[keys[lastIndex]] = value;
   } else {
