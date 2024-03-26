@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import type { Metadata } from 'next';
 
+import { Header } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
 
@@ -21,10 +22,11 @@ export default function RootLayout({
   return (
     <html lang="ko" className={inter.className}>
       <body>
+        <Header />
         <main className="w-full h-full">
           <SWRConfigContext>{children}</SWRConfigContext>
-          <BottomNavigation />
         </main>
+        <BottomNavigation />
       </body>
     </html>
   );
