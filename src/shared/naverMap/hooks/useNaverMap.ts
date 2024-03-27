@@ -30,20 +30,17 @@ const useNaverMap = ({
 
   const initializeMap = () => {
     const mapOptions: NaverMapOptions = {
-      center: new window.naver.maps.LatLng(...initialCenter),
+      center: new naver.maps.LatLng(...initialCenter),
       zoom: initialZoom,
       minZoom,
       scaleControl: false,
       mapDataControl: false,
-      logoControlOptions: {
-        position: naver.maps.Position.TOP_LEFT,
-      },
     };
 
     const newMap = new window.naver.maps.Map(mapId, mapOptions);
     setMap(newMap);
 
-    if (onLoad) {
+    if (onLoad && map) {
       onLoad(map);
     }
   };

@@ -4,7 +4,7 @@ import { generateMarkerIcon } from '../lib/generateMarkerIcon';
 import { Coordinates, TMarker, TNaverMap } from '../types';
 
 type Props = {
-  map: TNaverMap;
+  map: TNaverMap | null;
   coordinates: Coordinates;
   isSelected: boolean;
   onClick?: () => void;

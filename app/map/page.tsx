@@ -2,7 +2,8 @@ import React from 'react';
 
 import NearbyMap from '@/entities/map/ui/NearbyMap';
 
-function mapPage() {
+export const dynamic = 'force-dynamic';
+async function MapPage() {
   return (
     <section className="w-full h-full">
       <NearbyMap />
@@ -10,4 +11,4 @@ function mapPage() {
   );
 }
 
-export default mapPage;
+export default MapPage;

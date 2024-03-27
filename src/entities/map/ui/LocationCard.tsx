@@ -6,7 +6,7 @@ import useNaverMap from '@/shared/naverMap/hooks/useNaverMap';
 import { Lat, Lng } from '@/shared/naverMap/types';
 import Map from '@/shared/naverMap/ui/Map';
 import Marker from '@/shared/naverMap/ui/Marker';
-import { NaverMapScript } from '@/shared/naverMap/ui/NaverMapScript';
+import NaverMapScript from '@/shared/naverMap/ui/NaverMapScript';
 
 type Props = {
   lat: Lat;
@@ -19,7 +19,9 @@ function LocationCard({ lat, lng }: Props) {
     mapId: MAP_ID,
     initialZoom: 20,
     initialCenter: [lat, lng],
+    geolocationEnabled: false,
   });
+
   return (
     <div className="w-full h-[156px] overflow-hidden rounded-[10px]">
       <NaverMapScript initializeMap={initializeMap}>

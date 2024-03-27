@@ -9,7 +9,7 @@ type Props = {
 const Map = forwardRef<HTMLDivElement, Props>(function Map({ mapId }, ref) {
   return (
     <>
-      <div id={mapId} ref={ref} className="w-full h-full" />
+      <div id={mapId} ref={ref} className="w-full h-full z-0" />
     </>
   );
 });

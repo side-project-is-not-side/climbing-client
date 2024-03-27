@@ -6,7 +6,7 @@ import Script from 'next/script';
 
 export type Props = PropsWithChildren<{ initializeMap: () => void }>;
 
-export function NaverMapScript({ initializeMap, children }: Props) {
+function NaverMapScript({ initializeMap, children }: Props) {
   return (
     <>
       <Script
@@ -19,3 +19,5 @@ export function NaverMapScript({ initializeMap, children }: Props) {
     </>
   );
 }
+
+export default NaverMapScript;
