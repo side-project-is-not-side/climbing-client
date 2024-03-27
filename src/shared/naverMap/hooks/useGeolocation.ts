@@ -22,16 +22,22 @@ export const useGeoLocation = (isActive: boolean, options?: GeolocationOptions) 
     setError(error.message);
   };
 
-  useEffect(() => {
+  const loadGeolocation = () => {
     const { geolocation } = navigator;
 
-    if (!geolocation || !isActive) {
+    if (!geolocation) {
       setError('not supported');
       return;
     }
 
     geolocation.getCurrentPosition(onSuccess, onError, options);
+  };
+
+  useEffect(() => {
+    if (isActive) {
+      loadGeolocation();
+    }
   }, [options, isActive]);
 
-  return { location, error };
+  return { location, error, reload: loadGeolocation };
 };
