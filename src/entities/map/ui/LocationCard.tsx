@@ -6,7 +6,7 @@ import useNaverMap from '@/shared/naverMap/hooks/useNaverMap';
 import { Lat, Lng } from '@/shared/naverMap/types';
 import Map from '@/shared/naverMap/ui/Map';
 import Marker from '@/shared/naverMap/ui/Marker';
-import { NaverMap } from '@/shared/naverMap/ui/NaverMap';
+import { NaverMapScript } from '@/shared/naverMap/ui/NaverMapScript';
 
 type Props = {
   lat: Lat;
@@ -22,10 +22,10 @@ function LocationCard({ lat, lng }: Props) {
   });
   return (
     <div className="w-full h-[156px] overflow-hidden rounded-[10px]">
-      <NaverMap initializeMap={initializeMap}>
+      <NaverMapScript initializeMap={initializeMap}>
         <Map ref={mapElementRef} mapId={MAP_ID} />
         <Marker map={map} coordinates={[lat, lng]} isSelected />
-      </NaverMap>
+      </NaverMapScript>
     </div>
   );
 }
