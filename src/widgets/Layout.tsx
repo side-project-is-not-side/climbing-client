@@ -14,7 +14,7 @@ function Layout({
   const path = usePathname();
 
   return (
-    <div className={`bg-[#151518] w-full ${PATH_NAME[path] && 'pt-[60px]'} pb-[80px]`}>
+    <div className={`bg-[#151518] w-full min-h-full ${PATH_NAME[path] && 'pt-[60px]'} pb-[80px]`}>
       <section className="mx-auto px-5 max-w-3xl pt-[30px] pb-[32px]">{children}</section>
     </div>
   );

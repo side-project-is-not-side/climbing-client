@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="ko" className={inter.className}>
       <body>
         <Header />
-        <main className="w-full h-full">
+        <main className="w-full h-full bg-neutral-black">
           <SWRConfigContext>{children}</SWRConfigContext>
         </main>
         <BottomNavigation />
