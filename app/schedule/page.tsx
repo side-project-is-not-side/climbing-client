@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Tabs } from '@/entities/schedule/ui';
 import Lists from '@/entities/schedule/ui/Lists';
+import Tabs from '@/entities/schedule/ui/Tabs';
 
-function SchedulePage() {
+export const dynamic = 'force-dynamic';
+async function SchedulePage() {
   return (
     <div>
       <Tabs />
