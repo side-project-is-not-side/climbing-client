@@ -1,11 +1,13 @@
-import Lists from '@/entities/schedule/ui/Lists';
-import Tabs from '@/entities/schedule/ui/Tabs';
+import React, { Suspense } from 'react';
 
-export const dynamic = 'force-dynamic';
+import { Lists, Tabs } from '@/entities/schedule/ui';
+
 async function SchedulePage() {
   return (
     <div>
-      <Tabs />
+      <Suspense>
+        <Tabs />
+      </Suspense>
 
       <Lists />
     </div>
