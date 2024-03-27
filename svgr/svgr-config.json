@@ -1,0 +1,14 @@
+{
+  "svgProps": {
+    "width": "{props.width ?? 24}",
+    "height": "{props.height ?? 24}",
+    "style": "{props.style ?? {}}"
+  },
+  "replaceAttrValues": {
+    "#fff": "{props.color ?? '#fff'}"
+  },
+  "outDir": "./src/shared/icons/components",
+  "filenameCase": "pascal",
+  "dimensions": false,
+  "ignoreExisting": true
+}
