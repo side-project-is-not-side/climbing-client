@@ -12,7 +12,7 @@ function Category() {
         <li className="relative flex-1 bg-[#222427] rounded-[10px]">
           <Link href={'/schedule?category=schedule'} className="block h-full pt-5 pl-5 pr-8 pb-[26px]">
             <div className="w-[100px] h-[100px] relative">
-              <Image src="/images/main/upcoming-setting.png" fill alt="다가오는 세팅"></Image>
+              <Image src="/images/main/upcoming-setting.png" fill alt="다가오는 세팅" sizes="100%"></Image>
             </div>
 
             <div className="text-white mt-[20px]">다가오는 세팅</div>
@@ -38,7 +38,7 @@ function Category() {
         <li className="flex-1 bg-[#222427] rounded-[10px]">
           <Link href={'/schedule?category=complete'} className="block h-full pt-5 pl-5 pr-8 pb-[26px]">
             <div className="w-[90px] h-[100px] relative">
-              <Image src="/images/main/complete-setting.png" fill alt="완료된 세팅"></Image>
+              <Image src="/images/main/complete-setting.png" fill sizes="100%" alt="완료된 세팅"></Image>
             </div>
 
             <div className="text-white mt-[20px]">완료된 세팅</div>
