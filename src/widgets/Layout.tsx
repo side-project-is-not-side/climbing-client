@@ -17,7 +17,7 @@ function Layout({
 
   return (
     <main className={`w-full bg-neutral-black min-h-full pb-[80px] ${twJoin(PATH_NAME[path] && 'pt-[60px]')} `}>
-      <div className="mx-auto px-5 max-w-3xl pt-[30px] pb-[32px]">{children}</div>
+      <div className="mx-auto px-5 max-w-3xl min-w-[390px] pt-[30px] pb-[32px]">{children}</div>
     </main>
   );
 }
