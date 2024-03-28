@@ -22,7 +22,7 @@ function NearbyMap() {
 
   return (
     <NaverMapScript initializeMap={initializeMap}>
-      {isGeolocationLoading && <GeolocationLoading />}
+      <GeolocationLoading visible={isGeolocationLoading} />
       <Map ref={mapElementRef} mapId={MAP_ID} />
       {/* {[1, 2, 3].map((item) => (
         <Marker key={item} map={map} coordinates={[]} />

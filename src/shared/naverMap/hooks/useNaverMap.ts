@@ -25,8 +25,7 @@ const useNaverMap = ({
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<TNaverMap | null>(null);
 
-  const { location, error, reload } = useGeoLocation(geolocationEnabled);
-  const isGeolocationLoading = location === undefined && !error;
+  const { location, reload, isGeolocationLoading } = useGeoLocation(geolocationEnabled);
 
   const initializeMap = () => {
     const mapOptions: NaverMapOptions = {
@@ -69,7 +68,7 @@ const useNaverMap = ({
 
   useEffect(() => {
     handleMoveToCurrentLocation();
-  }, [location]);
+  }, []);
 
   return {
     mapElementRef,

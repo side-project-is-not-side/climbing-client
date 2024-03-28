@@ -9,6 +9,8 @@ type GeolocationOptions = {
 };
 
 export const useGeoLocation = (isActive: boolean, options?: GeolocationOptions) => {
+  const [isLoading, setIsLoading] = useState(isActive);
+
   const [location, setLocation] = useState<Coordinates>();
   const [error, setError] = useState('');
 
@@ -16,13 +18,17 @@ export const useGeoLocation = (isActive: boolean, options?: GeolocationOptions) 
     const { latitude, longitude } = position.coords;
 
     setLocation([latitude, longitude]);
+
+    setIsLoading(() => false);
   };
 
   const onError = (error: GeolocationPositionError) => {
     setError(error.message);
+    setIsLoading(() => false);
   };
 
   const loadGeolocation = () => {
+    setIsLoading(() => true);
     const { geolocation } = navigator;
 
     if (!geolocation) {
@@ -39,5 +45,5 @@ export const useGeoLocation = (isActive: boolean, options?: GeolocationOptions) 
     }
   }, [options, isActive]);
 
-  return { location, error, reload: loadGeolocation };
+  return { location, error, reload: loadGeolocation, isGeolocationLoading: isLoading };
 };
