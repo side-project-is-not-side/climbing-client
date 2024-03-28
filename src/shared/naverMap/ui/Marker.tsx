@@ -21,6 +21,7 @@ function Marker({ map, coordinates, isSelected, onClick }: Props) {
         position: new naver.maps.LatLng(...coordinates),
         icon,
       });
+      console.log(marker);
     }
 
     if (onClick) {
