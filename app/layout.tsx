@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
-import { Header } from '@/widgets';
+import { Header, Layout } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
 
@@ -27,9 +27,11 @@ export default function RootLayout({
     <html lang="ko" className={inter.className}>
       <body>
         <Header />
-        <main className="w-full h-full bg-neutral-black">
+
+        <Layout>
           <SWRConfigContext>{children}</SWRConfigContext>
-        </main>
+        </Layout>
+
         <BottomNavigation />
       </body>
     </html>

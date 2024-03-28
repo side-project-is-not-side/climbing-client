@@ -2,11 +2,10 @@ import React from 'react';
 
 import { Category, Map, RecommendationLists } from '@/entities/main/ui';
 import Logo from '@/entities/main/ui/Logo';
-import { Layout } from '@/widgets';
 
 function HomePage() {
   return (
-    <Layout>
+    <>
       <Logo />
 
       <h1 className="text-white text-2xl font-bold">
@@ -21,7 +20,7 @@ function HomePage() {
 
         <RecommendationLists />
       </div>
-    </Layout>
+    </>
   );
 }
 
