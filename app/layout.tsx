@@ -1,11 +1,15 @@
 import { Inter } from 'next/font/google';
 
 import './globals.css';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
 import { Header } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
+
+dayjs.locale('ko');
 
 const inter = Inter({ subsets: ['latin'] });
 
