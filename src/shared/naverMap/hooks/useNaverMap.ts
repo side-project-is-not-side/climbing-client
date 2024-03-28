@@ -70,7 +70,7 @@ const useNaverMap = ({
 
   useEffect(() => {
     handleMoveToCurrentLocation();
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     const handleBoundChange = (bounds: naver.maps.Bounds) => {
