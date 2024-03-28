@@ -17,11 +17,18 @@ function Category() {
 
             <div className="text-white mt-[20px]">다가오는 세팅</div>
 
-            <div className="flex items-center gap-[4px]">
-              <div className="text-[#8B8D8E] text-sm">다가오는 세팅 날짜를 확인하세요</div>
+            <div>
+              <span className="text-[#8B8D8E] text-sm"> 다가오는 세팅 날짜를 확인하세요</span>
               <Icon
                 name="ArrowBack"
-                style={{ width: '6px', height: '12px', transform: 'rotate(180deg)' }}
+                style={{
+                  width: '6px',
+                  height: '16px',
+                  transform: 'rotate(180deg)',
+                  display: 'inline-block',
+                  marginBottom: '1px',
+                  marginLeft: '4px',
+                }}
                 color="#8B8D8E"
               />
             </div>
@@ -35,12 +42,18 @@ function Category() {
             </div>
 
             <div className="text-white mt-[20px]">완료된 세팅</div>
-
-            <div className="flex items-center gap-[4px]">
-              <div className="text-[#8B8D8E] text-sm">놓친 업데이트 된 세팅을 확인하세요</div>
+            <div>
+              <span className="text-[#8B8D8E] text-sm">놓친 업데이트 된 세팅을 확인하세요</span>
               <Icon
                 name="ArrowBack"
-                style={{ width: '6px', height: '12px', transform: 'rotate(180deg)' }}
+                style={{
+                  width: '6px',
+                  height: '16px',
+                  transform: 'rotate(180deg)',
+                  display: 'inline-block',
+                  marginBottom: '1px',
+                  marginLeft: '4px',
+                }}
                 color="#8B8D8E"
               />
             </div>
