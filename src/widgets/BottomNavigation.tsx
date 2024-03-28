@@ -1,35 +1,45 @@
+'use client';
+
 import React from 'react';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-// TODO: 아이콘 추가 및 텍스트 디자인 시스템 반영 작업
-// NAME: 김도현
+import { twJoin } from 'tailwind-merge';
+
+import { Icon } from '@/shared/icons';
 
 function BottomNavigation() {
+  const pathname = usePathname();
+
   return (
     <div className="fixed left-0 bottom-0  w-full h-[80px] bg-neutral-700">
       <nav className="max-w-[768px] w-full h-full mx-auto">
         <ul className="flex items-center h-full text-neutral-white">
-          <li className="basis-1/3 h-full flex flex-col justify-center items-center">
-            <span>아이콘</span>
-            <Link href="/" className="text-[10px]">
-              홈
-            </Link>
-          </li>
+          <Link href="/" className="basis-1/3 h-full flex flex-col justify-center items-center">
+            <li className="text-[10px]  flex flex-col items-center">
+              <Icon name="Home" color={pathname === '/' ? '#ff5544' : undefined} className="mb-[4px]"></Icon>
+              <span className={twJoin(pathname === '/' && 'text-primary-400')}>홈</span>
+            </li>
+          </Link>
 
-          <li className="basis-1/3 h-full flex flex-col justify-center items-center">
-            <span>아이콘</span>
-            <Link href="/map" className="text-[10px]">
-              암장 찾기
-            </Link>
-          </li>
+          <Link href="/map" className="basis-1/3 h-full flex flex-col justify-center items-center">
+            <li className="text-[10px]  flex flex-col items-center">
+              <Icon name="Near" color={pathname === '/map' ? '#ff5544' : undefined}></Icon>
+              <span className={twJoin(pathname === '/map' && 'text-primary-400')}>암장 찾기</span>
+            </li>
+          </Link>
 
-          <li className="basis-1/3 h-full flex flex-col justify-center items-center">
-            <span>아이콘</span>
-            <Link href="/schedule" className="text-[10px]">
-              세팅 일정
-            </Link>
-          </li>
+          <Link href="/schedule" className="basis-1/3 h-full flex flex-col justify-center items-center">
+            <li className="text-[10px]  flex flex-col items-center">
+              <Icon
+                name="Calendar"
+                color={pathname === '/schedule' ? '#ff5544' : undefined}
+                className="mb-[4px]"
+              ></Icon>
+              <span className={twJoin(pathname === '/schedule' && 'text-primary-400')}>세팅 일정</span>
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>

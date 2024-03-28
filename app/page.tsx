@@ -26,5 +26,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-// className="bg-[#151518] px-5 pt-[30px] pb-[112px]"
