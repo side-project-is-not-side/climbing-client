@@ -20,6 +20,7 @@ function RecommendationList({ imageUrl, name, upcomingSector, lastUpdatedSector 
           }}
           className="rounded-[10px]"
           alt="클라이밍장 사진"
+          priority
         ></Image>
         <Badge upcomingSector={upcomingSector} />
       </div>
