@@ -4,12 +4,23 @@ import dayjs from 'dayjs';
 
 import { getBoulderingGymDetails } from '@/entities/details/api/getBoulderingGymDetails';
 import { Carousel } from '@/entities/details/ui';
+import LocationCard from '@/entities/map/ui/LocationCard';
 import { Icon } from '@/shared/icons';
+import Tags from '@/shared/ui/Tags';
 
 async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
-  const { name, lastUpdatedSector, upcomingSector, tags, description, businessHours, roadNameAddress, imageUrls } =
-    await getBoulderingGymDetails(slug);
-  console.log('businessHours', businessHours);
+  const {
+    name,
+    lastUpdatedSector,
+    upcomingSector,
+    tags,
+    description,
+    businessHours,
+    roadNameAddress,
+    imageUrls,
+    location,
+  } = await getBoulderingGymDetails(slug);
+
   return (
     <>
       <div className="mb-[40px]">
@@ -29,13 +40,7 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
           </span>
         </div>
 
-        <ul className="flex gap-[10px]">
-          {tags?.map((tag) => (
-            <li className="text-neutral-50 text-xs py-[4px] px-[16px] bg-neutral-700 rounded-[10px]" key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <Tags tags={tags} />
       </div>
 
       <div className="flex flex-col gap-[30px]">
@@ -61,7 +66,9 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
         </div>
 
         <div>
-          <div className="w-full h-[156px] bg-[#E7E7E7] mb-[20px]">지도 영역</div>
+          <div className="mb-[20px]">
+            <LocationCard lat={location.latitude} lng={location.longitude} />
+          </div>
           <p className="flex items-center gap-[4px]">
             <Icon name="Location" size="16"></Icon>
             <span className="text-neutral-400 text-sm font-normal">{roadNameAddress}</span>
