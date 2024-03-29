@@ -1,4 +1,4 @@
-type BoulderingGymDetails = {
+export type BoulderingGymDetails = {
   id: number;
   imageUrls: string[];
   name: string;

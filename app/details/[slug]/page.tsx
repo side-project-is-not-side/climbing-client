@@ -3,18 +3,19 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 import { getBoulderingGymDetails } from '@/entities/details/api/getBoulderingGymDetails';
+import { Carousel } from '@/entities/details/ui';
 import { Icon } from '@/shared/icons';
 
 async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
-  const { name, lastUpdatedSector, upcomingSector, tags, description, businessHours, roadNameAddress } =
+  const { name, lastUpdatedSector, upcomingSector, tags, description, businessHours, roadNameAddress, imageUrls } =
     await getBoulderingGymDetails(slug);
-
+  console.log('businessHours', businessHours);
   return (
     <>
       <div className="mb-[40px]">
-        <div className="bg-[#E7E7E7] h-[210px] rounded-[10px]">이미지</div>
+        <Carousel imageUrls={imageUrls}></Carousel>
 
-        <div className="text-white text-lg font-bold mt-[12px] mb-[8px]">{name}</div>
+        <div className="text-white text-lg font-bold mt-[32px] mb-[8px]">{name}</div>
 
         <div className="flex gap-[10px] items-center mb-[8px]">
           <Icon size="16" name="RedStone"></Icon>
