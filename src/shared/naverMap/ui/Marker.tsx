@@ -8,18 +8,20 @@ type Props = {
   coordinates: Coordinates;
   isSelected: boolean;
   onClick?: () => void;
+  clickable?: boolean;
 };
 
-function Marker({ map, coordinates, isSelected, onClick }: Props) {
+function Marker({ map, coordinates, isSelected, onClick, clickable = false }: Props) {
   useEffect(() => {
     let marker: TMarker = null;
     if (map) {
       const icon = generateMarkerIcon(isSelected);
 
       marker = new naver.maps.Marker({
-        map: map,
+        map,
         position: new naver.maps.LatLng(...coordinates),
         icon,
+        clickable,
       });
     }
 
@@ -30,7 +32,7 @@ function Marker({ map, coordinates, isSelected, onClick }: Props) {
     return () => {
       marker?.setMap(null);
     };
-  }, [map]);
+  }, [map, isSelected]);
 
   return null;
 }

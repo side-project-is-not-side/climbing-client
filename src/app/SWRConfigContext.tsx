@@ -10,7 +10,7 @@ function SWRConfigContext({ children }: Props) {
   return (
     <SWRConfig
       value={{
-        fetcher: (url: string) => fetch(url).then((res) => res.json()),
+        fetcher: (url: string) => fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`).then((res) => res.json()),
       }}
     >
       {children}
