@@ -5,15 +5,16 @@ import RecommendationList from './RecommendationList';
 
 async function RecommendationLists() {
   const lists = await getRecommendationGym();
-
+  console.log('lists', lists);
   return (
     <section>
       <h3 className="text-white font-bold text-lg mb-5">그래버즈가 추천하는 암장 업데이트!</h3>
 
       <ul className="flex flex-col gap-8">
-        {lists.map(({ imageUrl, name, upcomingSector, lastUpdatedSector }) => (
+        {lists.map(({ id, imageUrl, name, upcomingSector, lastUpdatedSector }) => (
           <RecommendationList
-            key={name}
+            key={id}
+            id={id}
             name={name}
             imageUrl={imageUrl}
             upcomingSector={upcomingSector}
