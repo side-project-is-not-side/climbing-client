@@ -74,6 +74,7 @@ const useNaverMap = ({
 
   useEffect(() => {
     const handleBoundChange = (bounds: naver.maps.Bounds) => {
+      // @ts-expect-error naver maps api가 제공하는 naver.maps.Bounds의 타입이 any이기 때문에 에러가 발생합니다.
       const { _max, _min } = bounds;
       const { _lat: maxLatitude, _lng: maxLongitude } = _max;
       const { _lat: minLatitude, _lng: minLongitude } = _min;

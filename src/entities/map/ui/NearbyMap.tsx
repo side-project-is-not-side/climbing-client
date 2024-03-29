@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 
-import { GetAroundBoulderingGymResponse } from '../api/types';
+import { getNearByBoulderingGyms } from '../api';
+import { AroundGym, GetAroundBoulderingGymResponse } from '../api/types';
 import GeolocationLoading from './GeolocationLoading';
+import SelectedGymCard from './SelectedGymCard';
 import useSWR from 'swr';
 
-import { getUrl } from '@/shared/lib/getUrl';
 import { INITIAL_CENTER, ZOOM_LEVEL } from '@/shared/naverMap/constants';
 import useNaverMap from '@/shared/naverMap/hooks/useNaverMap';
 import CurrentLocationButton from '@/shared/naverMap/ui/CurrentLocationButton';
@@ -25,23 +26,32 @@ function NearbyMap() {
     initialCenter: INITIAL_CENTER,
   });
 
-  const { data } = useSWR<GetAroundBoulderingGymResponse>(bounds ? getUrl(ENDPOINT, bounds) : null);
-  const [selected, setSelected] = useState<number>();
+  const params = new URLSearchParams(bounds);
+  const { data } = useSWR<GetAroundBoulderingGymResponse>(
+    bounds ? `${ENDPOINT}?${params}` : null,
+    () => getNearByBoulderingGyms(bounds),
+    {
+      keepPreviousData: true,
+    },
+  );
+  const [selected, setSelected] = useState<AroundGym>();
 
   return (
     <NaverMapScript initializeMap={initializeMap}>
       <GeolocationLoading visible={isGeolocationLoading} />
       <Map ref={mapElementRef} mapId={MAP_ID} />
-      {data?.map(({ id, latitude, longitude }) => (
+      {data?.map((item) => (
         <Marker
-          key={id}
+          key={item.id}
           map={map}
-          coordinates={[latitude, longitude]}
-          isSelected={selected === id}
-          onClick={() => setSelected(id)}
+          coordinates={[item.latitude, item.longitude]}
+          isSelected={selected?.id === item.id}
+          onClick={() => setSelected(item)}
+          clickable
         />
       ))}
       <CurrentLocationButton onClick={onCurrentLocationChanged} />
+      {selected && <SelectedGymCard data={selected} />}
     </NaverMapScript>
   );
 }
