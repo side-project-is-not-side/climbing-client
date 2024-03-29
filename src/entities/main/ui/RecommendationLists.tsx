@@ -5,7 +5,7 @@ import RecommendationList from './RecommendationList';
 
 async function RecommendationLists() {
   const lists = await getRecommendationGym();
-  console.log('lists', lists);
+
   return (
     <section>
       <h3 className="text-white font-bold text-lg mb-5">그래버즈가 추천하는 암장 업데이트!</h3>
