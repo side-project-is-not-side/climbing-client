@@ -1,4 +1,5 @@
 export type RecommendationGymList = {
+  id: number;
   imageUrl: string;
   name: string;
   upcomingSector: {
