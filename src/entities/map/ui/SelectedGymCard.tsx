@@ -11,7 +11,7 @@ const ENDPOINT = '/api/bouldering-gym/around';
 const SelectedGymCard = ({ id }: { id: number }) => {
   const { data, isLoading } = useSWR<GetBoulderingGymDetailResponse>(`${ENDPOINT}/${id}`);
   return (
-    <article className="fixed bottom-20 left-0 p-5 pb-8 right-0 mx-auto w-full h-[232px] bg-neutral-black rounded-t-[10px]">
+    <article className="fixed bottom-20 max-w-3xl left-0 p-5 pb-8 right-0 mx-auto w-full h-[232px] bg-neutral-black rounded-t-[10px]">
       {isLoading ? (
         <div className="flex flex-col justify-center items-center w-full h-full">
           <Image
