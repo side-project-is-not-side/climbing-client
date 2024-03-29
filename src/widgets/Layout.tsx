@@ -4,6 +4,8 @@ import React from 'react';
 
 import { usePathname } from 'next/navigation';
 
+import { twJoin } from 'tailwind-merge';
+
 import { PATH_NAME } from '@/shared/constants';
 
 function Layout({
@@ -14,9 +16,9 @@ function Layout({
   const path = usePathname();
 
   return (
-    <div className={`bg-[#151518] w-full min-h-full ${PATH_NAME[path] && 'pt-[60px]'} pb-[80px]`}>
-      <section className="mx-auto px-5 max-w-3xl pt-[30px] pb-[32px]">{children}</section>
-    </div>
+    <main className={`w-full bg-neutral-black min-h-full pb-[80px] ${twJoin(PATH_NAME[path] && 'pt-[60px]')} `}>
+      <div className="mx-auto px-5 max-w-3xl min-w-[390px] pt-[30px] pb-[32px]">{children}</div>
+    </main>
   );
 }
 

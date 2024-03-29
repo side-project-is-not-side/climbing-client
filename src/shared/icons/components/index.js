@@ -5,5 +5,6 @@ export { default as Home } from './Home';
 export { default as Link } from './Link';
 export { default as LocationCopy } from './LocationCopy';
 export { default as Location } from './Location';
+export { default as Logo } from './Logo';
 export { default as Near } from './Near';
 export { default as RedStone } from './RedStone';

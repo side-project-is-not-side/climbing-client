@@ -1,13 +1,17 @@
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 
 import './globals.css';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
-import { Header } from '@/widgets';
+import { Header, Layout } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
 
-const inter = Inter({ subsets: ['latin'] });
+dayjs.locale('ko');
+
+const notoSansKR = Noto_Sans_KR({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Grabbers',
@@ -20,12 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={inter.className}>
+    <html lang="ko" className={notoSansKR.className}>
       <body>
         <Header />
-        <main className="w-full h-full bg-neutral-black">
+
+        <Layout>
           <SWRConfigContext>{children}</SWRConfigContext>
-        </main>
+        </Layout>
+
         <BottomNavigation />
       </body>
     </html>

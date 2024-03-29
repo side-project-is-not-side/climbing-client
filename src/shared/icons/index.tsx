@@ -12,7 +12,6 @@ export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'name' | 'size' | 'c
 };
 
 export const Icon = ({ name, size = '24', color, ...props }: IconProps) => {
-  console.log('color', color);
   const Component = Icons[name];
 
   return <Component width={`${size}px`} height={`${size}px`} color={color} {...props} />;

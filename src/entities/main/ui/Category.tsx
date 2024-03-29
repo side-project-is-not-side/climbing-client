@@ -1,26 +1,62 @@
 import React from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
+
+import { Icon } from '@/shared/icons';
 
 function Category() {
   return (
     <nav className="mt-[26px]">
       <ul className="flex gap-x-2.5">
-        <li className="flex-1 bg-[#222427] pt-5 pl-[20px] pr-[24px] pb-[30px] rounded-[10px]">
-          <Link href={'/schedule?category=scheduled'}>
-            <div className="w-[100px] h-[90px] bg-[#E7E7E7] mb-[20px]">이미지</div>
+        <li className="relative flex-1 bg-[#222427] rounded-[10px]">
+          <Link href={'/schedule?category=schedule'} className="block h-full pt-5 pl-5 pr-8 pb-[26px]">
+            <div className="w-[100px] h-[100px] relative">
+              <Image src="/images/main/upcoming-setting.png" fill alt="다가오는 세팅" sizes="100%"></Image>
+            </div>
 
-            <div className="text-white">다가오는 세팅</div>
-            <div className="text-[#8B8D8E]">{`다가오는 세팅 날짜를 확인하세요 >`}</div>
+            <div className="text-white mt-[20px]">다가오는 세팅</div>
+
+            <div>
+              <span className="text-[#8B8D8E] text-sm"> 다가오는 세팅 날짜를 확인하세요</span>
+              <Icon
+                name="ArrowBack"
+                style={{
+                  width: '6px',
+                  height: '16px',
+                  transform: 'rotate(180deg)',
+                  display: 'inline-block',
+                  marginBottom: '1px',
+                  marginLeft: '4px',
+                }}
+                color="#8B8D8E"
+              />
+            </div>
           </Link>
         </li>
 
-        <li className="flex-1 bg-[#222427] pt-5 pl-5 pr-8 pb-[26px] rounded-[10px]">
-          <Link href={'/schedule?category?completed'}>
-            <div className="w-[100px] h-[90px] bg-[#E7E7E7] mb-[20px]">이미지</div>
+        <li className="flex-1 bg-[#222427] rounded-[10px]">
+          <Link href={'/schedule?category=complete'} className="block h-full pt-5 pl-5 pr-8 pb-[26px]">
+            <div className="w-[90px] h-[100px] relative">
+              <Image src="/images/main/complete-setting.png" fill sizes="100%" alt="완료된 세팅"></Image>
+            </div>
 
-            <div className="text-white">완료된 세팅</div>
-            <div className="text-[#8B8D8E]">{`놓친 업데이트 된 세팅을 확인하세요 >`}</div>
+            <div className="text-white mt-[20px]">완료된 세팅</div>
+            <div>
+              <span className="text-[#8B8D8E] text-sm">놓친 업데이트 된 세팅을 확인하세요</span>
+              <Icon
+                name="ArrowBack"
+                style={{
+                  width: '6px',
+                  height: '16px',
+                  transform: 'rotate(180deg)',
+                  display: 'inline-block',
+                  marginBottom: '1px',
+                  marginLeft: '4px',
+                }}
+                color="#8B8D8E"
+              />
+            </div>
           </Link>
         </li>
       </ul>
