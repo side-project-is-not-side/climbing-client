@@ -37,22 +37,24 @@ function NearbyMap() {
   const [selected, setSelected] = useState<number>();
 
   return (
-    <NaverMapScript initializeMap={initializeMap}>
-      <GeolocationLoading visible={isGeolocationLoading} />
-      <Map ref={mapElementRef} mapId={MAP_ID} />
-      {data?.map(({ id, latitude, longitude }) => (
-        <Marker
-          key={id}
-          map={map}
-          coordinates={[latitude, longitude]}
-          isSelected={selected === id}
-          onClick={() => setSelected(id)}
-          clickable
-        />
-      ))}
-      <CurrentLocationButton onClick={onCurrentLocationChanged} />
-      {selected && <SelectedGymCard id={selected} />}
-    </NaverMapScript>
+    <div className="relative w-full h-screen">
+      <NaverMapScript initializeMap={initializeMap}>
+        <GeolocationLoading visible={isGeolocationLoading} />
+        <Map ref={mapElementRef} mapId={MAP_ID} />
+        {data?.map(({ id, latitude, longitude }) => (
+          <Marker
+            key={id}
+            map={map}
+            coordinates={[latitude, longitude]}
+            isSelected={selected === id}
+            onClick={() => setSelected(id)}
+            clickable
+          />
+        ))}
+        <CurrentLocationButton onClick={onCurrentLocationChanged} />
+        {selected && <SelectedGymCard id={selected} />}
+      </NaverMapScript>
+    </div>
   );
 }
 

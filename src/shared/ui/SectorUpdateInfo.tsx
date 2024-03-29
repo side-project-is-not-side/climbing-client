@@ -2,9 +2,11 @@ import React from 'react';
 
 import { GrayStone, RedStone } from '../icons/components';
 import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 
 import { TSectorUpdateInfo } from '@/entities/map/api/types';
 
+dayjs.locale('ko');
 const SectorUpdateInfo = ({
   sectorUpdateInfo,
   type,
