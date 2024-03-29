@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { createPortal } from 'react-dom';
 
 function GeolocationLoading({ visible }: { visible: boolean }) {
+  if (typeof document === 'undefined') return null;
+
   return createPortal(
     <section
       className={`fixed z-[101] bg-[rgba(0,0,0,0.98)] w-full h-full flex-col justify-center items-center ${visible ? 'flex' : 'hidden'}`}
