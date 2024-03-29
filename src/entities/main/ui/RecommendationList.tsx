@@ -12,7 +12,7 @@ import { Icon } from '@/shared/icons';
 function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSector }: RecommendationGymList) {
   return (
     <li>
-      <Link href={`/details/${id}`}>
+      <Link href={`/details/${id}`} scroll={false}>
         <div className="bg-[#E7E7E7] h-[210px] rounded-[10px] relative">
           <Image
             src={imageUrl}
