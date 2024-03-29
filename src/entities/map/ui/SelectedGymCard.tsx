@@ -1,24 +1,28 @@
 import React from 'react';
 
-import { AroundGym } from '../api/types';
+import Image from 'next/image';
 
-import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
-import Tags from '@/shared/ui/Tags';
+import { GetBoulderingGymDetailResponse } from '../api/types';
+import SelectedGymContents from './SelectedGymContents';
+import useSWR from 'swr';
 
-const SelectedGymCard = ({ data }: { data: AroundGym }) => {
-  const { name, roadNameAddress, tags, lastUpdatedSector, upcomingSector } = data;
+const ENDPOINT = 'bouldering-gym/around';
+
+const SelectedGymCard = ({ id }: { id: number }) => {
+  const { data, isLoading } = useSWR<GetBoulderingGymDetailResponse>(`${ENDPOINT}/${id}`);
   return (
-    <article className="fixed bottom-20 left-0 p-5 pb-8 right-0 mx-auto w-full h-[232px] bg-neutral-black rounded-t-[10px]">
-      <div className="flex flex-col gap-3 border-b-[1px] pb-5 border-neutral-400 mb-5">
-        <p className="text-base font-bold text-white">{name}</p>
-        <p className="truncate text-sm text-neutral-400">{roadNameAddress}</p>
-      </div>
-      <div className="flex flex-col gap-2 mb-4">
-        <SectorUpdateInfo type="upcoming" sectorUpdateInfo={upcomingSector} />
-        <SectorUpdateInfo type="lastUpdated" sectorUpdateInfo={lastUpdatedSector} />
-      </div>
-
-      <Tags tags={tags} />
+    <article className="flex flex-col justify-center fixed bottom-20 left-0 p-5 pb-8 right-0 mx-auto w-full h-[232px] bg-neutral-black rounded-t-[10px]">
+      {isLoading ? (
+        <Image
+          src={'/images/spinner.png'}
+          className="animate-spin"
+          width={50}
+          height={50}
+          alt="위치 정보 불러오는 중"
+        />
+      ) : (
+        <SelectedGymContents data={data} />
+      )}
     </article>
   );
 };
