@@ -19,16 +19,16 @@ export const useGeoLocation = (isActive: boolean, options?: GeolocationOptions) 
 
     setLocation([latitude, longitude]);
 
-    setIsLoading(() => false);
+    setIsLoading(false);
   };
 
   const onError = (error: GeolocationPositionError) => {
     setError(error.message);
-    setIsLoading(() => false);
+    setIsLoading(false);
   };
 
   const loadGeolocation = () => {
-    setIsLoading(() => true);
+    setIsLoading(true);
     const { geolocation } = navigator;
 
     if (!geolocation) {
