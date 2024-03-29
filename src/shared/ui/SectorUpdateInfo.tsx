@@ -13,7 +13,7 @@ const SectorUpdateInfo = ({
 }) => {
   const { date, name } = sectorUpdateInfo;
   return (
-    <div className="flex gap-[10px] text-primary-400 mb-2 text-sm">
+    <div className={`flex gap-[10px] ${type === 'upcoming' ? 'text-primary-400 ' : 'text-neutral-400'} text-[14px]`}>
       {type == 'upcoming' ? <RedStone width={20} height={20} /> : <GrayStone width={20} height={20} />}
       <p>{date}</p>
       <span>&middot;</span>
