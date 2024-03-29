@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { getNearByBoulderingGyms } from '../api';
-import { AroundGym, GetAroundBoulderingGymResponse } from '../api/types';
+import { GetAroundBoulderingGymResponse } from '../api/types';
 import GeolocationLoading from './GeolocationLoading';
 import SelectedGymCard from './SelectedGymCard';
 import useSWR from 'swr';
@@ -34,24 +34,24 @@ function NearbyMap() {
       keepPreviousData: true,
     },
   );
-  const [selected, setSelected] = useState<AroundGym>();
+  const [selected, setSelected] = useState<number>();
 
   return (
     <NaverMapScript initializeMap={initializeMap}>
       <GeolocationLoading visible={isGeolocationLoading} />
       <Map ref={mapElementRef} mapId={MAP_ID} />
-      {data?.map((item) => (
+      {data?.map(({ id, latitude, longitude }) => (
         <Marker
-          key={item.id}
+          key={id}
           map={map}
-          coordinates={[item.latitude, item.longitude]}
-          isSelected={selected?.id === item.id}
-          onClick={() => setSelected(item)}
+          coordinates={[latitude, longitude]}
+          isSelected={selected === id}
+          onClick={() => setSelected(id)}
           clickable
         />
       ))}
       <CurrentLocationButton onClick={onCurrentLocationChanged} />
-      {selected && <SelectedGymCard data={selected} />}
+      {selected && <SelectedGymCard id={selected} />}
     </NaverMapScript>
   );
 }

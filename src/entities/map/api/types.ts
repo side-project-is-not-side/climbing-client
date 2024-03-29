@@ -6,19 +6,15 @@ export type Bounds = {
 };
 
 export type TSectorUpdateInfo = { date: string; name: string };
+
 export type AroundGym = {
   id: number;
-  name: string;
-  imageUrl: string;
-  roadNameAddress: string;
-  lotNumberAddress: string;
   latitude: number;
   longitude: number;
-  tags: string[];
-  upcomingSector: TSectorUpdateInfo;
-  lastUpdatedSector: TSectorUpdateInfo;
 };
+
 export type GetAroundBoulderingGymResponse = AroundGym[];
+
 export type Location = {
   latitude: number;
   longitude: number;
@@ -35,6 +31,15 @@ export type DurationTime = {
 export type BusinessHours = {
   weekday: DurationTime;
   weekend: DurationTime;
+};
+
+export type GetSelectedBoulderingGymResponse = {
+  id: number;
+  name: string;
+  roadNameAddress: string;
+  upcomingSector: TSectorUpdateInfo;
+  lastUpdatedSector: TSectorUpdateInfo;
+  tags: string[];
 };
 
 export type GetBoulderingGymDetailResponse = {
