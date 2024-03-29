@@ -9,7 +9,9 @@ async function SchedulePage() {
         <Tabs />
       </Suspense>
 
-      <Lists />
+      <Suspense>
+        <Lists />
+      </Suspense>
     </div>
   );
 }
