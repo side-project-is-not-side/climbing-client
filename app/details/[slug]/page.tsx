@@ -24,8 +24,6 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
     naverMap,
   } = await getBoulderingGymDetails(slug);
 
-  console.log('naverMap', naverMap);
-
   return (
     <>
       <div className="mb-[40px]">

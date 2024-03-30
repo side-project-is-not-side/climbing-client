@@ -3,7 +3,7 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
 import { twJoin } from 'tailwind-merge';
 
@@ -11,6 +11,8 @@ import { Icon } from '@/shared/icons';
 
 function BottomNavigation() {
   const pathname = usePathname();
+
+  const { slug } = useParams();
 
   return (
     <div className="fixed left-0 bottom-0  w-full h-[80px] bg-neutral-700">
@@ -34,10 +36,14 @@ function BottomNavigation() {
             <li className="text-[10px]  flex flex-col items-center">
               <Icon
                 name="Calendar"
-                color={pathname === '/schedule' ? '#ff5544' : undefined}
+                color={pathname === '/schedule' || pathname === `/details/${slug}` ? '#ff5544' : undefined}
                 className="mb-[4px]"
               ></Icon>
-              <span className={twJoin(pathname === '/schedule' && 'text-primary-400')}>세팅 일정</span>
+              <span
+                className={twJoin((pathname === '/schedule' || pathname === `/details/${slug}`) && 'text-primary-400')}
+              >
+                세팅 일정
+              </span>
             </li>
           </Link>
         </ul>
