@@ -23,7 +23,7 @@ function LocationCard({ lat, lng }: Props) {
   });
 
   return (
-    <div className="w-full h-[156px] overflow-hidden rounded-[10px]">
+    <div className="w-full h-[156px] sm:h-[312px] overflow-hidden rounded-[10px]">
       <NaverMapScript initializeMap={initializeMap}>
         <Map ref={mapElementRef} mapId={MAP_ID} />
         <Marker map={map} coordinates={[lat, lng]} isSelected />
