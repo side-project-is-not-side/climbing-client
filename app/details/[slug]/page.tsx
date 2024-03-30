@@ -6,6 +6,7 @@ import { getBoulderingGymDetails } from '@/entities/details/api/getBoulderingGym
 import { Carousel } from '@/entities/details/ui';
 import LocationCard from '@/entities/map/ui/LocationCard';
 import { Icon } from '@/shared/icons';
+import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
 import Tags from '@/shared/ui/Tags';
 
 async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
@@ -32,12 +33,7 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
           <span className="text-sm font-normal text-neutral-white">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
         </div>
 
-        <div className="flex gap-[10px] items-center mb-[20px]">
-          <Icon size="16" name="GrayStone" />
-          <span className="text-sm font-normal text-neutral-400">
-            마지막 업데이트 {`${dayjs(lastUpdatedSector.date).format('M월 DD일 a h:mm')} · ${lastUpdatedSector.name}`}
-          </span>
-        </div>
+        <SectorUpdateInfo type="lastUpdated" sectorUpdateInfo={lastUpdatedSector} className="mb-[20px]" />
 
         <Tags tags={tags} />
       </div>

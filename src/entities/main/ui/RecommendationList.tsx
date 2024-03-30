@@ -5,9 +5,8 @@ import Link from 'next/link';
 
 import { RecommendationGymList } from '../api';
 import { Badge } from './';
-import dayjs from 'dayjs';
 
-import { Icon } from '@/shared/icons';
+import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
 
 function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSector }: RecommendationGymList) {
   return (
@@ -29,17 +28,9 @@ function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSec
 
         <div className="text-white text-sm font-bold mt-[12px] mb-[8px]">{name}</div>
 
-        <div className="flex gap-[10px] items-center mb-[2px]">
-          <Icon size="16" name="RedStone"></Icon>
-          <span className="text-sm font-normal text-neutral-white">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
-        </div>
+        <SectorUpdateInfo className="mb-[2px]" type="upcoming" sectorUpdateInfo={upcomingSector} />
 
-        <div className="flex gap-[10px] items-center ">
-          <Icon size="16" name="GrayStone"></Icon>
-          <span className="text-sm font-normal text-[#B2B3B3]">
-            마지막 업데이트 {`${dayjs(lastUpdatedSector.date).format('M월 DD일 a h:mm')} · ${lastUpdatedSector.name}`}
-          </span>
-        </div>
+        <SectorUpdateInfo type="lastUpdated" sectorUpdateInfo={lastUpdatedSector} />
       </Link>
     </li>
   );

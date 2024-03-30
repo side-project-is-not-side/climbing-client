@@ -5,7 +5,7 @@ export type Bounds = {
   maxLongitude: string;
 };
 
-export type TSectorUpdateInfo = { date: string; name: string };
+export type TSectorUpdateInfo = { date: Date; name: string | null };
 
 export type AroundGym = {
   id: number;

@@ -5,10 +5,9 @@ import Link from 'next/link';
 
 import { BoulderingGym } from '../api/getBoulderingGym';
 import Badge from './Badge';
-import dayjs from 'dayjs';
-import { twJoin } from 'tailwind-merge';
 
-import { Icon } from '@/shared/icons';
+import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
+import Tags from '@/shared/ui/Tags';
 
 function List({
   id,
@@ -37,25 +36,15 @@ function List({
           {category === 'schedule' && <Badge sector={sector} />}
         </div>
 
-        <div className="text-white text-sm font-bold mt-[20px]">{name}</div>
+        <div className="text-white text-sm font-bold mt-[20px] mb-3">{name}</div>
 
-        <div className="flex gap-[10px] items-center mb-[2px]">
-          <Icon size="16" name={category === 'schedule' ? 'RedStone' : 'GrayStone'}></Icon>
+        <SectorUpdateInfo
+          className="mb-4"
+          type={category === 'schedule' ? 'upcoming' : 'lastUpdated'}
+          sectorUpdateInfo={sector}
+        />
 
-          <span
-            className={`text-sm font-normal mt-[12px] mb-[16px] inline-block ${twJoin(category === 'schedule' ? 'text-neutral-white' : 'text-neutral-400')} `}
-          >
-            {`${category === 'schedule' ? '마지막 업데이트' : ''} ${dayjs(sector?.date).format('M월 DD일 a h:mm')} · ${sector?.name ?? ''}`}
-          </span>
-        </div>
-
-        <ul className="flex gap-[10px]">
-          {tags?.map((tag) => (
-            <li className="text-neutral-50 text-xs py-[4px] px-[16px] bg-neutral-700 rounded-[10px]" key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <Tags tags={tags} />
       </Link>
     </li>
   );
