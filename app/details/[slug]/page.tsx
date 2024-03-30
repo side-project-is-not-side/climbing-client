@@ -28,13 +28,13 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
         <div className="text-white text-lg font-bold mt-[32px] mb-[8px]">{name}</div>
 
         <div className="flex gap-[10px] items-center mb-[8px]">
-          <Icon size="16" name="RedStone"></Icon>
-          <span className="text-sm font-normal text-[#FF4438]">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
+          <Icon size="16" name="RedStone" />
+          <span className="text-sm font-normal text-neutral-white">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
         </div>
 
         <div className="flex gap-[10px] items-center mb-[20px]">
-          <Icon size="16" name="GrayStone"></Icon>
-          <span className="text-sm font-normal text-[#B2B3B3]">
+          <Icon size="16" name="GrayStone" />
+          <span className="text-sm font-normal text-neutral-400">
             마지막 업데이트 {`${dayjs(lastUpdatedSector.date).format('M월 DD일 a h:mm')} · ${lastUpdatedSector.name}`}
           </span>
         </div>

@@ -31,7 +31,7 @@ function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSec
 
         <div className="flex gap-[10px] items-center mb-[2px]">
           <Icon size="16" name="RedStone"></Icon>
-          <span className="text-sm font-normal text-[#FF4438]">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
+          <span className="text-sm font-normal text-neutral-white">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
         </div>
 
         <div className="flex gap-[10px] items-center ">

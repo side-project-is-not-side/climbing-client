@@ -16,7 +16,7 @@ const SectorUpdateInfo = ({
 }) => {
   const { date, name } = sectorUpdateInfo;
   return (
-    <div className={`flex gap-[10px] ${type === 'upcoming' ? 'text-primary-400 ' : 'text-neutral-400'} text-[14px]`}>
+    <div className={`flex gap-[10px] ${type === 'upcoming' ? 'text-neutral-white' : 'text-neutral-400'} text-[14px]`}>
       <Icon name={type === 'upcoming' ? 'RedStone' : 'GrayStone'} size="20" />
       <p>
         {type === 'lastUpdated' && '마지막 업데이트'} {dayjs(date).format('M월 DD일 a h:mm')}

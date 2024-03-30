@@ -43,7 +43,7 @@ function List({
           <Icon size="16" name={category === 'schedule' ? 'RedStone' : 'GrayStone'}></Icon>
 
           <span
-            className={`text-sm font-normal mt-[12px] mb-[16px] inline-block ${twJoin(category === 'schedule' ? 'text-primary-400' : 'text-neutral-400')} `}
+            className={`text-sm font-normal mt-[12px] mb-[16px] inline-block ${twJoin(category === 'schedule' ? 'text-neutral-white' : 'text-neutral-400')} `}
           >
             {`${category === 'schedule' ? '마지막 업데이트' : ''} ${dayjs(sector?.date).format('M월 DD일 a h:mm')} · ${sector?.name ?? ''}`}
           </span>
