@@ -18,7 +18,9 @@ function Marker({ map, coordinates, isSelected, onClick, clickable = false }: Pr
         map,
         position: new naver.maps.LatLng(...coordinates),
         icon: {
-          url: isSelected ? '/icons/marker-selected.svg' : '/icons/marker-default.svg',
+          url: isSelected ? '/images/marker-selected.png' : '/images/marker-default.png',
+          size: new naver.maps.Size(30, 26),
+          scaledSize: new naver.maps.Size(30, 26),
         },
         clickable,
       });
