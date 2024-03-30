@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
+import { getMetadata } from '@/shared/lib/getMetadata';
 import { Header, Layout } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
@@ -28,6 +29,10 @@ export const metadata: Metadata = {
       type: 'image/png',
     },
   ],
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  return getMetadata();
 };
 
 export default function RootLayout({

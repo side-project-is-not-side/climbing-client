@@ -18,7 +18,6 @@ function Layout({
 
   const isFullScreen = FULL_SCREEN_PATHS.some((item) => item === path);
 
-  console.log('path', path);
   return (
     <main
       className={`w-full bg-neutral-black min-h-full ${twJoin(!isFullScreen && 'pb-[80px]')} ${twJoin(((PATH_NAME[path] && !isFullScreen) || path === `/details/${slug}`) && 'pt-[60px]')} `}

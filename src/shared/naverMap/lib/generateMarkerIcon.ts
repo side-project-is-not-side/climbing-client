@@ -2,6 +2,6 @@ import { ImageIcon } from '../types';
 
 export const generateMarkerIcon = (isSelected: boolean): ImageIcon => {
   return {
-    url: isSelected ? '/images/marker-selected.png' : '/images/marker-default.png',
+    url: isSelected ? '/icons/marker-selected.svg' : '/icons/marker-default.svg',
   };
 };
