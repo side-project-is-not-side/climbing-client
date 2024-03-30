@@ -15,7 +15,7 @@ function Category() {
               <Image src="/images/main/upcoming-setting.png" fill alt="다가오는 세팅" sizes="100%"></Image>
             </div>
 
-            <div className="text-white mt-[20px]">다가오는 세팅</div>
+            <div className="text-white mt-[20px] font-bold">다가오는 세팅</div>
 
             <div>
               <span className="text-[#8B8D8E] text-sm"> 다가오는 세팅 날짜를 확인하세요</span>
@@ -41,7 +41,7 @@ function Category() {
               <Image src="/images/main/complete-setting.png" fill sizes="100%" alt="완료된 세팅"></Image>
             </div>
 
-            <div className="text-white mt-[20px]">완료된 세팅</div>
+            <div className="text-white mt-[20px] font-bold">완료된 세팅</div>
             <div>
               <span className="text-[#8B8D8E] text-sm">놓친 업데이트 된 세팅을 확인하세요</span>
               <Icon
