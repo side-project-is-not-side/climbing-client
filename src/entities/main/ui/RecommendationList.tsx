@@ -12,7 +12,7 @@ function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSec
   return (
     <li>
       <Link href={`/details/${id}`}>
-        <div className="bg-[#E7E7E7] h-[210px] rounded-[10px] relative">
+        <div className="bg-[#E7E7E7] h-[210px] sm:h-[420px] rounded-[10px] relative">
           <Image
             src={imageUrl}
             fill

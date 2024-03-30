@@ -26,7 +26,7 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
       <div className="mb-[40px]">
         <Carousel imageUrls={imageUrls}></Carousel>
 
-        <div className="text-white text-lg font-bold mt-[32px] mb-[8px]">{name}</div>
+        <div className="text-white text-lg font-bold mb-[8px]">{name}</div>
 
         <div className="flex gap-[10px] items-center mb-[8px]">
           <Icon size="16" name="RedStone" />

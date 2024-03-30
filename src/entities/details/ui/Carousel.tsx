@@ -36,7 +36,7 @@ function Carousel({ imageUrls }: Pick<BoulderingGymDetails, 'imageUrls'>) {
   return (
     <div>
       {imageUrls.length === 1 ? (
-        <div className="h-[210px] rounded-[10px] relative">
+        <div className="h-[210px] sm:h-[420px] mb-[40px] rounded-[10px] relative">
           <Image
             className="rounded-[10px]"
             src={imageUrls[0]}
@@ -49,9 +49,9 @@ function Carousel({ imageUrls }: Pick<BoulderingGymDetails, 'imageUrls'>) {
           ></Image>
         </div>
       ) : (
-        <Slider {...SETTING} className="h-[210px]">
+        <Slider {...SETTING}>
           {imageUrls?.map((imageUrl) => (
-            <div key={imageUrl} className="h-[210px] w-[300px] rounded-[10px] relative outline-none">
+            <div key={imageUrl} className="h-[210px] sm:h-[420px] rounded-[10px] relative outline-none">
               <Image
                 className="rounded-[10px] "
                 src={imageUrl}
@@ -71,19 +71,3 @@ function Carousel({ imageUrls }: Pick<BoulderingGymDetails, 'imageUrls'>) {
 }
 
 export default Carousel;
-
-{
-  /* <Image
-              key={imageUrl}
-              width={100}
-              height={100}
-              src={imageUrl}
-              // fill
-              // style={{
-              //   objectFit: 'cover',
-              // }}
-              className="rounded-[10px]"
-              alt="클라이밍장 사진"
-              priority
-            ></Image> */
-}
