@@ -11,7 +11,7 @@ import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
 function RecommendationList({ id, imageUrl, name, upcomingSector, lastUpdatedSector }: RecommendationGymList) {
   return (
     <li>
-      <Link href={`/details/${id}`} scroll={false}>
+      <Link href={`/details/${id}`}>
         <div className="bg-[#E7E7E7] h-[210px] rounded-[10px] relative">
           <Image
             src={imageUrl}
