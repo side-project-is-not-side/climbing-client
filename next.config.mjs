@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'kr.object.ncloudstorage.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'search.pstatic.net',
+        port: '',
+      },
     ],
   },
 };
