@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-import { generateMarkerIcon } from '../lib/generateMarkerIcon';
 import { Coordinates, TMarker, TNaverMap } from '../types';
 
 type Props = {
@@ -15,12 +14,12 @@ function Marker({ map, coordinates, isSelected, onClick, clickable = false }: Pr
   useEffect(() => {
     let marker: TMarker = null;
     if (map) {
-      const icon = generateMarkerIcon(isSelected);
-
       marker = new naver.maps.Marker({
         map,
         position: new naver.maps.LatLng(...coordinates),
-        icon,
+        icon: {
+          url: isSelected ? '/icons/marker-selected.svg' : '/icons/marker-default.svg',
+        },
         clickable,
       });
     }
