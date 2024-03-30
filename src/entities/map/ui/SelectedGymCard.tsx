@@ -6,12 +6,18 @@ import { GetBoulderingGymDetailResponse } from '../api/types';
 import SelectedGymContents from './SelectedGymContents';
 import useSWR from 'swr';
 
+import { Icon } from '@/shared/icons';
+
 const ENDPOINT = '/api/bouldering-gym/around';
 
-const SelectedGymCard = ({ id }: { id: number }) => {
+const SelectedGymCard = ({ id, onClose }: { id: number; onClose: () => void }) => {
   const { data, isLoading } = useSWR<GetBoulderingGymDetailResponse>(`${ENDPOINT}/${id}`);
   return (
     <article className="fixed bottom-20 max-w-3xl left-0 p-5 pb-8 right-0 mx-auto w-full h-[232px] bg-neutral-black rounded-t-[10px]">
+      <button type="button" className="absolute t-5 right-5 text-[0px]" onClick={onClose}>
+        <Icon name="Close" />
+        닫기
+      </button>
       {isLoading ? (
         <div className="flex flex-col justify-center items-center w-full h-full">
           <Image

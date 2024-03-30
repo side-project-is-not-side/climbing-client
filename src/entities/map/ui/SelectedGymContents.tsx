@@ -7,7 +7,7 @@ import Tags from '@/shared/ui/Tags';
 
 function SelectedGymContents({ data }: { data: GetSelectedBoulderingGymResponse | undefined }) {
   if (!data) return <p className="text-neutral-400 text-sm">선택하신 암장의 정보를 불러올 수 없습니다.</p>;
-  console.log(data);
+
   const { name, roadNameAddress, tags, lastUpdatedSector, upcomingSector } = data;
   return (
     <>
