@@ -24,15 +24,9 @@ export type BoulderingGymDetails = {
 
   roadNameAddress: string;
 
-  instagram: {
-    scheme: string;
-    link: string;
-  };
+  instagram: SocialLinkInfo;
 
-  naverMap: {
-    scheme: string;
-    link: string;
-  };
+  naverMap: SocialLinkInfo;
 
   businessHours: {
     weekday: {
@@ -45,6 +39,12 @@ export type BoulderingGymDetails = {
     };
   };
 };
+
+export type SocialLinkInfo = {
+  scheme: string;
+  link: string;
+};
+
 export const getBoulderingGymDetails = async (id: string): Promise<BoulderingGymDetails> => {
   const res = await fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}/api/bouldering-gym/${id}`, {
     cache: 'no-cache',

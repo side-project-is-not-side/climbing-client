@@ -3,7 +3,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 import { getBoulderingGymDetails } from '@/entities/details/api/getBoulderingGymDetails';
-import { Carousel } from '@/entities/details/ui';
+import { Carousel, SocialLink } from '@/entities/details/ui';
 import LocationCard from '@/entities/map/ui/LocationCard';
 import { Icon } from '@/shared/icons';
 import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
@@ -20,13 +20,18 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
     roadNameAddress,
     imageUrls,
     location,
+    instagram,
+    naverMap,
   } = await getBoulderingGymDetails(slug);
+
+  console.log('naverMap', naverMap);
+
   return (
     <>
       <div className="mb-[40px]">
         <Carousel imageUrls={imageUrls}></Carousel>
 
-        <div className="text-white text-lg font-bold mt-[32px] mb-[8px]">{name}</div>
+        <div className="text-white text-lg font-bold mb-[8px]">{name}</div>
 
         <div className="flex gap-[10px] items-center mb-[8px]">
           <Icon size="16" name="RedStone" />
@@ -69,6 +74,8 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
             <span className="text-neutral-400 text-sm font-normal">{roadNameAddress}</span>
           </p>
         </div>
+
+        <SocialLink instagram={instagram} naverMap={naverMap} />
       </div>
     </>
   );

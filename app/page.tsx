@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Category, Map, RecommendationLists } from '@/entities/main/ui';
+import { Banner, Category, RecommendationLists } from '@/entities/main/ui';
 import Logo from '@/entities/main/ui/Logo';
 
 function HomePage() {
@@ -16,7 +16,7 @@ function HomePage() {
       <div className="flex flex-col gap-10">
         <Category />
 
-        <Map />
+        <Banner />
 
         <RecommendationLists />
       </div>

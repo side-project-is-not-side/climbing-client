@@ -29,7 +29,7 @@ const SectorUpdateInfo = ({
     <div className={cn}>
       <Icon name={type === 'upcoming' ? 'RedStone' : 'GrayStone'} size="20" />
       <p>
-        {type === 'lastUpdated' && '마지막 업데이트'} {dayjs(date).format('M월 DD일 a h:mm')}
+        {type === 'lastUpdated' && '마지막 업데이트'} {dayjs(date).format('M월 D일 a h:mm')}
       </p>
       {name && (
         <>
