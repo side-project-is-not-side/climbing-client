@@ -46,30 +46,17 @@ const useNaverMap = ({
     }
   };
 
-  const handleMoveToCurrentLocation = () => {
-    if (!location) return;
-
-    const mapOptions: NaverMapOptions = {
-      center: new window.naver.maps.LatLng(...location),
-      zoom: initialZoom,
-      minZoom,
-      scaleControl: false,
-      mapDataControl: false,
-      logoControlOptions: {
-        position: naver.maps.Position.BOTTOM_LEFT,
-      },
-    };
-
-    const newMap = new window.naver.maps.Map(mapId, mapOptions);
-    setMap(newMap);
-  };
-
   const onCurrentLocationChanged = () => {
     reload();
   };
 
+  const panTo = (location: Coordinates) => {
+    const selected = new naver.maps.LatLng(...location);
+    map?.panTo(selected);
+  };
+
   useEffect(() => {
-    handleMoveToCurrentLocation();
+    if (location) panTo(location);
   }, [location]);
 
   useEffect(() => {
@@ -102,6 +89,7 @@ const useNaverMap = ({
     onCurrentLocationChanged,
     isGeolocationLoading,
     bounds,
+    panTo,
   };
 };
 export default useNaverMap;

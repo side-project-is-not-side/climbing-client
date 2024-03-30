@@ -20,7 +20,6 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
     imageUrls,
     location,
   } = await getBoulderingGymDetails(slug);
-
   return (
     <>
       <div className="mb-[40px]">
@@ -55,12 +54,12 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
           <ul>
             <li className="mb-[4px] flex gap-[10px]">
               <span className="text-white text-sm">월 ~ 금</span>
-              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekday.startAt).format('H:mm')} ~ ${dayjs(businessHours.weekday.endAt).format('H:mm')}`}</span>
+              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekday.startAt).format('HH:mm')} ~ ${dayjs(businessHours.weekday.endAt).format('HH:mm')}`}</span>
             </li>
 
             <li className="flex gap-[10px]">
               <span className="text-white text-sm">토, 일</span>
-              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekend.startAt).format('H:mm')} ~ ${dayjs(businessHours.weekend.endAt).format('H:mm')}`}</span>
+              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekend.startAt).format('HH:mm')} ~ ${dayjs(businessHours.weekend.endAt).format('HH:mm')}`}</span>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { getNearByBoulderingGyms } from '../api';
 import { GetAroundBoulderingGymResponse } from '../api/types';
@@ -19,12 +19,13 @@ const MAP_ID = 'nearby-map';
 const ENDPOINT = '/api/bouldering-gym/around';
 
 function NearbyMap() {
-  const { mapElementRef, initializeMap, onCurrentLocationChanged, isGeolocationLoading, map, bounds } = useNaverMap({
-    geolocationEnabled: true,
-    mapId: MAP_ID,
-    initialZoom: ZOOM_LEVEL.읍면동,
-    initialCenter: INITIAL_CENTER,
-  });
+  const { mapElementRef, initializeMap, onCurrentLocationChanged, isGeolocationLoading, map, bounds, panTo } =
+    useNaverMap({
+      geolocationEnabled: true,
+      mapId: MAP_ID,
+      initialZoom: ZOOM_LEVEL.읍면동,
+      initialCenter: INITIAL_CENTER,
+    });
 
   const params = new URLSearchParams(bounds);
   const { data } = useSWR<GetAroundBoulderingGymResponse>(
@@ -35,6 +36,17 @@ function NearbyMap() {
     },
   );
   const [selected, setSelected] = useState<number>();
+
+  const onClose = () => setSelected(undefined);
+
+  useEffect(() => {
+    if (selected) {
+      const location = data?.find((item) => item.id === selected);
+      if (!location) return;
+      const { latitude, longitude } = location;
+      panTo([latitude, longitude]);
+    }
+  }, [selected]);
 
   return (
     <div className="relative w-full h-screen">
@@ -52,7 +64,7 @@ function NearbyMap() {
           />
         ))}
         <CurrentLocationButton onClick={onCurrentLocationChanged} />
-        {selected && <SelectedGymCard id={selected} />}
+        {selected && <SelectedGymCard id={selected} onClose={onClose} />}
       </NaverMapScript>
     </div>
   );
