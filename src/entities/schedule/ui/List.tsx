@@ -44,7 +44,9 @@ function List({
           sectorUpdateInfo={sector}
         />
 
-        <Tags tags={tags} />
+        <div className="mt-[18px]">
+          <Tags tags={tags} />
+        </div>
       </Link>
     </li>
   );
