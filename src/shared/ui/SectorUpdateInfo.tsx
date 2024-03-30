@@ -21,7 +21,7 @@ const SectorUpdateInfo = ({
 
   const cn = twMerge(
     'flex gap-[10px] text-[14px]',
-    type === 'upcoming' ? 'text-neutral-white' : 'text-neutral-400',
+    type === 'upcoming' ? 'text-primary-400' : 'text-neutral-400',
     className,
   );
 
