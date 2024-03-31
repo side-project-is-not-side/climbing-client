@@ -9,6 +9,7 @@ import { getMetadata } from '@/shared/lib/getMetadata';
 import { Header, Layout } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
 import SWRConfigContext from '@app/SWRConfigContext';
+import { Analytics } from '@vercel/analytics/react';
 
 dayjs.locale('ko');
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body>
         <Header />
 
+        <Analytics />
         <Layout>
           <SWRConfigContext>{children}</SWRConfigContext>
         </Layout>
