@@ -56,3 +56,19 @@ export type GetBoulderingGymDetailResponse = {
   naver: Link;
   businessHours: BusinessHours;
 };
+
+export type GetNearestGymsRequest = { latitude: number; longitude: number; type: 'around' };
+
+export type GymInfo = {
+  id: number;
+  name: string;
+  thumbnailImageUrl: string;
+  roadNameAddress: string;
+  lotNumberAddress: string;
+  distance: number;
+  latitude: number;
+  longitude: number;
+  tags: string[];
+};
+
+export type GetNearestGymsResponse = GymInfo[];
