@@ -15,7 +15,7 @@ function BottomNavigation() {
   const { slug } = useParams();
 
   return (
-    <div className="drop-shadow-[0px_-4px_10px_rgba(0,0,0,0.30)] fixed left-0 bottom-0  w-full h-[80px] bg-neutral-700">
+    <div className="drop-shadow-[0px_-4px_10px_rgba(0,0,0,0.30)] fixed left-0 bottom-0 z-20 w-full h-[80px] bg-neutral-700">
       <nav className="max-w-[768px] w-full h-full mx-auto">
         <ul className="flex items-center h-full text-neutral-white">
           <Link href="/" className="basis-1/3 h-full flex flex-col justify-center items-center">
