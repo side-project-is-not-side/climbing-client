@@ -14,6 +14,6 @@ export const getNearByBoulderingGyms = async (bounds: Bounds | undefined) => {
 export const getNearestGyms = async ({ latitude, longitude }: GetNearestGymsRequest) => {
   const ENDPOINT = 'api/gyms/map';
 
-  const url = getUrl(ENDPOINT, { latitude, longitude });
+  const url = getUrl(ENDPOINT, { latitude: String(latitude), longitude: String(longitude) });
   return await fetch(url).then((res) => res.json());
 };
