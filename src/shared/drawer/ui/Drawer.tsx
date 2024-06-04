@@ -39,6 +39,16 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
     }
   }, []);
 
+  const animationProps = {
+    close: { initial: { height: 0 }, animate: { height: '124px' }, exit: { height: 0 } },
+    'half-open': { initial: { height: '124px' }, animate: { height: '340px' }, exit: { height: '124px' } },
+    'full-open': {
+      initial: { height: '340px' },
+      animate: { height: 'calc(100% - 60px)' },
+      exit: { height: '340px' },
+    },
+  };
+
   return createPortal(
     <AnimatePresence>
       <motion.div
@@ -46,11 +56,12 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         onDragEnd={onDragEnd}
+        dragElastic={0}
         className={twMerge(
-          'fixed left-0 rounded-t-[10px] bg-neutral-800 h-full w-full bottom-0 z-10 transition-all ease-in-out',
-          openState === 'half-open' && 'h-1/2',
-          openState === 'close' && 'h-[124px]',
+          'fixed left-0 rounded-t-[10px] bg-neutral-800 w-full bottom-0 z-10 transition-all ease-in-out',
         )}
+        {...animationProps[openState]}
+        transition={{ ease: 'easeInOut' }}
       >
         <motion.button type="button" className="py-5 w-full flex justify-center">
           <div className="w-[60px] h-1 rounded-[4px] bg-[#4E4E4E]" />

@@ -36,14 +36,12 @@ export const useDrawer = ({ defaultOpenState }: Props) => {
   };
 
   const onDragEnd: DragHandlers['onDragEnd'] = (event, info) => {
-    if (!(event.target instanceof HTMLButtonElement)) return;
-
-    if (info.offset.y < -120) {
+    if (info.offset.y < -80) {
       increaseOpenState();
       return;
     }
 
-    if (info.offset.y > 120) {
+    if (info.offset.y > 80) {
       decreaseOpenState();
     }
   };
