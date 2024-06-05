@@ -2,9 +2,12 @@ import React from 'react';
 
 function Tags({ tags }: { tags: string[] }) {
   return (
-    <ul className="flex gap-[10px]">
+    <ul className="flex gap-[6px]">
       {tags.map((tag) => (
-        <li key={tag} className="px-4 py-[2px] rounded-[10px] bg-neutral-700 text-neutral-400 text-xs font-bold">
+        <li
+          key={tag}
+          className="px-[10px] py-0.5 rounded-[5px] bg-grayscale-600 text-grayscale-400 text-xs font-medium"
+        >
           {tag}
         </li>
       ))}
