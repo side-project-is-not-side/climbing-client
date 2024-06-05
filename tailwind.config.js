@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss';
+import typography from './src/shared/constants/typography';
 
-const config: Config = {
+const config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: 'class',
   theme: {
@@ -34,9 +34,9 @@ const config: Config = {
         100: '#e9e9e9',
         200: '#d9d9d9',
         300: '#c4c4c4',
-        400: '#8b8d8e',
+        400: '#8B8D8E',
         500: '#7b7b7b',
-        600: '#555555',
+        600: '#333539',
         700: '#222427',
         800: '#151518',
         black: '#000000',
@@ -45,6 +45,11 @@ const config: Config = {
       white: '#ffffff',
     },
   },
+  plugins: [
+    ({ addUtilities }) => {
+      addUtilities(typography);
+    },
+  ],
 };
 
 export default config;
