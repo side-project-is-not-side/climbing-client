@@ -41,11 +41,11 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
 
   const animationProps = {
     close: { initial: { height: 0 }, animate: { height: '124px' }, exit: { height: 0 } },
-    'half-open': { initial: { height: '124px' }, animate: { height: '340px' }, exit: { height: '124px' } },
+    'half-open': { initial: { height: '124px' }, animate: { height: '420px' }, exit: { height: '124px' } },
     'full-open': {
-      initial: { height: '340px' },
+      initial: { height: '420px' },
       animate: { height: 'calc(100% - 60px)' },
-      exit: { height: '340px' },
+      exit: { height: '420px' },
     },
   };
 
@@ -67,7 +67,7 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
           <div className="w-[60px] h-1 rounded-[4px] bg-[#4E4E4E]" />
         </motion.button>
 
-        {openState !== 'close' && <div className="px-5 pb-[100px]">{children}</div>}
+        <div className="px-5 pb-[100px]">{children}</div>
       </motion.div>
     </AnimatePresence>,
     portalRootRef.current,
