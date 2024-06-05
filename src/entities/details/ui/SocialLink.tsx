@@ -55,19 +55,19 @@ function SocialLink({ instagram, naverMap }: Pick<BoulderingGymDetails, 'instagr
   return (
     <div className="flex gap-[10px]">
       <button
-        className="flex items-center py-[14px] pl-[16px] pr-[56px] rounded-[10px] bg-neutral-700"
+        className="flex flex-1 items-center py-[14px] px-4 rounded-[10px] bg-neutral-700 gap-[10px]"
         onClick={() => handleClick(instagram)}
       >
-        <Icon size="16" name="Instagram"></Icon>
-        <span className="text-neutral-400 ml-[10px] text-[14px]">인스타그램</span>
+        <Icon size="18" name="Instagram" />
+        <span className="text-neutral-400 font-text-2">인스타그램</span>
       </button>
 
       <button
-        className="flex items-center py-[14px] pl-[16px] pr-[56px] rounded-[10px] bg-neutral-700"
+        className="flex flex-1 items-center py-[14px] px-4 rounded-[10px] bg-neutral-700 gap-[10px]"
         onClick={() => handleClick(naverMap)}
       >
-        <Icon size="16" name="NaverMap"></Icon>
-        <span className="text-neutral-400  ml-[10px] text-[14px]"> 네이버 지도</span>
+        <Icon size="18" name="NaverMap" />
+        <span className="text-neutral-400 font-text-2"> 네이버 지도</span>
       </button>
     </div>
   );

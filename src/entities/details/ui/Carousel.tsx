@@ -36,9 +36,8 @@ function Carousel({ imageUrls }: Pick<BoulderingGymDetails, 'imageUrls'>) {
   return (
     <div>
       {imageUrls.length === 1 ? (
-        <div className="h-[210px] sm:h-[420px] mb-[40px] rounded-[10px] relative">
+        <div className="h-[156px] sm:h-[420px] mb-[40px] rounded-[10px] relative overflow-hidden">
           <Image
-            className="rounded-[10px]"
             src={imageUrls[0]}
             fill
             style={{

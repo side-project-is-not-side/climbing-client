@@ -26,7 +26,7 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
 
   return (
     <>
-      <div className="mb-[40px]">
+      <div>
         <Carousel imageUrls={imageUrls}></Carousel>
 
         <div className="text-white text-lg font-bold mb-[8px]">{name}</div>
@@ -41,14 +41,16 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
         <Tags tags={tags} />
       </div>
 
+      <hr className="border-[5px] border-grayscale-700 my-[30px]" />
+
       <div className="flex flex-col gap-[30px]">
         <div className="flex flex-col gap-[10px]">
-          <h3 className="text-white text-sm font-bold">암장 정보</h3>
-          <p className="text-neutral-400 text-sm font-normal">{description}</p>
+          <h3 className="text-white font-header-3">암장 정보</h3>
+          <p className="text-neutral-400 font-text-2">{description}</p>
         </div>
 
         <div className="flex flex-col gap-[10px]">
-          <h3 className="text-white text-sm font-bold">영업 시간</h3>
+          <h3 className="text-white font-header-3">영업 시간</h3>
 
           <ul>
             <li className="mb-[4px] flex gap-[10px]">
@@ -65,11 +67,12 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
 
         <div>
           <div className="mb-[20px]">
+            <h3 className="font-header-3 text-neutral-white mb-[10px]">암장 위치</h3>
             <LocationCard lat={location.latitude} lng={location.longitude} />
           </div>
-          <p className="flex items-center gap-[4px]">
-            <Icon name="Location" size="16"></Icon>
-            <span className="text-neutral-400 text-sm font-normal">{roadNameAddress}</span>
+          <p className="flex items-start gap-[4px]">
+            <Icon name="Location" size="16" />
+            <span className="text-neutral-400 text-sm font-normal leading-4 break-keep">{roadNameAddress}</span>
           </p>
         </div>
 

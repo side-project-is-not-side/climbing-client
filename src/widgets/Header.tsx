@@ -14,7 +14,7 @@ function Header() {
 
   const router = useRouter();
 
-  if (path === '/') return null;
+  if (path === '/' || path.includes('/map/details')) return null;
 
   return (
     <header className="fixed top-0 left-0 w-full h-[60px] bg-neutral-700 z-10">
