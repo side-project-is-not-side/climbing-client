@@ -14,7 +14,7 @@ function CurrentLocationMarker({ map, coordinates }: Props) {
         map,
         position: new naver.maps.LatLng(...coordinates),
         icon: {
-          url: '/icons/marker-selected.svg',
+          url: '/icons/marker-current.svg',
         },
       });
     }
