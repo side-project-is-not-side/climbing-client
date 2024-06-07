@@ -40,12 +40,10 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
   }, []);
 
   const animationProps = {
-    close: { initial: { height: 0 }, animate: { height: '124px' }, exit: { height: 0 } },
-    'half-open': { initial: { height: '124px' }, animate: { height: '420px' }, exit: { height: '124px' } },
+    close: { animate: { height: '124px' } },
+    'half-open': { animate: { height: '420px' } },
     'full-open': {
-      initial: { height: '420px' },
       animate: { height: 'calc(100% - 60px)' },
-      exit: { height: '420px' },
     },
   };
 

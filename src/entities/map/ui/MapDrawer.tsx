@@ -13,10 +13,9 @@ import { useDrawer } from '@/shared/drawer';
 const Drawer = dynamic(() => import('@/shared/drawer/ui/Drawer'), { ssr: false });
 
 function MapDrawer() {
-  const { openState, onDragEnd } = useDrawer({ defaultOpenState: 'close' });
-
   const searchParams = useSearchParams();
   const selectedGymId = searchParams.get('id');
+  const { openState, onDragEnd } = useDrawer({ defaultOpenState: selectedGymId ? 'half-open' : 'close' });
 
   return (
     <Drawer openState={openState} onDragEnd={onDragEnd}>
