@@ -1,44 +1,64 @@
 import React from 'react';
 
-import dayjs from 'dayjs';
-
-import { getBoulderingGymDetails } from '@/entities/details/api/getBoulderingGymDetails';
-import { Carousel, SocialLink } from '@/entities/details/ui';
+import { SocialLink } from '@/entities/details/ui';
+import BusinessHours from '@/entities/gyms/ui/BusinessHours';
+import CurrentGymCard from '@/entities/gyms/ui/CurrentGymCard';
 import LocationCard from '@/entities/map/ui/LocationCard';
 import { Icon } from '@/shared/icons';
-import SectorUpdateInfo from '@/shared/ui/SectorUpdateInfo';
-import Tags from '@/shared/ui/Tags';
 
-async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
+const data = {
+  id: 1,
+  name: 'PEAKERS 클라이밍 신촌점',
+  thumbnailImageUrl: '',
+  tags: ['휴식 공간', '주차장', '넓은 암장'],
+  description: '홍대입구역 4번 출구 30초 거리! 체계적인 커리큘럼과 전문 강사진!하나의 회원권으로 11개 지점을 자유롭게!',
+  businessHours: {
+    monday: '08:00 ~ 24:00',
+    tuesday: '-',
+    wednesday: '휴무',
+    thursday: '-',
+    friday: '-',
+    saturday: '-',
+    sunday: '-',
+  },
+  roadNameAddress: '도로명 주소',
+  distance: 700, // 단위: 미터
+  latitude: 123.123,
+  longitude: 123.123,
+  instagram: {
+    scheme: 'instagram://user?username=climbing_park_seongsu',
+    link: 'https://www.instagram.com/climbing_park_seongsu',
+  },
+  naverMap: {
+    scheme: 'https://map.naver.com/p/search/클라이밍파크%20성수점',
+    link: 'https://map.naver.com/p/search/클라이밍파크%20성수점',
+  },
+};
+
+async function DetailsPage() {
   const {
     name,
-    lastUpdatedSector,
-    upcomingSector,
+    thumbnailImageUrl,
     tags,
     description,
     businessHours,
     roadNameAddress,
-    imageUrls,
-    location,
+    distance,
+    latitude,
+    longitude,
     instagram,
     naverMap,
-  } = await getBoulderingGymDetails(slug);
-
+  } = data;
   return (
     <>
-      <div>
-        <Carousel imageUrls={imageUrls}></Carousel>
-
-        <div className="text-white text-lg font-bold mb-[8px]">{name}</div>
-
-        <div className="flex gap-[10px] items-center mb-[8px]">
-          <Icon size="16" name="RedStone" />
-          <span className="text-sm font-normal text-neutral-white">{`${dayjs(upcomingSector.date).format('M월 DD일 a h:mm')} · ${upcomingSector.name}`}</span>
-        </div>
-
-        <SectorUpdateInfo type="lastUpdated" sectorUpdateInfo={lastUpdatedSector} className="mb-[20px]" />
-
-        <Tags tags={tags} />
+      <div className="py-5">
+        <CurrentGymCard
+          name={name}
+          tags={tags}
+          roadNameAddress={roadNameAddress}
+          thumbnailImageUrl={thumbnailImageUrl}
+          distance={distance}
+        />
       </div>
 
       <hr className="border-[5px] border-grayscale-700 my-[30px]" />
@@ -52,23 +72,13 @@ async function DetailsPage({ params: { slug } }: { params: { slug: string } }) {
         <div className="flex flex-col gap-[10px]">
           <h3 className="text-white font-header-3">영업 시간</h3>
 
-          <ul>
-            <li className="mb-[4px] flex gap-[10px]">
-              <span className="text-white text-sm">월 ~ 금</span>
-              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekday.startAt).format('HH:mm')} ~ ${dayjs(businessHours.weekday.endAt).format('HH:mm')}`}</span>
-            </li>
-
-            <li className="flex gap-[10px]">
-              <span className="text-white text-sm">토, 일</span>
-              <span className="text-neutral-400 text-sm font-normal">{`${dayjs(businessHours.weekend.startAt).format('HH:mm')} ~ ${dayjs(businessHours.weekend.endAt).format('HH:mm')}`}</span>
-            </li>
-          </ul>
+          <BusinessHours businessHours={businessHours} />
         </div>
 
         <div>
           <div className="mb-[20px]">
             <h3 className="font-header-3 text-neutral-white mb-[10px]">암장 위치</h3>
-            <LocationCard lat={location.latitude} lng={location.longitude} />
+            <LocationCard lat={latitude} lng={longitude} />
           </div>
           <p className="flex items-start gap-[4px]">
             <Icon name="Location" size="16" />
