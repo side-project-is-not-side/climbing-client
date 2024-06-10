@@ -1,5 +1,7 @@
+export { default as AccountCircle } from './AccountCircle';
 export { default as ArrowBack } from './ArrowBack';
 export { default as Calendar } from './Calendar';
+export { default as Challenge } from './Challenge';
 export { default as Close } from './Close';
 export { default as GrayStone } from './GrayStone';
 export { default as Home } from './Home';
