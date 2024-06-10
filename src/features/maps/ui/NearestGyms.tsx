@@ -1,6 +1,8 @@
 import React from 'react';
 
-import DefaultGymCard from '@/entities/map/ui/DefaultGymCard';
+import { useRouter } from 'next/navigation';
+
+import DefaultGymCard from '@/entities/gyms/ui/DefaultGymCard';
 
 const gymInfos = [
   {
@@ -29,14 +31,19 @@ const gymInfos = [
   },
 ];
 function NearestGyms() {
+  const router = useRouter();
   // TODO: api 연결
+
+  const onClick = (id: number) => () => {
+    router.push(`/map?id=${id}`);
+  };
   return (
     <section>
       <h3 className="text-[18px] font-bold text-neutral-white mb-5">내 근처 암장을 찾아보세요🔥</h3>
 
       <ul className="flex flex-col gap-3">
         {gymInfos.map((item) => (
-          <DefaultGymCard key={item.id} item={item} />
+          <DefaultGymCard key={item.id} item={item} onClick={onClick} />
         ))}
       </ul>
     </section>

@@ -1,27 +1,20 @@
-'use client';
-
 import React from 'react';
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 import { GymInfo } from '@/entities/map/api/types';
 import Tags from '@/shared/ui/Tags';
 
 type Props = {
   item: GymInfo;
+  onClick: (id: number) => () => void;
 };
 
-function DefaultGymCard({ item }: Props) {
-  const router = useRouter();
+function DefaultGymCard({ item, onClick }: Props) {
   const { id, name, thumbnailImageUrl, roadNameAddress, lotNumberAddress, distance, tags } = item;
 
-  const handleItemClick = () => {
-    router.push(`/map?id=${id}`);
-  };
-
   return (
-    <li className="p-5 flex w-full gap-5 bg-neutral-700 rounded-[10px]" onClick={handleItemClick}>
+    <li className="p-5 flex w-full gap-5 bg-neutral-700 rounded-[10px]" onClick={onClick(id)}>
       <div className="relative w-[70px] h-[70px] overflow-hidden rounded-[10px]">
         <Image className="object-cover" src={thumbnailImageUrl} alt={name} fill />
       </div>

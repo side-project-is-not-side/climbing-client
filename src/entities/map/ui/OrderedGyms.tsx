@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import DefaultGymCard from '@/entities/gyms/ui/DefaultGymCard';
 import Sort from '@/entities/gyms/ui/Sort';
 
@@ -32,14 +34,18 @@ const gymInfos = [
 
 function OrderedGyms() {
   // TODO: 내 근처 암장 조회 API와 동일한 API 연결
+  const router = useRouter();
 
+  const onClick = (id: number) => () => {
+    router.push(`map/details/${id}`);
+  };
   return (
     <div>
       <Sort />
 
       <ul className="flex flex-col gap-3">
         {gymInfos.map((item) => (
-          <DefaultGymCard key={item.id} item={item} />
+          <DefaultGymCard key={item.id} item={item} onClick={onClick} />
         ))}
       </ul>
     </div>
