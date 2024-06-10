@@ -32,7 +32,7 @@ function NearbyMap() {
   } = useNaverMap({
     geolocationEnabled: true,
     mapId: MAP_ID,
-    initialZoom: ZOOM_LEVEL.읍면동,
+    initialZoom: ZOOM_LEVEL.시군구,
     initialCenter: INITIAL_CENTER,
   });
 
@@ -45,8 +45,6 @@ function NearbyMap() {
     },
   );
   const [selected, setSelected] = useState<number>();
-
-  const onClose = () => setSelected(undefined);
 
   useEffect(() => {
     if (selected) {
@@ -74,7 +72,7 @@ function NearbyMap() {
           />
         ))}
         <CurrentLocationButton onClick={onCurrentLocationChanged} />
-        {selected && <SelectedGymCard id={selected} onClose={onClose} />}
+        {selected && <SelectedGymCard id={selected} />}
       </NaverMapScript>
     </div>
   );

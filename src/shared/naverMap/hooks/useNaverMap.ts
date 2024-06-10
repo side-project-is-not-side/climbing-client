@@ -17,7 +17,7 @@ type Props = {
 
 const useNaverMap = ({
   mapId = 'map',
-  initialZoom = ZOOM_LEVEL.거리,
+  initialZoom = ZOOM_LEVEL.시도,
   initialCenter = INITIAL_CENTER,
   minZoom = ZOOM_LEVEL.시도,
   geolocationEnabled,
@@ -26,8 +26,8 @@ const useNaverMap = ({
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<TNaverMap | null>(null);
   const bounds = useBounds(map);
-  const { location, reload, isGeolocationLoading, error } = useGeoLocation(geolocationEnabled);
-  console.log(error);
+  const { location, reload, isGeolocationLoading } = useGeoLocation(geolocationEnabled);
+
   const initializeMap = () => {
     const mapOptions: NaverMapOptions = {
       center: new naver.maps.LatLng(...initialCenter),
