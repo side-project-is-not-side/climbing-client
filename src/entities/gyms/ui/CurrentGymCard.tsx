@@ -15,7 +15,7 @@ function CurrentGymCard({
 }: Pick<GetGymDetailResponse, 'name' | 'thumbnailImageUrl' | 'distance' | 'roadNameAddress' | 'tags'>) {
   return (
     <div>
-      <div className="mt-[20px] relative overflow-hidden w-full h-[156px] rounded-[10px] mb-5">
+      <div className="relative overflow-hidden w-full h-[156px] rounded-[10px] mb-5">
         <Image className="object-cover" src={thumbnailImageUrl} alt={name} fill />
       </div>
       <div>

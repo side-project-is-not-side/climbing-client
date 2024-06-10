@@ -9,7 +9,8 @@ import { Icon } from '@/shared/icons';
 const data = {
   id: 1,
   name: 'PEAKERS 클라이밍 신촌점',
-  thumbnailImageUrl: '',
+  thumbnailImageUrl:
+    'https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyNDAzMjhfMTU2%2FMDAxNzExNjA1ODI0NTE5.gQzS5vquWzJbeEB3nVzhA7TinWe-V3LEyjnGGPTN64gg.m7OzsRA16gR9rBDsSB_hv7f-Axgy3T0ioRxD_ysLxZgg.JPEG%2FF44D0BA3-E1A4-4F0D-AD2A-5FF82583E052.jpeg',
   tags: ['휴식 공간', '주차장', '넓은 암장'],
   description: '홍대입구역 4번 출구 30초 거리! 체계적인 커리큘럼과 전문 강사진!하나의 회원권으로 11개 지점을 자유롭게!',
   businessHours: {
@@ -51,7 +52,7 @@ async function DetailsPage() {
   } = data;
   return (
     <>
-      <div className="py-5">
+      <div className="pt-[50px] pb-5">
         <CurrentGymCard
           name={name}
           tags={tags}

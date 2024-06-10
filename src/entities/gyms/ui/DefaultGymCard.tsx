@@ -5,8 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { GymInfo } from '../api/types';
-
+import { GymInfo } from '@/entities/map/api/types';
 import Tags from '@/shared/ui/Tags';
 
 type Props = {
