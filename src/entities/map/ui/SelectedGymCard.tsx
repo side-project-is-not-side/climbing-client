@@ -7,7 +7,7 @@ import { useGetGymDetailInfo } from '@/features/gyms/queries/useGetGymDetailInfo
 
 const SelectedGymCard = ({ id }: { id: number }) => {
   const { isLoading, data } = useGetGymDetailInfo(id);
-  console.log(data);
+
   if (isLoading || !data) return null;
 
   const detailUrl = `/map/details/${id}`;
