@@ -66,7 +66,9 @@ function Drawer({ openState, onDragEnd, onAnimationComplete, children }: PropsWi
           <div className="w-[60px] h-1 rounded-[4px] bg-[#4E4E4E]" />
         </motion.button>
 
-        <div className="px-5 pb-[100px]">{children}</div>
+        <div className={twMerge('px-5 pb-[100px]', openState === 'full-open' && 'h-full overflow-y-auto')}>
+          {children}
+        </div>
       </motion.div>
     </AnimatePresence>,
     portalRootRef.current,

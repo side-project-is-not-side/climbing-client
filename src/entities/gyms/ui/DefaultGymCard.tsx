@@ -21,9 +21,8 @@ function DefaultGymCard({ item, onClick }: Props) {
 
       <div>
         <span className="font-bold text-neutral-white mb-0.5">{name}</span>
-        <div className="flex gap-[10px] items-center text-[14px] text-grayscale-400 leading-normal mb-[6px]">
-          <span className="text-neutral-white">{distance}m</span> <div className="w-[1px] h-[14px] bg-neutral-400" />
-          <span>{roadNameAddress ?? lotNumberAddress}</span>
+        <div className="flex gap-[10px] items-start text-[14px] text-grayscale-400 leading-normal mb-[6px]">
+          <span className="text-neutral-white">{distance}m</span> | <span>{roadNameAddress ?? lotNumberAddress}</span>
         </div>
 
         <Tags tags={tags} />

@@ -7,7 +7,7 @@ function Sort() {
   return (
     <button type="button" className="flex gap-1 items-center py-1 px-4 rounded-[50px] bg-grayscale-600 mb-5">
       <span className="text-[13px] text-neutral-white">내위치중심</span>
-      <Icon name="ArrowBack" className="-rotate-90" />
+      <Icon name="DropdownArrow" />
     </button>
   );
 }
