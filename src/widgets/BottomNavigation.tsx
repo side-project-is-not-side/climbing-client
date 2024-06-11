@@ -12,7 +12,7 @@ import { Icon, IconName } from '@/shared/icons';
 const NAVIGATION_ITEMS: { iconName: IconName; pathname: string; text: string }[] = [
   { iconName: 'Home', pathname: '/', text: '홈' },
   { iconName: 'Near', pathname: '/map', text: '암장 찾기' },
-  { iconName: 'Challenge', pathname: '/challenge', text: '암장 찾기' },
+  { iconName: 'Challenge', pathname: '/challenge', text: '그랩 챌린지' },
   { iconName: 'AccountCircle', pathname: '/my', text: '마이 페이지' },
 ];
 
