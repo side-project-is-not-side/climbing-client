@@ -5,6 +5,7 @@ export type ExternalLink = {
   link: string;
 };
 
+export type Location = { latitude: number; longitude: number };
 export type BusinessHours = Record<Days, string>;
 
 export type GetGymDetailResponse = {
@@ -16,8 +17,7 @@ export type GetGymDetailResponse = {
   businessHours: BusinessHours;
   roadNameAddress: string;
   distance: number;
-  latitude: number;
-  longitude: number;
+  location: Location;
   naverMap: ExternalLink;
   instagram: ExternalLink;
 };
