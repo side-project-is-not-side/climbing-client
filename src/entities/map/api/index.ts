@@ -4,7 +4,7 @@ import { getUrl } from '@/shared/lib/getUrl';
 
 export const getNearByBoulderingGyms = async (bounds: Bounds | undefined) => {
   if (!bounds) return;
-  const ENDPOINT = 'api/bouldering-gym/around';
+  const ENDPOINT = 'v1/gyms/map';
 
   const url = getUrl(ENDPOINT, bounds);
   return await fetch(url, { cache: 'no-store' }).then((res) => res.json());
