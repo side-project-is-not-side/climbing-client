@@ -3,7 +3,7 @@
 import React, { PropsWithChildren, useEffect, useRef } from 'react';
 
 import { OpenState } from '../types';
-import { AnimatePresence, DragHandlers, motion } from 'framer-motion';
+import { AnimatePresence, AnimationDefinition, DragHandlers, motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
@@ -19,9 +19,10 @@ const createPortalRoot = () => {
 type Props = {
   openState: OpenState;
   onDragEnd: DragHandlers['onDragEnd'];
+  onAnimationComplete?: (definition: AnimationDefinition) => void;
 };
 
-function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
+function Drawer({ openState, onDragEnd, onAnimationComplete, children }: PropsWithChildren<Props>) {
   const portalRootRef = useRef<HTMLDivElement>(
     (document?.getElementById('drawer-root') as HTMLDivElement) ?? createPortalRoot(),
   );
@@ -49,15 +50,15 @@ function Drawer({ openState, onDragEnd, children }: PropsWithChildren<Props>) {
 
   return createPortal(
     <AnimatePresence>
+      {openState !== 'close' && <div id="drawer-background" className="fixed inset-0 w-full h-full z-0" />}
       <motion.div
         id={openState}
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         onDragEnd={onDragEnd}
+        onAnimationComplete={onAnimationComplete}
         dragElastic={0}
-        className={twMerge(
-          'fixed left-0 rounded-t-[10px] bg-neutral-800 w-full bottom-0 z-10 transition-all ease-in-out',
-        )}
+        className={twMerge('fixed left-0 rounded-t-[10px] bg-neutral-800 w-full bottom-0 z-10 h-[124px]')}
         {...animationProps[openState]}
         transition={{ ease: 'easeInOut' }}
       >

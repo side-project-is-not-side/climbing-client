@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import { getNearByBoulderingGyms } from '../api';
 import { GetAroundBoulderingGymResponse } from '../api/types';
 import GeolocationLoading from './GeolocationLoading';
@@ -17,7 +19,7 @@ import Marker from '@/shared/naverMap/ui/Marker';
 import NaverMapScript from '@/shared/naverMap/ui/NaverMapScript';
 
 const MAP_ID = 'nearby-map';
-const ENDPOINT = '/api/bouldering-gym/around';
+const ENDPOINT = '/v1/gyms/map';
 
 function NearbyMap() {
   const {
@@ -45,6 +47,7 @@ function NearbyMap() {
     },
   );
   const [selected, setSelected] = useState<number>();
+  const router = useRouter();
 
   useEffect(() => {
     if (selected) {
@@ -52,11 +55,12 @@ function NearbyMap() {
       if (!location) return;
       const { latitude, longitude } = location;
       panTo([latitude, longitude]);
+      router.push(`/map?id=${selected}`);
     }
   }, [selected]);
 
   return (
-    <div className="relative w-full h-screen">
+    <div id="naver-map" className="relative w-full h-screen">
       <NaverMapScript initializeMap={initializeMap}>
         <GeolocationLoading visible={isGeolocationLoading} />
         <Map ref={mapElementRef} mapId={MAP_ID} />

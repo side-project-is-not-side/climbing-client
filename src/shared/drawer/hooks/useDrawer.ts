@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { OpenState } from '../types';
 import { DragHandlers } from 'framer-motion';
 
 type Props = {
   defaultOpenState: OpenState;
+  onClose?: () => void;
 };
-export const useDrawer = ({ defaultOpenState }: Props) => {
+export const useDrawer = ({ defaultOpenState, onClose }: Props) => {
   const [openState, setOpenState] = useState<OpenState>(defaultOpenState);
 
   const increaseOpenState = () => {
@@ -45,6 +46,26 @@ export const useDrawer = ({ defaultOpenState }: Props) => {
       decreaseOpenState();
     }
   };
+
+  useEffect(() => {
+    const onDocumentClick = (event: MouseEvent) => {
+      if (!(event.target instanceof HTMLDivElement)) return;
+
+      const { id } = event.target;
+      if (id !== 'drawer-background') return;
+
+      decreaseOpenState();
+      onClose?.();
+    };
+
+    if (openState === 'half-open') {
+      document.addEventListener('click', onDocumentClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', onDocumentClick);
+    };
+  }, [openState]);
 
   return { openState, increaseOpenState, decreaseOpenState, onDragEnd };
 };
