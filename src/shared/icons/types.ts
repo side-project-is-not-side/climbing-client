@@ -1,3 +1,3 @@
 export type HexColor = `#${string}`;
 
-export type Size = '16' | '20' | '24' | '32';
+export type Size = '16' | '18' | '20' | '24' | '32';

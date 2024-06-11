@@ -24,7 +24,7 @@ export const useBounds = (map: TNaverMap | null) => {
     });
   };
 
-  const handleBoudnsChangeWithDebounce = (bounds: naver.maps.Bounds) => {
+  const handleBoundsChangeWithDebounce = (bounds: naver.maps.Bounds) => {
     if (timer) {
       clearTimeout(timer.current);
     }
@@ -41,7 +41,7 @@ export const useBounds = (map: TNaverMap | null) => {
       const currentBounds = map.getBounds();
       handleBoundChange(currentBounds);
 
-      naver.maps.Event.addListener(map, 'bounds_changed', handleBoudnsChangeWithDebounce);
+      naver.maps.Event.addListener(map, 'bounds_changed', handleBoundsChangeWithDebounce);
     }
   }, [map]);
 

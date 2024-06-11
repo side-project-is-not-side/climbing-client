@@ -5,31 +5,16 @@ const SvgClose = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewBox="0 0 24 24"
+    viewBox="0 0 20 20"
     width={props.width ?? 24}
     height={props.height ?? 24}
     style={props.style ?? {}}
     {...props}
   >
-    <mask
-      id="close_svg__a"
-      width={24}
-      height={24}
-      x={0}
-      y={0}
-      maskUnits="userSpaceOnUse"
-      style={{
-        maskType: 'alpha',
-      }}
-    >
-      <path fill="#D9D9D9" d="M0 0h24v24H0z" />
-    </mask>
-    <g mask="url(#close_svg__a)">
-      <path
-        fill={props.color ?? '#fff'}
-        d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z"
-      />
-    </g>
+    <path
+      fill={props.color ?? '#fff'}
+      d="M5.2 16 4 14.8 8.8 10 4 5.2 5.2 4 10 8.8 14.8 4 16 5.2 11.2 10l4.8 4.8-1.2 1.2-4.8-4.8z"
+    />
   </svg>
 );
 export default SvgClose;

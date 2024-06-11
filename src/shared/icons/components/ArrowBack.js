@@ -5,13 +5,13 @@ const SvgArrowBack = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewBox="0 0 7 12"
+    viewBox="0 0 20 20"
     width={props.width ?? 24}
     height={props.height ?? 24}
     style={props.style ?? {}}
     {...props}
   >
-    <path fill={props.color ?? '#fff'} d="M5.899.167.066 6l5.833 5.833 1.035-1.035L2.137 6l4.797-4.798z" />
+    <path fill={props.color ?? '#fff'} d="M12.399 4.167 6.566 10l5.833 5.833 1.035-1.035L8.637 10l4.797-4.798z" />
   </svg>
 );
 export default SvgArrowBack;

@@ -1,13 +1,9 @@
-import React, { Suspense } from 'react';
-
-import NearbyMap from '@/entities/map/ui/NearbyMap';
+import MapView from '@/widgets/MapView';
 
 function MapPage() {
   return (
     <section className="w-full h-full">
-      <Suspense>
-        <NearbyMap />
-      </Suspense>
+      <MapView />
     </section>
   );
 }

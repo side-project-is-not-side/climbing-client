@@ -17,7 +17,7 @@ type Props = {
 
 const useNaverMap = ({
   mapId = 'map',
-  initialZoom = ZOOM_LEVEL.거리,
+  initialZoom = ZOOM_LEVEL.시도,
   initialCenter = INITIAL_CENTER,
   minZoom = ZOOM_LEVEL.시도,
   geolocationEnabled,
