@@ -2,14 +2,13 @@
 
 import React, { useEffect, useRef } from 'react';
 
-import { BoulderingGymDetails, SocialLinkInfo } from '../api/getBoulderingGymDetails';
-
+import { ExternalLink, GetGymDetailResponse } from '@/entities/gyms/api/type';
 import { Icon } from '@/shared/icons';
 
-function SocialLink({ instagram, naverMap }: Pick<BoulderingGymDetails, 'instagram' | 'naverMap'>) {
+function SocialLink({ instagram, naverMap }: Pick<GetGymDetailResponse, 'instagram' | 'naverMap'>) {
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const handleClick = ({ scheme, link }: SocialLinkInfo) => {
+  const handleClick = ({ scheme, link }: ExternalLink) => {
     const isIphone = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const isAndroid = /Android/i.test(navigator.userAgent);
 
