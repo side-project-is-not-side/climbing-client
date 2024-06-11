@@ -5,6 +5,7 @@ import React, { Suspense, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+import LoadingSpinner from './LoadingSpinner';
 import OrderedGyms from './OrderedGyms';
 import SelectedGymCard from './SelectedGymCard';
 
@@ -38,14 +39,11 @@ function MapDrawer() {
 
   return (
     <Drawer openState={openState} onDragEnd={onDragEnd} onAnimationComplete={onIncreaseDragEnd}>
-      {openState !== 'full-open' && (
-        <Suspense>{selectedGymId ? <SelectedGymCard id={Number(selectedGymId)} /> : <NearestGyms />}</Suspense>
-      )}
-      {openState === 'full-open' && (
-        <Suspense>
-          <OrderedGyms />
-        </Suspense>
-      )}
+      <Suspense fallback={<LoadingSpinner />}>
+        {selectedGymId && <SelectedGymCard id={Number(selectedGymId)} />}
+        {!selectedGymId && openState !== 'full-open' && <NearestGyms />}
+        {!selectedGymId && openState === 'full-open' && <OrderedGyms />}
+      </Suspense>
     </Drawer>
   );
 }

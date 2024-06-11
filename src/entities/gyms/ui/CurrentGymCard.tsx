@@ -19,9 +19,10 @@ function CurrentGymCard({
         <Image className="object-cover" src={thumbnailImageUrl} alt={name} fill />
       </div>
       <div>
-        <span className="font-bold text-neutral-white mb-0.5">{name}</span>
-        <div className="flex gap-[10px] items-center font-text-2 text-grayscale-400  mb-[6px]">
-          <span className="text-neutral-white">{distance}m</span> <div className="w-[1px] h-[14px] bg-neutral-400" />
+        <span className="font-bold text-neutral-white mb-1">{name}</span>
+        <div className="flex gap-[10px] items-start font-text-2 text-grayscale-400 mb-[6px]">
+          <span className="text-neutral-white">{distance}m</span>
+          <div> | </div>
           <span>{roadNameAddress}</span>
         </div>
 
