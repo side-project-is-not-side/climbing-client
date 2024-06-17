@@ -42,7 +42,7 @@ function Drawer({ openState, onDragEnd, onAnimationComplete, children }: PropsWi
 
   const animationProps = {
     close: { animate: { height: '124px' } },
-    'half-open': { animate: { height: '420px' } },
+    'half-open': { animate: { minHeight: '420px' } },
     'full-open': {
       animate: { height: 'calc(100% - 60px)' },
     },
@@ -52,13 +52,17 @@ function Drawer({ openState, onDragEnd, onAnimationComplete, children }: PropsWi
     <AnimatePresence>
       {openState !== 'close' && <div id="drawer-background" className="fixed inset-0 w-full h-full z-0" />}
       <motion.div
+        key="drawer"
         id={openState}
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         onDragEnd={onDragEnd}
         onAnimationComplete={onAnimationComplete}
         dragElastic={0}
-        className={twMerge('fixed left-0 rounded-t-[10px] bg-neutral-800 w-full bottom-0 z-10 h-[124px]')}
+        className={twMerge(
+          'fixed left-0 rounded-t-[10px] bg-neutral-800 w-full bottom-0 z-10 h-[124px]',
+          openState === 'half-open' && 'h-fit',
+        )}
         {...animationProps[openState]}
         transition={{ ease: 'easeInOut' }}
       >

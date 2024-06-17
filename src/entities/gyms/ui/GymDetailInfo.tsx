@@ -20,6 +20,7 @@ function GymDetailInfo({ data }: { data: GetGymDetailResponse }) {
     location,
     instagram,
     naverMap,
+    notice,
   } = data;
   const { latitude, longitude } = location;
 
@@ -47,6 +48,13 @@ function GymDetailInfo({ data }: { data: GetGymDetailResponse }) {
           <h3 className="text-white font-header-3">영업 시간</h3>
 
           <BusinessHours businessHours={businessHours} />
+
+          <div className="flex items-center gap-2 py-[10px] px-3 rounded-[4px] bg-red-600 mb-6">
+            <Icon name="LoudSpeaker" color="#fff" />
+            <p className="font-text-2 text-neutral-white">
+              {notice || '셋팅 요일에 따라 영업 시간이 달라질 수 있습니다.'}
+            </p>
+          </div>
         </div>
 
         <div>
