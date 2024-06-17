@@ -20,7 +20,7 @@ const DAY_LABEL: Record<keyof BusinessHours, string> = {
 
 function BusinessHours({ businessHours }: Props) {
   return (
-    <dl className="flex flex-col flex-wrap w-full h-[92px] gap-1">
+    <dl className="flex flex-col flex-wrap w-full h-[92px] gap-1 mb-5">
       {ObjectTyped.entries(businessHours).map(([key, value]) => (
         <div key={key} className="flex w-1/2 gap-[10px] leading-5">
           <dt className="font-text-2 text-neutral-white">{DAY_LABEL[key]}</dt>

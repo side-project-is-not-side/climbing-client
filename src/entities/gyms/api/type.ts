@@ -20,4 +20,5 @@ export type GetGymDetailResponse = {
   location: Location;
   naverMap: ExternalLink;
   instagram: ExternalLink;
+  notice?: string;
 };
