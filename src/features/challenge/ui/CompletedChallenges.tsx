@@ -5,58 +5,7 @@ import Link from 'next/link';
 import { Challenge, SimpleChallengeCard } from '@/entities/challenges';
 import { Icon } from '@/shared/icons';
 
-const challenges: Challenge[] = [
-  {
-    id: 1,
-    imageUrl: '/images/badge.svg',
-    title: '암장원정대',
-    activityType: 'PICTURE',
-    summary: '암장 이곳저곳을 둘러보세요!',
-    activityCount: 3,
-    successCount: 10,
-  },
-  {
-    id: 2,
-    imageUrl: '/images/badge.svg',
-    title: '거의다왔어레드',
-    activityType: 'LOCATION',
-    summary: '암장 이곳저곳을 둘러보세요!',
-    activityCount: 3,
-    successCount: 10,
-  },
-  {
-    id: 3,
-    imageUrl: '/images/badge.svg',
-    title: '암장원정대',
-    activityType: 'LOCATION',
-    summary: '암장 이곳저곳을 둘러보세요!',
-    activityCount: 3,
-    successCount: 10,
-  },
-  {
-    id: 4,
-    imageUrl: '/images/badge.svg',
-    title: '거의다왔어레드',
-    activityType: 'LOCATION',
-    summary: '암장 이곳저곳을 둘러보세요!',
-    activityCount: 3,
-    successCount: 10,
-  },
-  {
-    id: 5,
-    imageUrl: '/images/badge.svg',
-    title: '거의다왔어레드',
-    activityType: 'LOCATION',
-    summary: '암장 이곳저곳을 둘러보세요!',
-    activityCount: 3,
-    successCount: 10,
-  },
-];
-
-async function CompletedChallenges() {
-  // TODO: API 구현 시 연결
-  // const challenges = await getChallenges('SUCCESS');
-
+async function CompletedChallenges({ challenges }: { challenges: Challenge[] }) {
   return (
     <section>
       <div className="flex items-center justify-between mb-5">
