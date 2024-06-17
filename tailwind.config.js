@@ -43,6 +43,7 @@ const config = {
         white: '#ffffff',
       },
       white: '#ffffff',
+      transparent: 'transparent',
     },
   },
   plugins: [
