@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Challenge, MainUserInfo, UserInfoMain } from '@/entities/challenges';
 import { CompletedChallenges, OngoingChallenges } from '@/features/challenge/ui';
+import { Text } from '@/shared/ui';
 
 const userInfo: UserInfoMain = {
   characterLevel: 1,
@@ -94,10 +95,10 @@ function HomePage() {
   const isInProgress = !!completedChallenges.length && !!ongoingChallenges.length;
   return (
     <>
-      <h1 className="text-neutral-white font-display-1 mb-10">
+      <Text.Heading className="mb-10">
         오늘은 어떤 문제를 <br />
         GRAB 해볼까요? 🔥
-      </h1>
+      </Text.Heading>
 
       <div className="flex flex-col gap-[34px] w-full">
         <MainUserInfo userInfo={userInfo} isInProgress={isInProgress} />
