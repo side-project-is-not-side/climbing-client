@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ChallengeTabs } from '@/entities/challenges';
+// import ChallengeList from '@/entities/challenges/ui/ChallengeList';
 import { Text } from '@/shared/ui';
 
 const ChallengePage = () => {
@@ -13,6 +14,8 @@ const ChallengePage = () => {
       </Text.Heading>
 
       <ChallengeTabs />
+
+      {/* <ChallengeList /> */}
     </>
   );
 };

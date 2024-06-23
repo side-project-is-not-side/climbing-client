@@ -15,7 +15,10 @@ const userInfo: UserInfoMain = {
 const completedChallenges: Challenge[] = [
   {
     id: 1,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '암장원정대',
     activityType: 'PICTURE',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -24,7 +27,10 @@ const completedChallenges: Challenge[] = [
   },
   {
     id: 2,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '거의다왔어레드',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -33,7 +39,10 @@ const completedChallenges: Challenge[] = [
   },
   {
     id: 3,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '암장원정대',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -42,7 +51,10 @@ const completedChallenges: Challenge[] = [
   },
   {
     id: 4,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '거의다왔어레드',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -51,7 +63,10 @@ const completedChallenges: Challenge[] = [
   },
   {
     id: 5,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '거의다왔어레드',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -63,7 +78,10 @@ const completedChallenges: Challenge[] = [
 const ongoingChallenges: Challenge[] = [
   {
     id: 1,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '암장원정대',
     activityType: 'PICTURE',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -72,7 +90,10 @@ const ongoingChallenges: Challenge[] = [
   },
   {
     id: 2,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '거의다왔어레드',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',
@@ -81,7 +102,10 @@ const ongoingChallenges: Challenge[] = [
   },
   {
     id: 3,
-    imageUrl: '/images/badge.svg',
+    imageUrl: {
+      black: '/images/badge_black.svg',
+      color: '/images/badge.svg',
+    },
     title: '암장원정대',
     activityType: 'LOCATION',
     summary: '암장 이곳저곳을 둘러보세요!',

@@ -19,7 +19,7 @@ function SimpleChallengeCard({
       <Link href={`/challenge/${id}`} className="h-40 flex flex-col items-center w-full py-5 px-2">
         <Image
           className="w-[70px] h-[70px] mb-1 object-contain object-center"
-          src={imageUrl}
+          src={imageUrl.color}
           width={70}
           height={70}
           alt={title}

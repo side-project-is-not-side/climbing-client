@@ -14,10 +14,10 @@ type Props = {
 
 function ChallengeTab({ text, value }: Props) {
   const params = useSearchParams();
-  const type = params.get('type');
+  const status = params.get('status');
 
-  const href = `/challenge?type=${value}`;
-  const isActive = type === value;
+  const href = `/challenge?status=${value}`;
+  const isActive = status === value;
 
   return (
     <li>
