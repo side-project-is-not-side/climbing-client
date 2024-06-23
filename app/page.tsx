@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Challenge, MainUserInfo, UserInfoMain } from '@/entities/challenges';
-import Logo from '@/entities/main/ui/Logo';
 import { CompletedChallenges, OngoingChallenges } from '@/features/challenge/ui';
 
 const userInfo: UserInfoMain = {
@@ -95,8 +94,6 @@ function HomePage() {
   const isInProgress = !!completedChallenges.length && !!ongoingChallenges.length;
   return (
     <>
-      <Logo />
-
       <h1 className="text-neutral-white font-display-1 mb-10">
         오늘은 어떤 문제를 <br />
         GRAB 해볼까요? 🔥
