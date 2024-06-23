@@ -1,12 +1,17 @@
 import { useEffect, useRef } from 'react';
 
-import { useGetGymsByLocation } from '@/features/gyms/queries/useGetGymsByLocation';
+import { SWRInfiniteResponse } from 'swr/infinite';
 
-export const useInfiniteScroll = () => {
+type Props<T> = {
+  queryFn: () => SWRInfiniteResponse<T>;
+  options?: IntersectionObserverInit;
+};
+
+export const useInfiniteScroll = <T>({ queryFn, options }: Props<T>) => {
   const observerContainerRef = useRef<HTMLUListElement>(null);
   const observerRef: React.MutableRefObject<IntersectionObserver | null> = useRef(null);
 
-  const { data, setSize } = useGetGymsByLocation();
+  const { data, setSize } = queryFn();
 
   useEffect(() => {
     if (!observerContainerRef.current) {
@@ -23,7 +28,7 @@ export const useInfiniteScroll = () => {
       setSize((prev) => prev + 1);
 
       observer.unobserve(entries[0].target);
-    });
+    }, options);
 
     const observerIndex = Math.floor((observerContainerRef.current.children.length * 2) / 3);
     observerRef.current.observe(observerContainerRef.current.children[observerIndex]);
