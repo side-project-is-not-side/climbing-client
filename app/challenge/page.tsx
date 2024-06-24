@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { ChallengeTabs } from '@/entities/challenges';
-// import ChallengeList from '@/entities/challenges/ui/ChallengeList';
 import { Text } from '@/shared/ui';
+import { Challenges } from '@/widgets';
 
 const ChallengePage = () => {
   return (
@@ -13,9 +12,7 @@ const ChallengePage = () => {
         뱃지를 획득해봐요!
       </Text.Heading>
 
-      <ChallengeTabs />
-
-      {/* <ChallengeList /> */}
+      <Challenges />
     </>
   );
 };
