@@ -16,7 +16,7 @@ function OngoingChallenges({ challenges }: { challenges: Challenge[] }) {
         </Link>
       </div>
 
-      <ul className="flex flex-col gap-2 w=full">
+      <ul className="flex flex-col gap-2 w-full">
         {challenges.map((item) => (
           <ChallengeCard key={item.id} data={item} />
         ))}
