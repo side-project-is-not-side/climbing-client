@@ -16,6 +16,7 @@ export const useGetChallengesByStatus = () => {
       status,
       page: String(pageIndex),
       limit: '10',
+      sort: 'LATEST',
     });
     return url;
   };
