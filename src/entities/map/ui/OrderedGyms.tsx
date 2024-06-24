@@ -2,13 +2,14 @@ import React from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { useInfiniteScroll } from '@/entities/gyms/hooks';
 import DefaultGymCard from '@/entities/gyms/ui/DefaultGymCard';
 import Sort from '@/entities/gyms/ui/Sort';
+import { useGetGymsByLocation } from '@/features/gyms/queries/useGetGymsByLocation';
+import { useInfiniteScroll } from '@/shared/hooks';
 
 function OrderedGyms() {
   const router = useRouter();
-  const { observerContainerRef, data } = useInfiniteScroll();
+  const { observerContainerRef, data } = useInfiniteScroll({ queryFn: useGetGymsByLocation });
 
   const onClick = (id: number) => () => {
     router.push(`map/details/${id}`);

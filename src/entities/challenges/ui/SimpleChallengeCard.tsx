@@ -8,7 +8,6 @@ import { getActivityLabel } from '../libs';
 
 function SimpleChallengeCard({
   id,
-  imageUrl,
   title,
   activityType,
 }: Pick<Challenge, 'id' | 'imageUrl' | 'title' | 'activityType'>) {
@@ -19,7 +18,8 @@ function SimpleChallengeCard({
       <Link href={`/challenge/${id}`} className="h-40 flex flex-col items-center w-full py-5 px-2">
         <Image
           className="w-[70px] h-[70px] mb-1 object-contain object-center"
-          src={imageUrl}
+          // TODO: 추후 DB 연결 시 imageUrl.color로 연결
+          src={'/images/badge.svg'}
           width={70}
           height={70}
           alt={title}

@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import { getNearByBoulderingGyms } from '../api';
 import { GetAroundBoulderingGymResponse } from '../api/types';
 import GeolocationLoading from './GeolocationLoading';
-import SelectedGymCard from './SelectedGymCard';
 import useSWR from 'swr';
 
 import { INITIAL_CENTER, ZOOM_LEVEL } from '@/shared/naverMap/constants';
@@ -76,7 +75,6 @@ function NearbyMap() {
           />
         ))}
         <CurrentLocationButton onClick={onCurrentLocationChanged} />
-        {selected && <SelectedGymCard id={selected} />}
       </NaverMapScript>
     </div>
   );

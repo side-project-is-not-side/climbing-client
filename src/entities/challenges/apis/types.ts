@@ -6,7 +6,7 @@ export type UserInfoMain = {
   badgeCount: number;
 };
 
-export type Status = 'SUCCESS' | 'ONGOING';
+export type Status = 'SUCCESS' | 'ONGOING' | 'NOT_STARTED';
 export type ActivityType = 'PICTURE' | 'VIDEO' | 'LOCATION';
 
 export type Challenge = {
@@ -16,5 +16,8 @@ export type Challenge = {
   activityCount: number;
   successCount: number;
   activityType: ActivityType;
-  imageUrl: string;
+  imageUrl: {
+    black: string;
+    color: string;
+  };
 };
