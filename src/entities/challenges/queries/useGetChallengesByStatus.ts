@@ -1,14 +1,11 @@
-import { useSearchParams } from 'next/navigation';
+'use client';
 
 import { Challenge, Status } from '../apis';
 import useSWRInfinite, { SWRInfiniteKeyLoader } from 'swr/infinite';
 
 import { getUrlWithoutHost } from '@/shared/lib/getUrl';
 
-export const useGetChallengesByStatus = () => {
-  const params = useSearchParams();
-  const status = params.get('status') as Status;
-
+export const useGetChallengesByStatus = (status: Status) => {
   const getKey: SWRInfiniteKeyLoader = (pageIndex, previousPageData) => {
     if (previousPageData && !previousPageData.length) return null;
 
