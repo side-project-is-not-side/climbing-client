@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Text } from '@/shared/ui';
 import { Challenges } from '@/widgets';
@@ -12,7 +12,9 @@ const ChallengePage = () => {
         뱃지를 획득해봐요!
       </Text.Heading>
 
-      <Challenges />
+      <Suspense>
+        <Challenges />
+      </Suspense>
     </>
   );
 };

@@ -10,7 +10,7 @@ function ChallengeCard({ data }: { data: Challenge }) {
   const { id, title, successCount, summary, activityCount, activityType } = data;
   const activityLabel = getActivityLabel(activityType);
 
-  const ratio = (successCount / activityCount) * 10;
+  const ratio = (activityCount / successCount) * 100;
 
   return (
     <li className="w-full rounded-[20px] overflow-hidden bg-grayscale-700">
