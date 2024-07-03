@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Text } from '@/shared/ui';
-import Button from '@/shared/ui/Button';
+import { Button, Text } from '@/shared/ui';
 
 const Onboarding = () => {
   return (
@@ -11,8 +10,8 @@ const Onboarding = () => {
         <Text.Description>단조로웠던 클라이밍에 챌린지를 끼얹어봐요!</Text.Description>
       </div>
 
-      <main className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
-        <div className="bg-grayscale-200 w-full h-[500px]"></div>
+      <main className="flex-1 flex flex-col mt-[46px] mx-[22px] mb-12 grow-1">
+        <div className="bg-grayscale-200 w-full flex-1"></div>
         <div className="flex justify-center items-center py-5 text-white">. . .</div>
       </main>
 
