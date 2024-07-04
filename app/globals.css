@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 html,
 body {
   width: 100%;
@@ -10,4 +13,11 @@ body {
 
 .slick-dots li {
   margin: 0;
+}
+.slick-slider .slick-dots button:before {
+  transition: all 0.1s;
+  color: #ddd;
+}
+.slick-slider .slick-dots li.slick-active button::before {
+  color: #ddd;
 }
