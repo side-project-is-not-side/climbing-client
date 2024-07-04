@@ -6,7 +6,7 @@ const Button = ({ children, className, ...props }: ComponentPropsWithoutRef<'but
   return (
     <button
       className={twMerge(
-        ' font-header-2 h-[50px] rounded-3xl w-full',
+        ' font-header-2 h-[50px] rounded-3xl w-full transition-colors',
         props.disabled ? 'bg-grayscale-600 text-neutral-400' : 'bg-primary-400 text-white',
         className,
       )}
