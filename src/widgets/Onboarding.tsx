@@ -1,28 +1,46 @@
-import React from 'react';
+'use client';
 
-
+import React, { useRef, useState } from 'react';
 
 import Link from 'next/link';
 
-import { Button, Text } from '@/shared/ui';
+import Slider, { Settings } from 'react-slick';
+import { twMerge } from 'tailwind-merge';
+
+import { Button } from '@/shared/ui';
 
 const Onboarding = () => {
+  const [disableButton, setDisableButton] = useState(true);
+
+  const sliderRef = useRef<Slider>(null);
+  const sliderOptions: Settings = {
+    arrows: false,
+    dots: true,
+    afterChange: (index) => {
+      if (disableButton && index === 2) setDisableButton(false);
+    },
+  };
+
   return (
-    <div className="px-5 pt-[60px] pb-5 flex flex-col h-[calc(100vh-140px)]">
-      <div>
-        <Text.Heading>다양한 클라이밍 챌린지</Text.Heading>
-        <Text.Description>단조로웠던 클라이밍에 챌린지를 끼얹어봐요!</Text.Description>
+    <>
+      <div id={'sliderContainer'} className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
+        <Slider ref={sliderRef} {...sliderOptions}>
+          {Array(3)
+            .fill(0)
+            .map((banner, index) => (
+              <div key={index}>
+                <div className={`mx-auto bg-neutral-400 w-[304px] h-[464px] max-h-[calc(100vh-400px)]`}>
+                  {banner + index}
+                </div>
+              </div>
+            ))}
+        </Slider>
       </div>
 
-      <main className="flex-1 flex flex-col mt-[46px] mx-[22px] mb-12 grow-1">
-        <div className="flex-1 w-full bg-grayscale-200"></div>
-        <div className="flex items-center justify-center py-5 text-white">. . .</div>
-      </main>
-
-      <Link href={'/login'}>
-        <Button>Button</Button>
+      <Link href={'/login'} className={twMerge(disableButton && 'pointer-events-none')}>
+        <Button disabled={disableButton}>Button</Button>
       </Link>
-    </div>
+    </>
   );
 };
 
