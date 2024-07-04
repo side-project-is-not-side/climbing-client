@@ -17,7 +17,7 @@ function ChallengeList() {
 
       <ul ref={observerContainerRef} className="flex flex-col gap-[10px]">
         {data?.map((pages) => {
-          return pages.map((data) => <ChallengeCard key={data.id} data={data} />);
+          return pages?.map((data) => <ChallengeCard key={data.id} data={data} />);
         })}
       </ul>
     </div>
