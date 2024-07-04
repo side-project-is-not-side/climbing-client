@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+
+import Link from 'next/link';
+
 import { Button, Text } from '@/shared/ui';
 
 const Onboarding = () => {
@@ -11,11 +15,13 @@ const Onboarding = () => {
       </div>
 
       <main className="flex-1 flex flex-col mt-[46px] mx-[22px] mb-12 grow-1">
-        <div className="bg-grayscale-200 w-full flex-1"></div>
-        <div className="flex justify-center items-center py-5 text-white">. . .</div>
+        <div className="flex-1 w-full bg-grayscale-200"></div>
+        <div className="flex items-center justify-center py-5 text-white">. . .</div>
       </main>
 
-      <Button>Button</Button>
+      <Link href={'/login'}>
+        <Button>Button</Button>
+      </Link>
     </div>
   );
 };
