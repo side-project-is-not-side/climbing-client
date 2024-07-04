@@ -1,9 +1,15 @@
 import { useState } from 'react';
 
+
+
 import useSWR from 'swr';
 
+
+const left = screen.width / 2 - 500 / 2;
+const top = screen.height / 2 - 800 / 2;
+
 const useKakaoLogin = () => {
-  const option = `status=no, menubar=no, scrollbars=no, toolbar=no, resizable=no, width=500, height=800`;
+  const option = `status=no, menubar=no, scrollbars=no, toolbar=no, resizable=no, width=500, height=800, left=${left}, top=${top}`;
 
   const [shouldFetch, setShouldFetch] = useState(false);
 
