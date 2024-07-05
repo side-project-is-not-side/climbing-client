@@ -2,12 +2,19 @@
 
 import React, { useRef, useState } from 'react';
 
+
+
 import Link from 'next/link';
+
+
 
 import Slider, { Settings } from 'react-slick';
 import { twMerge } from 'tailwind-merge';
 
+
+
 import { Button } from '@/shared/ui';
+
 
 const Onboarding = () => {
   const [disableButton, setDisableButton] = useState(true);
@@ -16,6 +23,7 @@ const Onboarding = () => {
   const sliderOptions: Settings = {
     arrows: false,
     dots: true,
+    infinite: false,
     afterChange: (index) => {
       if (disableButton && index === 2) setDisableButton(false);
     },
