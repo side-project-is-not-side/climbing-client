@@ -1,19 +1,18 @@
 import { useState } from 'react';
 
-import { useGetKakaoCode, useGetKakaoToken } from '../queries';
+
+
+import { useGetKakaoCode } from '../queries';
 
 const useKakaoLogin = () => {
-  const [code, setCode] = useState<string | null>(null);
-  const [enabled, setEnabled] = useState(false);
-
-  const getCode = useGetKakaoCode({ enabled, setEnabled, setCode });
-  const getToken = useGetKakaoToken({ code, setCode });
+  const [shouldFetch, setShouldFetch] = useState(false);
+  const getCode = useGetKakaoCode({ shouldFetch, setShouldFetch });
 
   return {
     fetch: () => {
-      setEnabled(true);
+      setShouldFetch(true);
     },
-    isLoading: getCode.isLoading || getToken.isLoading,
+    isLoading: getCode.isLoading,
   };
 };
 
