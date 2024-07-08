@@ -11,6 +11,12 @@ body {
   height: 100%;
 }
 
+
+.slick-slide div {
+  display: flex;
+  justify-content: center
+}
+
 .slick-dots li {
   margin: 0;
 }

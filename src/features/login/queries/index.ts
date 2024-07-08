@@ -1,2 +1,2 @@
 export * from './useGetKakaoCode';
-export * from './useGetKakaoToken';
+export * from './usePostKaKaoToken';
