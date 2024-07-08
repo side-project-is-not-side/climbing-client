@@ -1,20 +1,14 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-
-
+import Image from 'next/image';
 import Link from 'next/link';
-
-
 
 import Slider, { Settings } from 'react-slick';
 import { twMerge } from 'tailwind-merge';
 
-
-
 import { Button } from '@/shared/ui';
-
 
 const Onboarding = () => {
   const [disableButton, setDisableButton] = useState(true);
@@ -29,17 +23,44 @@ const Onboarding = () => {
     },
   };
 
+  useEffect(() => {
+    const FixRatio = () => {
+      const container = document.querySelector('#container') as HTMLElement;
+      const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
+
+      let height = container.clientHeight;
+      let width = height * 0.655;
+
+      if (width > container.clientWidth) {
+        width = container.clientWidth;
+        height = width * 1.526;
+      }
+
+      // 설정한 값을 적용
+      boxes.forEach((box) => {
+        box.style.width = `${width}px`;
+        box.style.height = `${height}px`;
+      });
+    };
+
+    window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
+    FixRatio(); // 맨 처음 실행 될 때도 호출
+  }, []);
   return (
     <>
-      <div id={'sliderContainer'} className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
+      <div id={'container'} className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
         <Slider ref={sliderRef} {...sliderOptions}>
           {Array(3)
             .fill(0)
             .map((banner, index) => (
-              <div key={index}>
-                <div className={`mx-auto bg-neutral-400 w-[304px] h-[464px] max-h-[calc(100vh-400px)]`}>
-                  {banner + index}
-                </div>
+              <div key={index} className={`slide-box`}>
+                <Image
+                  src={'/images/opengraph-image.png'}
+                  alt="on Boarding banner"
+                  width={304}
+                  height={464}
+                  className="object-contain w-full h-full bg-[#151517]"
+                />
               </div>
             ))}
         </Slider>
