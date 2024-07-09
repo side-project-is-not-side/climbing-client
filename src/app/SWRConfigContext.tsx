@@ -1,8 +1,8 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { SWRConfig } from 'swr';
-
-
 
 import { useToken } from '@/shared/hooks/useToken';
 
@@ -11,7 +11,9 @@ type Props = {
 };
 
 function SWRConfigContext({ children }: Props) {
-  const { token } = useToken();
+  const router = useRouter();
+
+  const { token, removeToken } = useToken();
 
   return (
     <SWRConfig
@@ -21,7 +23,17 @@ function SWRConfigContext({ children }: Props) {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }).then((res) => res.json()),
+          }).then((res) => {
+            switch (res.status) {
+              case 403:
+                // 토큰 만료 시 로그아웃
+                removeToken();
+                router.push('/login');
+                return;
+              default:
+                return res.json();
+            }
+          }),
       }}
     >
       {children}
