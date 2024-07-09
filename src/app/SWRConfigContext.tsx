@@ -1,22 +1,39 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { SWRConfig } from 'swr';
+
+import { useToken } from '@/shared/hooks/useToken';
 
 type Props = {
   children: React.ReactNode;
 };
 
 function SWRConfigContext({ children }: Props) {
+  const router = useRouter();
+
+  const { token, removeToken } = useToken();
+
   return (
     <SWRConfig
       value={{
         fetcher: (url: string) =>
           fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
             headers: {
-              // TODO: Authorization 구현 후 연결 필요
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_TEST_TOKEN}`,
+              Authorization: `Bearer ${token}`,
             },
-          }).then((res) => res.json()),
+          }).then((res) => {
+            switch (res.status) {
+              case 403:
+                // 토큰 만료 시 로그아웃
+                removeToken();
+                router.push('/login');
+                return;
+              default:
+                return res.json();
+            }
+          }),
       }}
     >
       {children}
