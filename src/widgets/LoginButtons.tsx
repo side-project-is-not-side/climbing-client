@@ -1,12 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useRouter } from 'next/navigation';
 
 import useKakaoLogin from '@/features/login/hooks/useKakaoLogin';
 import { LoginButton } from '@/features/login/ui';
+import { useToken } from '@/shared/hooks/useToken';
 
 const LoginButtons = () => {
+  const { token } = useToken();
+
   const { fetch, isLoading } = useKakaoLogin();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (token !== '') {
+      router.back();
+    }
+  }, [token, router]);
+
   return (
     <>
       <div className="flex flex-col justify-center flex-1 gap-4">

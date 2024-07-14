@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
+import FirstVisitorChecker from '@/app/FirstVisitorChecker';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Header, Layout } from '@/widgets';
 import BottomNavigation from '@/widgets/BottomNavigation';
@@ -27,12 +28,13 @@ export default function RootLayout({
   return (
     <html lang="ko" className={notoSansKR.className}>
       <body className="bg-neutral-black">
-        <Header />
-
         <Analytics />
-        <Layout>
-          <SWRConfigContext>{children}</SWRConfigContext>
-        </Layout>
+        <Header />
+        <FirstVisitorChecker>
+          <Layout>
+            <SWRConfigContext>{children}</SWRConfigContext>
+          </Layout>
+        </FirstVisitorChecker>
 
         <BottomNavigation />
       </body>

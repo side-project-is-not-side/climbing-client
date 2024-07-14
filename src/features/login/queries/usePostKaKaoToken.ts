@@ -4,6 +4,7 @@ import { KakaoToken } from './types';
 import { Key } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
+import { useCheckFirstVisit } from '@/shared/hooks/useLoginHistory';
 import { useToken } from '@/shared/hooks/useToken';
 
 const postCode = async (url: string, { arg }: { arg: string }) => {
@@ -14,11 +15,14 @@ const postCode = async (url: string, { arg }: { arg: string }) => {
 
 export const usePostKakaoCode = () => {
   const router = useRouter();
+
   const { setToken } = useToken();
+  const { setIsFirstVisit } = useCheckFirstVisit();
 
   return useSWRMutation<KakaoToken, string, Key, string>(`/v1/oauth2/kakao`, postCode, {
     onSuccess: (data) => {
       setToken(JSON.stringify(data.accessToken));
+      setIsFirstVisit(false);
       router.replace('/');
     },
   });
