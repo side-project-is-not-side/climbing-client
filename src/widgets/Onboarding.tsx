@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
+
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -31,7 +33,7 @@ const Onboarding = () => {
 
   useEffect(() => {
     const FixRatio = () => {
-      const container = document.querySelector('#container') as HTMLElement;
+      const container = document.querySelector('#slide-container') as HTMLElement;
       const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
 
       let height = container.clientHeight;
@@ -66,7 +68,7 @@ const Onboarding = () => {
   }, [router, token, removeToken]);
   return (
     <>
-      <div id={'container'} className="flex-1 mx-[22px] grow-1">
+      <div id={'slide-container'} className="flex-1 mx-[22px] grow-1 max-h-[calc(100vh-260px)]">
         <Slider ref={sliderRef} {...sliderOptions}>
           {Array(3)
             .fill(0)
