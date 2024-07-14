@@ -1,10 +1,12 @@
 import { useRouter } from 'next/navigation';
 
+
+
 import { KakaoToken } from './types';
 import { Key } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
-import { useCheckFirstVisit } from '@/shared/hooks/useLoginHistory';
+import { useCheckFirstVisit } from '@/shared/hooks';
 import { useToken } from '@/shared/hooks/useToken';
 
 const postCode = async (url: string, { arg }: { arg: string }) => {
