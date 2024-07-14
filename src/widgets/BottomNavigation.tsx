@@ -19,6 +19,8 @@ const NAVIGATION_ITEMS: { iconName: IconName; pathname: string; text: string }[]
 function BottomNavigation() {
   const pathname = usePathname();
 
+  if (pathname.includes('/login') || pathname === '/onboarding') return <></>;
+
   return (
     <div className="drop-shadow-[0px_-4px_10px_rgba(0,0,0,0.30)] fixed left-0 bottom-0 z-20 w-full h-[80px] bg-neutral-700">
       <nav className="max-w-[768px] w-full h-full mx-auto">

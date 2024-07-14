@@ -14,6 +14,8 @@ function Header() {
 
   const { slug } = useParams<{ slug: string }>();
 
+  if (path === '/login' || path === '/onboarding') return <></>;
+
   if (path === '/' || path === '/challenge')
     return (
       <header className="w-full h-[60px] z-10 max-w-3xl min-w-[390px] px-5 mx-auto flex items-center">
