@@ -66,7 +66,7 @@ const Onboarding = () => {
   }, [router, token, removeToken]);
   return (
     <>
-      <div id={'container'} className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
+      <div id={'container'} className="flex-1 mx-[22px] grow-1">
         <Slider ref={sliderRef} {...sliderOptions}>
           {Array(3)
             .fill(0)
