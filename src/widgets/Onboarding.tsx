@@ -4,14 +4,20 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import Slider, { Settings } from 'react-slick';
 import { twMerge } from 'tailwind-merge';
 
+import { useToken } from '@/shared/hooks/useToken';
 import { Button } from '@/shared/ui';
 
 const Onboarding = () => {
+  const router = useRouter();
+
   const [disableButton, setDisableButton] = useState(true);
+
+  const { token, removeToken } = useToken();
 
   const sliderRef = useRef<Slider>(null);
   const sliderOptions: Settings = {
@@ -43,9 +49,21 @@ const Onboarding = () => {
       });
     };
 
-    window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
+    // window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
+    addEventListener('resize', FixRatio);
     FixRatio(); // 맨 처음 실행 될 때도 호출
+
+    return () => {
+      removeEventListener('resize', FixRatio);
+    };
   }, []);
+
+  useEffect(() => {
+    if (token !== '') {
+      return router.back();
+    }
+    removeToken();
+  }, [router, token, removeToken]);
   return (
     <>
       <div id={'container'} className="flex-1 mt-[46px] mx-[22px] mb-12 grow-1">
