@@ -6,7 +6,6 @@ import { KakaoLink } from './types';
 import { usePostKakaoCode } from './usePostKaKaoToken';
 import useSWR from 'swr';
 
-import { openPopup } from '@/shared/utils/popup';
 
 export const useGetKakaoCode = ({
   shouldFetch,
@@ -31,21 +30,26 @@ export const useGetKakaoCode = ({
   // 로그인 팝업 호출을 위해 url 조회
   const response = useSWR<KakaoLink>(shouldFetch ? '/v1/oauth2/kakao/login-page' : null, {
     onSuccess: (data: KakaoLink) => {
-      openPopup({
-        url: 'https://' + data.link,
-        features: windowOptions,
-        onClose: () => {
-          const code = (document.getElementById('kakao_code') as HTMLInputElement).value;
-          code && trigger(code);
-        },
-      });
-
+      window.open('https://' + data.link, '_blank', windowOptions);
       setShouldFetch(false);
     },
   });
 
   // 로그인 성공 후 token 조회
   const { trigger, isMutating } = usePostKakaoCode();
+
+  // 로그인 팝업이 닫히면 code를 받아 token 조회
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data.type === 'KAKAO_LOGIN') {
+        const { code } = event.data;
+        trigger(code);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, [trigger]);
 
   return { ...response, isLoading: response.isLoading || isMutating };
 };

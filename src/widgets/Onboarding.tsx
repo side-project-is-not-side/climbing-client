@@ -8,6 +8,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+
+
 import Slider, { Settings } from 'react-slick';
 import { twMerge } from 'tailwind-merge';
 
@@ -72,7 +74,7 @@ const Onboarding = () => {
         <Slider ref={sliderRef} {...sliderOptions}>
           {Array(3)
             .fill(0)
-            .map((banner, index) => (
+            .map((_, index) => (
               <div key={index} className={`slide-box`}>
                 <Image
                   src={'/images/opengraph-image.png'}
