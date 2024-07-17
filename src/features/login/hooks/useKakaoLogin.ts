@@ -1,17 +1,17 @@
 import { useState } from 'react';
 
-
-
 import { useGetKakaoCode } from '../queries';
 
 const useKakaoLogin = () => {
   const [shouldFetch, setShouldFetch] = useState(false);
   const getCode = useGetKakaoCode({ shouldFetch, setShouldFetch });
 
+  const handleLogin = () => {
+    setShouldFetch(true);
+  };
+
   return {
-    fetch: () => {
-      setShouldFetch(true);
-    },
+    fetch: handleLogin,
     isLoading: getCode.isLoading,
   };
 };
