@@ -13,6 +13,7 @@ const LoginButton = ({ iconName, children, className, ...props }: Props) => {
     <button
       className={twMerge(
         'font-text-1 h-[50px] rounded-[10px] w-full transition-colors bg-none text-white border-white border relative',
+        props.disabled && "opacity-60",
         className,
       )}
       {...props}
