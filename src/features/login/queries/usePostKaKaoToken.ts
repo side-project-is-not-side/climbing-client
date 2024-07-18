@@ -1,7 +1,5 @@
 import { useRouter } from 'next/navigation';
 
-
-
 import { KakaoToken } from './types';
 import { Key } from 'swr';
 import useSWRMutation from 'swr/mutation';
@@ -23,7 +21,7 @@ export const usePostKakaoCode = () => {
 
   return useSWRMutation<KakaoToken, string, Key, string>(`/v1/oauth2/kakao`, postCode, {
     onSuccess: (data) => {
-      setToken(JSON.stringify(data.accessToken));
+      setToken(data.accessToken);
       setIsFirstVisit(false);
       router.replace('/');
     },

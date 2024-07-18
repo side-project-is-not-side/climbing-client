@@ -5,13 +5,16 @@ import { useLocalStorage } from 'usehooks-ts';
 const KEY = 'IsFirstVisit';
 
 export const useCheckFirstVisit = () => {
-  const [isFirstVisit, setIsFirstVisit] = useLocalStorage(KEY, 'true');
+  const [data, setData] = useLocalStorage(KEY, 'true');
 
-  const parsedIsFirstVisit: boolean = JSON.parse(isFirstVisit);
+  const isFirstVisit: boolean = JSON.parse(data);
 
-  const stringifyFirstVisitYn = (IsFirstVisit: boolean) => {
-    setIsFirstVisit(JSON.stringify(IsFirstVisit));
+  const setIsFirstVisit = (IsFirstVisit: boolean) => {
+    if(window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(JSON.stringify({type: 'STORAGE_DATA', data: {key: KEY, data: IsFirstVisit}}));
+    }
+    setData(JSON.stringify(IsFirstVisit));
   };
 
-  return { isFirstVisit: parsedIsFirstVisit, setIsFirstVisit: stringifyFirstVisitYn };
+  return { isFirstVisit, setIsFirstVisit };
 };
