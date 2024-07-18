@@ -11,7 +11,7 @@ import { useToken } from '@/shared/hooks/useToken';
 const LoginButtons = () => {
   const { token } = useToken();
 
-  const { fetch, isLoading } = useKakaoLogin();
+  const { fetch: kakaoLogin } = useKakaoLogin();
 
   const router = useRouter();
 
@@ -24,12 +24,12 @@ const LoginButtons = () => {
   return (
     <>
       <div className="flex flex-col justify-center flex-1 gap-4">
-        <LoginButton iconName="apple">애플 로그인</LoginButton>
-        <LoginButton iconName="kakao" disabled={isLoading} onClick={fetch}>
+        <LoginButton iconName="apple" disabled>애플 로그인</LoginButton>
+        <LoginButton iconName="kakao" onClick={kakaoLogin}>
           카카오 로그인
         </LoginButton>
-        <LoginButton iconName="naver">네이버 로그인</LoginButton>
-        <LoginButton iconName="google">구글 로그인</LoginButton>
+        <LoginButton iconName="naver" disabled>네이버 로그인</LoginButton>
+        <LoginButton iconName="google" disabled>구글 로그인</LoginButton>
       </div>
 
       {/* 팝업에서 정보를 받아 저장하는 inputs */}
