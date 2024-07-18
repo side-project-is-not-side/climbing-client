@@ -2,15 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 
-
-
 import { usePathname, useRouter } from 'next/navigation';
-
-
 
 import { useCheckFirstVisit } from '@/shared/hooks';
 import { useToken } from '@/shared/hooks/useToken';
-
 
 const excludedPaths = ['/login', '/onboarding']; // 비로그인 허용 paths
 
