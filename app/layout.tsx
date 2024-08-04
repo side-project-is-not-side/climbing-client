@@ -7,8 +7,7 @@ import type { Metadata } from 'next';
 
 import FirstVisitorChecker from '@/app/FirstVisitorChecker';
 import { getMetadata } from '@/shared/lib/getMetadata';
-import { Header, Layout } from '@/widgets';
-import BottomNavigation from '@/widgets/BottomNavigation';
+import { Layout } from '@/widgets';
 import SWRConfigContext from '@app/SWRConfigContext';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -29,14 +28,11 @@ export default function RootLayout({
     <html lang="ko" className={notoSansKR.className}>
       <body className="bg-neutral-black">
         <Analytics />
-        <Header />
         <FirstVisitorChecker>
           <Layout>
             <SWRConfigContext>{children}</SWRConfigContext>
           </Layout>
         </FirstVisitorChecker>
-
-        <BottomNavigation />
       </body>
     </html>
   );
