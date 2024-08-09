@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={notoSansKR.className}>
-      <body className="bg-neutral-black">
+      <body className="bg-neutral-700">
         <Analytics />
         <FirstVisitorChecker>
           <Layout>

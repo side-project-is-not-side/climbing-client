@@ -18,7 +18,7 @@ function Layout({
 
   const isFullScreen = FULL_SCREEN_PATHS.some((item) => item === path);
   const mainClassName = twMerge(
-    'w-full min-h-full overflow-auto bg-neutral-black',
+    'w-full min-h-full overflow-auto bg-neutral-700',
     !isFullScreen && 'pb-[80px]',
     ((PATH_NAME[path] && !isFullScreen) || path === `/details/${slug}`) && 'pt-[60px]',
   );
