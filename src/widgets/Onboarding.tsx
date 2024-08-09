@@ -32,47 +32,51 @@ const Onboarding = () => {
   const router = useRouter();
 
   const [disableButton, setDisableButton] = useState(true);
+  const [page, setPage] = useState(0);
 
   const { token, removeToken } = useToken();
 
   const sliderRef = useRef<Slider>(null);
   const sliderOptions: Settings = {
     arrows: false,
-    dots: true,
+    dots: false,
     infinite: false,
-    afterChange: (index) => {
-      if (disableButton && index === 2) setDisableButton(false);
+    autoplay: true,
+    autoplaySpeed: 3500,
+    beforeChange(currentSlide, nextSlide) {
+      setPage(nextSlide);
+      if (disableButton && nextSlide === 2) setDisableButton(false);
     },
   };
 
-  useEffect(() => {
-    const FixRatio = () => {
-      const container = document.querySelector('#slide-container') as HTMLElement;
-      const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
+  // useEffect(() => {
+  //   const FixRatio = () => {
+  //     const container = document.querySelector('#slide-container') as HTMLElement;
+  //     const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
 
-      let height = container.clientHeight;
-      let width = height * 0.655;
+  //     let height = container.clientHeight;
+  //     let width = height * 0.655;
 
-      if (width > container.clientWidth) {
-        width = container.clientWidth;
-        height = width * 1.526;
-      }
+  //     if (width > container.clientWidth) {
+  //       width = container.clientWidth;
+  //       height = width * 1.526;
+  //     }
 
-      // 설정한 값을 적용
-      boxes.forEach((box) => {
-        box.style.width = `${width}px`;
-        box.style.height = `${height}px`;
-      });
-    };
+  //     // 설정한 값을 적용
+  //     boxes.forEach((box) => {
+  //       box.style.width = `${width}px`;
+  //       box.style.height = `${height}px`;
+  //     });
+  //   };
 
-    // window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
-    addEventListener('resize', FixRatio);
-    FixRatio(); // 맨 처음 실행 될 때도 호출
+  //   // window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
+  //   addEventListener('resize', FixRatio);
+  //   FixRatio(); // 맨 처음 실행 될 때도 호출
 
-    return () => {
-      removeEventListener('resize', FixRatio);
-    };
-  }, []);
+  //   return () => {
+  //     removeEventListener('resize', FixRatio);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (token !== '') {
@@ -82,12 +86,28 @@ const Onboarding = () => {
   }, [router, token, removeToken]);
   return (
     <>
-      <div id={'slide-container'} className="flex-1 mx-[22px] grow-1 max-h-[calc(100vh-260px)]">
+      <div className={'flex justify-end px-5'}>
+        <div className="flex justify-center gap-2">
+          {Array(3)
+            .fill(0)
+            .map((_, idx) => (
+              <span
+                key={idx}
+                className={cn(
+                  'block w-[6px] h-[6px] rounded-full',
+                  page === idx ? 'bg-neutral-white' : 'bg-neutral-400',
+                )}
+              ></span>
+            ))}
+        </div>
+      </div>
+
+      <div id={'slide-container'} className="flex-1 m-5 grow-1 max-h-[calc(100vh-160px)]">
         <Slider ref={sliderRef} {...sliderOptions}>
           {onboardingCopy.map((copy, index) => (
-            <div key={index} className={`slide-box`}>
-              <h3 className="text-xl font-semibold text-white whitespace-pre">{copy.title}</h3>
-              <p className="mt-5 mb-8 text-base whitespace-pre text-grayscale-400">{copy.paragraph}</p>
+            <div key={index} className={`slide-box `}>
+              <h3 className="text-2xl font-semibold text-white whitespace-pre">{copy.title}</h3>
+              <p className="mt-5 mb-8 text-lg whitespace-pre text-grayscale-400">{copy.paragraph}</p>
 
               <Image
                 src={`/images/onboarding-${index + 1}.png`}
