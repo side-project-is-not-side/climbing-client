@@ -2,23 +2,21 @@
 
 import React from 'react';
 
+import useSWR from 'swr';
+
 import { MainUserInfo, UserInfoMain, useGetChallengesForMain } from '@/entities/challenges';
 import { CompletedChallenges, OngoingChallenges } from '@/features/challenge/ui';
-
-const userInfo: UserInfoMain = {
-  characterLevel: 1,
-  characterName: '새싹부리부리',
-  // nickname: string;
-  challengingCount: 123,
-  badgeCount: 123,
-};
+import { MainCharacter } from '@/features/main-info/ui';
 
 function MainUserChallengeInfo() {
+  const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info/main');
   const { ongoingChallenges, successChallenges, isChallengeStarted } = useGetChallengesForMain();
 
   return (
     <div className="flex flex-col gap-[34px] w-full">
-      <MainUserInfo userInfo={userInfo} isInProgress={isChallengeStarted} />
+      {userInfo && <MainCharacter level={userInfo.characterLevel} />}
+
+      {userInfo && <MainUserInfo userInfo={userInfo} isInProgress={isChallengeStarted} />}
 
       <CompletedChallenges challenges={successChallenges} />
 

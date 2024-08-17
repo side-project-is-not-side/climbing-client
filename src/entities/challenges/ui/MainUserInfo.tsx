@@ -2,32 +2,15 @@
 
 import React from 'react';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { UserInfoMain } from '../apis';
-import { useGetSpeechBubbleText } from '../queries';
-import SpeechBubble from './SpeechBubble';
-import { motion } from 'framer-motion';
 
 function MainUserInfo({ userInfo, isInProgress }: { userInfo: UserInfoMain; isInProgress: boolean }) {
   const { challengingCount, badgeCount, characterName } = userInfo;
-  const { message, onCharacterClick } = useGetSpeechBubbleText();
 
   return (
-    <div className="flex flex-col items-center w-full pt-5 pb-[30px] px-5 rounded-[20px] overflow-hidden bg-grayscale-700">
-      <SpeechBubble message={message} />
-
-      <motion.div onClick={onCharacterClick} whileTap={{ scale: 0.9 }}>
-        <Image
-          className="w-40 h-40 object-contain object-center mb-0.5"
-          src="/images/character.svg"
-          width={100}
-          height={100}
-          alt="캐릭터"
-        />
-      </motion.div>
-
+    <>
       <span className="text-neutral-white font-header-1 mb-[10px]">{characterName}</span>
 
       <div className="flex justify-center gap-[30px]">
@@ -60,7 +43,7 @@ function MainUserInfo({ userInfo, isInProgress }: { userInfo: UserInfoMain; isIn
           </Link>
         </>
       )}
-    </div>
+    </>
   );
 }
 

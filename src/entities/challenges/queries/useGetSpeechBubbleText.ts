@@ -8,7 +8,7 @@ export const useGetSpeechBubbleText = () => {
     revalidateOnFocus: false,
   });
 
-  const onCharacterClick = () => refetch();
+  const getBubbleText = () => refetch();
 
-  return { message: data?.message ?? '', onCharacterClick };
+  return { message: data?.message ?? '', getBubbleText };
 };
