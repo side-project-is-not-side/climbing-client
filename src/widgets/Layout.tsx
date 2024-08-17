@@ -23,7 +23,7 @@ function Layout({
     ((PATH_NAME[path] && !isFullScreen) || path === `/details/${slug}`) && 'pt-[60px]',
   );
 
-  const containerClassName = twMerge('max-w-3xl min-w-[390px] mx-auto', !isFullScreen && 'px-5 pt-[30px] pb-[32px]');
+  const containerClassName = twMerge('max-w-3xl w-full mx-auto', !isFullScreen && 'px-5 pt-[30px] pb-[32px]');
 
   return (
     <main className={mainClassName}>
