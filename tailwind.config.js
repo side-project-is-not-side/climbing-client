@@ -49,6 +49,11 @@ const config = {
       mPlus: ['var(--font-mPlus1p)'],
       cafeSurround: ['var(--font-cafeSurround)'],
     },
+    extend: {
+      boxShadow: {
+        custom: '0px 4px 16px 0px rgba(236, 230, 223, 0.25)',
+      },
+    },
   },
   plugins: [
     ({ addUtilities }) => {
