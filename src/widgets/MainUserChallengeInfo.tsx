@@ -4,23 +4,39 @@ import React from 'react';
 
 import useSWR from 'swr';
 
-import { MainUserInfo, UserInfoMain, useGetChallengesForMain } from '@/entities/challenges';
-import { CompletedChallenges, OngoingChallenges } from '@/features/challenge/ui';
-import { MainCharacter } from '@/features/main-info/ui';
+import { UserInfoMain, useGetChallengesForMain } from '@/entities/challenges';
+import { CompletedChallengeCard, MainCharacter, MainUserInfo, OngoingChallengeCard } from '@/features/main-info/ui';
 
 function MainUserChallengeInfo() {
   const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info/main');
   const { ongoingChallenges, successChallenges, isChallengeStarted } = useGetChallengesForMain();
+  const [selectedTab, setSelectedTab] = React.useState<'ongoing' | 'completed'>('ongoing');
 
+  const onTabClick = (tab: 'ongoing' | 'completed') => () => {
+    setSelectedTab(tab);
+  };
   return (
-    <div className="flex flex-col gap-[34px] w-full">
+    <div className="flex flex-col gap-[34px] w-full pb-[30px]">
       {userInfo && <MainCharacter level={userInfo.characterLevel} />}
 
-      {userInfo && <MainUserInfo userInfo={userInfo} isInProgress={isChallengeStarted} />}
+      {userInfo && (
+        <MainUserInfo
+          userInfo={userInfo}
+          isInProgress={isChallengeStarted}
+          selectedTab={selectedTab}
+          onTabClick={onTabClick}
+        />
+      )}
 
-      <CompletedChallenges challenges={successChallenges} />
-
-      <OngoingChallenges challenges={ongoingChallenges} />
+      {isChallengeStarted && (
+        <>
+          <ul className="flex w-full flex-col gap-[10px]">
+            {selectedTab === 'completed'
+              ? successChallenges.map((item) => <CompletedChallengeCard key={item.id} item={item} />)
+              : ongoingChallenges.map((item) => <OngoingChallengeCard key={item.id} item={item} />)}
+          </ul>
+        </>
+      )}
     </div>
   );
 }

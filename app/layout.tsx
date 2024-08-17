@@ -16,7 +16,7 @@ dayjs.locale('ko');
 
 const notoSansKR = Noto_Sans_KR({ subsets: ['latin'] });
 
-const mPlus1P = M_PLUS_1p({ subsets: ['latin'], weight: ['800'], variable: '--font-mPlus1p' });
+const mPlus1P = M_PLUS_1p({ subsets: ['latin'], weight: ['700', '800'], variable: '--font-mPlus1p' });
 
 const cafeSurround = localFont({
   src: '../public/fonts/Cafe24Ssurround-v2.0.woff2',

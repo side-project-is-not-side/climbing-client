@@ -16,6 +16,7 @@ export type Challenge = {
   activityCount: number;
   successCount: number;
   activityType: ActivityType;
+  completedAt: string | null;
   imageUrl: {
     black: string;
     color: string;
