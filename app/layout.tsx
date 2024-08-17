@@ -1,4 +1,5 @@
-import { Noto_Sans_KR } from 'next/font/google';
+import { M_PLUS_1p, Noto_Sans_KR } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import './globals.css';
 import dayjs from 'dayjs';
@@ -15,6 +16,14 @@ dayjs.locale('ko');
 
 const notoSansKR = Noto_Sans_KR({ subsets: ['latin'] });
 
+const mPlus1P = M_PLUS_1p({ subsets: ['latin'], weight: ['800'], variable: '--font-mPlus1p' });
+
+const cafeSurround = localFont({
+  src: '../public/fonts/Cafe24Ssurround-v2.0.woff2',
+  display: 'swap',
+  variable: '--font-cafeSurround',
+});
+
 export const generateMetadata = async (): Promise<Metadata> => {
   return getMetadata();
 };
@@ -25,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={notoSansKR.className}>
-      <body className="bg-neutral-700">
+    <html lang="ko" className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable}`}>
+      <body className="bg-neutral-black">
         <Analytics />
         <FirstVisitorChecker>
           <Layout>

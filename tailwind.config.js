@@ -45,6 +45,10 @@ const config = {
       white: '#ffffff',
       transparent: 'transparent',
     },
+    fontFamily: {
+      mPlus: ['var(--font-mPlus1p)'],
+      cafeSurround: ['var(--font-cafeSurround)'],
+    },
   },
   plugins: [
     ({ addUtilities }) => {
