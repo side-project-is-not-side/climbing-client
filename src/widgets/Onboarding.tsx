@@ -49,34 +49,34 @@ const Onboarding = () => {
     },
   };
 
-  // useEffect(() => {
-  //   const FixRatio = () => {
-  //     const container = document.querySelector('#slide-container') as HTMLElement;
-  //     const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
+  useEffect(() => {
+    const FixRatio = () => {
+      const container = document.querySelector('#slide-container') as HTMLElement;
+      const boxes = document.querySelectorAll('.slide-box') as NodeListOf<HTMLElement>;
 
-  //     let height = container.clientHeight;
-  //     let width = height * 0.655;
+      const height = container.clientHeight;
+      // let width = height * 0.655;
 
-  //     if (width > container.clientWidth) {
-  //       width = container.clientWidth;
-  //       height = width * 1.526;
-  //     }
+      // if (width > container.clientWidth) {
+      //   width = container.clientWidth;
+      //   height = width * 1.526;
+      // }
 
-  //     // 설정한 값을 적용
-  //     boxes.forEach((box) => {
-  //       box.style.width = `${width}px`;
-  //       box.style.height = `${height}px`;
-  //     });
-  //   };
+      // 설정한 값을 적용
+      boxes.forEach((box) => {
+        // box.style.width = `${width}px`;
+        box.style.height = `${height}px`;
+      });
+    };
 
-  //   // window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
-  //   addEventListener('resize', FixRatio);
-  //   FixRatio(); // 맨 처음 실행 될 때도 호출
+    // window.onresize = FixRatio; // 화면의 사이즈가 변할 때마다 호출
+    addEventListener('resize', FixRatio);
+    FixRatio(); // 맨 처음 실행 될 때도 호출
 
-  //   return () => {
-  //     removeEventListener('resize', FixRatio);
-  //   };
-  // }, []);
+    return () => {
+      removeEventListener('resize', FixRatio);
+    };
+  }, []);
 
   useEffect(() => {
     if (token !== '') {
@@ -105,17 +105,18 @@ const Onboarding = () => {
       <div id={'slide-container'} className="flex-1 m-5 grow-1 max-h-[calc(100vh-160px)]">
         <Slider ref={sliderRef} {...sliderOptions}>
           {onboardingCopy.map((copy, index) => (
-            <div key={index} className={`slide-box `}>
+            <div key={index} className={`slide-box`}>
               <h3 className="text-2xl font-semibold text-white whitespace-pre">{copy.title}</h3>
               <p className="mt-5 mb-8 text-lg whitespace-pre text-grayscale-400">{copy.paragraph}</p>
-
-              <Image
-                src={`/images/onboarding-${index + 1}.png`}
-                alt="on Boarding banner"
-                width={280}
-                height={280}
-                className={cn('object-contain w-[95%] max-w-[300px] mx-auto max-h-[240px]')}
-              />
+              <div className="items-center justify-center h-[calc(100%-180px)]">
+                <Image
+                  src={`/images/onboarding-${index + 1}.png`}
+                  alt="on Boarding banner"
+                  width={280}
+                  height={280}
+                  className={cn('object-contain w-[95%] max-w-[300px] mx-auto max-h-[240px]')}
+                />
+              </div>
             </div>
           ))}
         </Slider>
