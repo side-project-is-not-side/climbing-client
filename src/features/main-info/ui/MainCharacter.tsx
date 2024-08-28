@@ -43,7 +43,7 @@ const MainCharacter = ({ level }: { level: keyof typeof levelLabel }) => {
         <Image
           className="-mt-5 mb-8"
           src={'/images/main/main-background.png'}
-          width={337}
+          width={373}
           height={364}
           alt="background"
         />
@@ -53,12 +53,11 @@ const MainCharacter = ({ level }: { level: keyof typeof levelLabel }) => {
             <SpeechBubble showBubble={showBubble} message={message} />
 
             <motion.div onClick={onCharacterClick} whileTap={{ scale: 0.9 }}>
-              {/* TODO: level에 맞는 캐릭터 이미지 연결 */}
               <Image
-                className="w-40 h-40 object-contain object-center mb-0.5"
-                src="/images/character.svg"
-                width={100}
-                height={100}
+                className="w-50 h-50 object-contain object-center mb-0.5"
+                src={`/images/buri/v${level}.png`}
+                width={200}
+                height={200}
                 alt="캐릭터"
               />
             </motion.div>
