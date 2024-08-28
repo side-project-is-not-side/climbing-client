@@ -1,2 +1,7 @@
-export * from './ui';
-export * from './hooks';
+import { BaseDrawer } from './Base';
+
+export const Drawer = {
+  Base: BaseDrawer,
+};
+
+export * from './types';
