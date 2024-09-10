@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
 import { useDialog } from '@/shared/hooks';
+import { Icon } from '@/shared/icons';
 
 /**
  * @description
@@ -20,11 +21,12 @@ export function BaseDrawer({
   maskClosable = false,
 
   title,
-
+  titleStyle,
   onAfterOpen,
   onClose,
   onAction,
   actionText = '확인',
+  showCloseButton = false,
 }: TBaseDrawerProps) {
   const { ref, portalTarget } = useDialog<HTMLDialogElement>({ visible, onAfterOpen, onClose, maskClosable });
 
@@ -44,7 +46,7 @@ export function BaseDrawer({
                 <motion.dialog
                   key={visible ? 'drawer--open' : 'drawer--close'}
                   className={twMerge(
-                    'fixed inset-x-0 bottom-0 flex-col w-full max-w-none px-5 pt-[10px] pb-5 mx-0 mb-0 border-none rounded-t-[20px] rounded-r-[20px] bg-grayscale-700',
+                    'fixed inset-x-0 bottom-0 flex-col w-full max-w-none px-5 pt-[10px] pb-[30px] mx-0 mb-0 border-none rounded-t-[20px] rounded-r-[20px] bg-grayscale-700',
                     visible ? 'flex' : 'hidden',
                   )}
                   ref={ref}
@@ -53,13 +55,33 @@ export function BaseDrawer({
                   exit={{ y: '100%', opacity: 0 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                  <div className="relative flex flex-1 flex-col overflow-hidden">
-                    <h4 className="mt-10 w-full font-header-2 text-neutral-white">{title}</h4>
+                  <div className="relative flex flex-col">
+                    <h4
+                      className={twMerge(
+                        'mt-10 w-full font-header-2 text-neutral-white',
+                        titleStyle === 'center' ? 'text-center' : 'text-left',
+                      )}
+                    >
+                      {title}
+                    </h4>
+                    {showCloseButton && (
+                      <button type="button" className="absolute top-10 right-5" onClick={() => onClose()}>
+                        <Icon name="Close" size="20" color="#fff" />
+                      </button>
+                    )}
 
-                    {children && <div>{children}</div>}
+                    {children}
                   </div>
 
-                  {onAction && <button type="button">{actionText}</button>}
+                  {onAction && (
+                    <button
+                      type="button"
+                      className="flex w-full p-[10px] items-center justify-center bg-red-400 rounded-[50px] font-header-2 text-neutral-white"
+                      onClick={onAction}
+                    >
+                      {actionText}
+                    </button>
+                  )}
                 </motion.dialog>
               </div>
             )}

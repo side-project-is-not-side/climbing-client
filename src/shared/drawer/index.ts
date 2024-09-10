@@ -5,3 +5,4 @@ export const Drawer = {
 };
 
 export * from './types';
+export * from './Base';
