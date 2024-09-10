@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import LevelInfoDrawer from './LevelInfoDrawer';
+import { LevelInfoDrawer } from '@/shared/ui';
 
 const ShowInfoButton = () => {
   const [isOpen, setIsOpen] = useState(false);
