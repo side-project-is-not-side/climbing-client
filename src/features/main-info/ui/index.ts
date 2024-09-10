@@ -4,3 +4,4 @@ export { default as MainUserInfo } from './MainUserInfo';
 
 export { default as OngoingChallengeCard } from './OngoingChallengeCard';
 export { default as CompletedChallengeCard } from './CompletedChallengeCard';
+export { default as LevelInfoDrawer } from './LevelInfoDrawer';
