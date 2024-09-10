@@ -7,6 +7,7 @@ import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
 import FirstVisitorChecker from '@/app/FirstVisitorChecker';
+import { ModalContextProvider } from '@/app/ModalContext';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Layout } from '@/widgets';
 import SWRConfigContext from '@app/SWRConfigContext';
@@ -39,7 +40,9 @@ export default function RootLayout({
         <Analytics />
         <FirstVisitorChecker>
           <Layout>
-            <SWRConfigContext>{children}</SWRConfigContext>
+            <SWRConfigContext>
+              <ModalContextProvider>{children}</ModalContextProvider>
+            </SWRConfigContext>
           </Layout>
         </FirstVisitorChecker>
       </body>
