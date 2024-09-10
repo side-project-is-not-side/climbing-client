@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { LevelInfoDrawer } from '@/shared/ui';
+import { useModalContext } from '@/app/ModalContext';
+import { ModalKeys } from '@/shared/constants';
+import { LevelInfoDrawer } from '@/widgets';
 
 const ShowInfoButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { open } = useModalContext();
+  const handleModalOpen = () => open(ModalKeys.레벨설명);
 
-  const handleModalClose = () => setIsOpen(false);
-  const handleModalOpen = () => setIsOpen(true);
   return (
     <>
       <button type="button" className="w-5 h-5" onClick={handleModalOpen}>
@@ -19,7 +20,7 @@ const ShowInfoButton = () => {
         </svg>
       </button>
 
-      <LevelInfoDrawer visible={isOpen} onClose={handleModalClose} onAction={handleModalClose} />
+      <LevelInfoDrawer />
     </>
   );
 };

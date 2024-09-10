@@ -2,10 +2,11 @@
 
 import React from 'react';
 
-import { Drawer, TBaseDrawerProps } from './drawer';
 import { twMerge } from 'tailwind-merge';
 
-type Props = Pick<TBaseDrawerProps, 'visible' | 'onClose' | 'onAction'>;
+import { useModalRegister } from '@/app/ModalContext';
+import { ModalKeys } from '@/shared/constants';
+import { Drawer } from '@/shared/ui';
 
 const levelDivStyle =
   'relative w-[calc(100%/4+32px)] h-full rounded-[14px] after:absolute after:block after:w-4 after:h-4 after:bg-neutral-white after:rounded-lg after:inset-y-0 after:my-auto after:left-1';
@@ -17,12 +18,14 @@ const LEVELS = [
   { text: '8', bgStyle: 'bg-[#FF4E27]' },
   { text: '12~', bgStyle: 'bg-[#F53D2A]' },
 ];
-const LevelInfoDrawer = ({ visible, onClose, onAction }: Props) => {
+const LevelInfoDrawer = () => {
+  const { visible, close } = useModalRegister(ModalKeys.레벨설명);
+
   return (
     <Drawer.Base
       visible={visible}
-      onClose={onClose}
-      onAction={onAction}
+      onClose={close}
+      onAction={close}
       title="부리 성장 기준"
       actionText="확인했어요"
       titleStyle="center"

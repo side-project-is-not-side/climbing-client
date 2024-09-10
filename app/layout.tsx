@@ -5,7 +5,6 @@ import './globals.css';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'styled-components';
 
 import FirstVisitorChecker from '@/app/FirstVisitorChecker';
 import { ModalContextProvider } from '@/app/ModalContext';
@@ -42,9 +41,7 @@ export default function RootLayout({
         <FirstVisitorChecker>
           <Layout>
             <SWRConfigContext>
-              <ThemeProvider theme={{}}>
-                <ModalContextProvider>{children}</ModalContextProvider>
-              </ThemeProvider>
+              <ModalContextProvider>{children}</ModalContextProvider>
             </SWRConfigContext>
           </Layout>
         </FirstVisitorChecker>

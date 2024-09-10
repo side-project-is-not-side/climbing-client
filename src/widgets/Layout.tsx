@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useParams, usePathname } from 'next/navigation';
 
+import { ThemeProvider } from 'styled-components';
 import { twMerge } from 'tailwind-merge';
 
 import { FULL_SCREEN_PATHS, PATH_NAME } from '@/shared/constants';
@@ -28,9 +29,11 @@ function Layout({
   const containerClassName = twMerge('max-w-3xl w-full mx-auto', !isFullScreen && 'px-5 pt-[30px] pb-[32px]');
 
   return (
-    <main className={mainClassName}>
-      <div className={containerClassName}>{children}</div>
-    </main>
+    <ThemeProvider theme={{}}>
+      <main className={mainClassName}>
+        <div className={containerClassName}>{children}</div>
+      </main>
+    </ThemeProvider>
   );
 }
 
