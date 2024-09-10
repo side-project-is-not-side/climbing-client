@@ -22,10 +22,7 @@ export const Container = styled.dialog<TStyleContainerProps>`
 
   border: none;
   border-radius: 10px;
-
-  &::backdrop {
-    background: rgb(0 0 0 / 50%);
-  }
+  background-color: ${theme.neutral['700']};
 `;
 
 export const CommonTitle = styled.h4`

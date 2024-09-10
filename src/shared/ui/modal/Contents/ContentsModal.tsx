@@ -1,10 +1,14 @@
+'use client';
+
 import React from 'react';
 
 import { ModalButtonGroup } from '../ButtonGroup';
 import ModalBackground from '../ModalBackground';
+import { modalAnimation } from '../animation';
 import { TCommonModalProps } from '../common/common.types';
 import { Scrollable } from '../types';
 import Style from './ContentsModal.style';
+import { m } from 'framer-motion';
 import { useScreen } from 'usehooks-ts';
 
 import { useDialog } from '@/shared/hooks';
@@ -73,6 +77,8 @@ const ContentsModal = React.forwardRef<HTMLDialogElement, TContentsModalProps>(f
   );
 });
 
+const ContentsModalWithMotion = m(ContentsModal, { forwardMotionProps: true });
+
 /**
  * @description
  * 콘텐츠가 있는 모달입니다.
@@ -115,7 +121,7 @@ export function Contents({
 
   return (
     <ModalBackground visible={visible} portalTarget={portalTarget} onClose={onClose} maskClosable={maskClosable}>
-      <ContentsModal
+      <ContentsModalWithMotion
         ref={ref}
         width={width}
         height={height}
@@ -131,9 +137,13 @@ export function Contents({
         actionText={actionText}
         cancelText={cancelText}
         actionDisabled={actionDisabled}
+        initial={modalAnimation.initial}
+        animate={modalAnimation.animate}
+        exit={modalAnimation.exit}
+        transition={modalAnimation.transition}
       >
         {children}
-      </ContentsModal>
+      </ContentsModalWithMotion>
     </ModalBackground>
   );
 }

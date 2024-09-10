@@ -1,3 +1,5 @@
+'use client';
+
 import { Maskable, TCloseController } from './types';
 import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import ReactDOM from 'react-dom';
@@ -15,7 +17,7 @@ export default function ModalBackground({ visible, portalTarget, children, onClo
           <AnimatePresence>
             {visible && (
               <div
-                className="fixed inset-0 z-[9999] flex items-center justify-center w-full bg-[rgb(0 0 0 / 70%)]"
+                className="fixed inset-0 z-[9999] h-full flex items-center justify-center w-full bg-[#000000b3]"
                 onClick={(e) => {
                   if (maskClosable && e.target === e.currentTarget) {
                     onClose?.();

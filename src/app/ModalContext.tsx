@@ -28,7 +28,7 @@ export const ModalContext = React.createContext<TModalContextState>({
 });
 
 export const ModalContextProvider = ({ children }: PropsWithChildren) => {
-  const [modals, setModals] = React.useState<TModalMap>(new Map([['로그아웃', { visible: false }]]));
+  const [modals, setModals] = React.useState<TModalMap>(new Map([]));
 
   const register: TModalContextState['register'] = (key, { visible = false }) => {
     setModals((state) => {

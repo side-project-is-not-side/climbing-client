@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 
 import { ModalButtonGroup } from '../ButtonGroup';
 import ModalBackground from '../ModalBackground';
+import { modalAnimation } from '../animation';
 import { TCommonModalProps } from '../common/common.types';
 import Style from './style';
+import { m } from 'framer-motion';
 
 import { useDialog } from '@/shared/hooks';
 
@@ -53,6 +57,8 @@ export const NoContentsModal = React.forwardRef<HTMLDialogElement, TNoContentsMo
   );
 });
 
+const NoContentsModalWithMotion = m(NoContentsModal, { forwardMotionProps: true });
+
 /**
  * @description
  * 콘텐츠가 없는 모달입니다.
@@ -91,7 +97,7 @@ export function NoContents({
 
   return (
     <ModalBackground visible={visible} portalTarget={portalTarget} onClose={onClose} maskClosable={maskClosable}>
-      <NoContentsModal
+      <NoContentsModalWithMotion
         ref={ref}
         key={visible ? 'modal--open' : 'modal--close'}
         visible={visible}
@@ -100,6 +106,11 @@ export function NoContents({
         borderRadius={borderRadius}
         title={title}
         descriptions={descriptions}
+        // animation
+        initial={modalAnimation.initial}
+        animate={modalAnimation.animate}
+        exit={modalAnimation.exit}
+        transition={modalAnimation.transition}
         onAction={onAction}
         onCancel={onCancel}
         onClose={onClose}

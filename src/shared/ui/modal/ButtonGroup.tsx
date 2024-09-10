@@ -1,3 +1,5 @@
+'use client';
+
 import { CSSProperties, PropsWithChildren } from 'react';
 
 import { TModalButtonGroupProps } from './common/common.types';
@@ -47,7 +49,7 @@ export function ModalButtonGroup({
         </ModalButton>
       )}
 
-      {!!cancelText && !!actionText && <div className="h-full w-[1px] bg-grayscale-600" />}
+      {!!cancelText && !!actionText && <div className="h-[50px] w-[1px] bg-grayscale-600" />}
 
       {onAction && actionText && (
         <ModalButton
