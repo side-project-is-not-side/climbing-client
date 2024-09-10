@@ -5,8 +5,10 @@ import './globals.css';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'styled-components';
 
 import FirstVisitorChecker from '@/app/FirstVisitorChecker';
+import { ModalContextProvider } from '@/app/ModalContext';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Layout } from '@/widgets';
 import SWRConfigContext from '@app/SWRConfigContext';
@@ -39,7 +41,11 @@ export default function RootLayout({
         <Analytics />
         <FirstVisitorChecker>
           <Layout>
-            <SWRConfigContext>{children}</SWRConfigContext>
+            <SWRConfigContext>
+              <ThemeProvider theme={{}}>
+                <ModalContextProvider>{children}</ModalContextProvider>
+              </ThemeProvider>
+            </SWRConfigContext>
           </Layout>
         </FirstVisitorChecker>
       </body>

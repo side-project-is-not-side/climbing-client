@@ -2,10 +2,8 @@
 
 import React from 'react';
 
+import { Drawer, TBaseDrawerProps } from './drawer';
 import { twMerge } from 'tailwind-merge';
-
-import { Drawer } from '@/shared/drawer';
-import { TBaseDrawerProps } from '@/shared/drawer';
 
 type Props = Pick<TBaseDrawerProps, 'visible' | 'onClose' | 'onAction'>;
 

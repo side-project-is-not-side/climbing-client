@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TCloseController } from '../drawer/types';
+import { TCloseController } from '../ui';
 import { useBodyScrollHidden } from './useBodyScrollHidden';
 
 export type TUseDialogParams = {
