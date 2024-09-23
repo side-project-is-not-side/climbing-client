@@ -9,7 +9,7 @@ import { useToken } from '@/shared/hooks/useToken';
 
 const excludedPaths = ['/login', '/onboarding']; // 비로그인 허용 paths
 
-const FirstVisitorChecker = ({ children }: { children: React.ReactNode }) => {
+export const FirstVisitorChecker = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -35,5 +35,3 @@ const FirstVisitorChecker = ({ children }: { children: React.ReactNode }) => {
 
   return renderContent ? <>{children}</> : <></>;
 };
-
-export default FirstVisitorChecker;

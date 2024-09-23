@@ -18,12 +18,14 @@ function Layout({
   const { slug } = useParams();
 
   const isMain = path === '/';
+  const isMyPage = path.includes('my');
   const isFullScreen = FULL_SCREEN_PATHS.some((item) => item === path);
   const mainClassName = twMerge(
     'w-full min-h-full overflow-auto bg-neutral-700',
     !isFullScreen && 'pb-[80px]',
     ((PATH_NAME[path] && !isFullScreen) || path === `/details/${slug}`) && 'pt-[60px]',
     isMain && 'bg-[#EEEAE5]',
+    isMyPage && 'bg-grayscale-800',
   );
 
   const containerClassName = twMerge('max-w-3xl w-full mx-auto', !isFullScreen && 'px-5 pt-[30px] pb-[32px]');

@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function SWRConfigContext({ children }: Props) {
+export function SWRConfigContext({ children }: Props) {
   const router = useRouter();
 
   const { token, removeToken } = useToken();
@@ -40,5 +40,3 @@ function SWRConfigContext({ children }: Props) {
     </SWRConfig>
   );
 }
-
-export default SWRConfigContext;

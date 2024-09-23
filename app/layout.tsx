@@ -6,12 +6,10 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
-import FirstVisitorChecker from '@/app/FirstVisitorChecker';
-import { ModalContextProvider } from '@/app/ModalContext';
+import { FirstVisitorChecker, ModalContextProvider, SWRConfigContext } from '@/app';
+import { HydrationProvider } from '@/app/HydrationProvider';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Layout } from '@/widgets';
-import SWRConfigContext from '@app/SWRConfigContext';
-import { Analytics } from '@vercel/analytics/react';
 
 dayjs.locale('ko');
 
@@ -37,14 +35,15 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable}`}>
       <body className="bg-neutral-black">
-        <Analytics />
-        <FirstVisitorChecker>
-          <Layout>
-            <SWRConfigContext>
-              <ModalContextProvider>{children}</ModalContextProvider>
-            </SWRConfigContext>
-          </Layout>
-        </FirstVisitorChecker>
+        <HydrationProvider>
+          <FirstVisitorChecker>
+            <Layout>
+              <SWRConfigContext>
+                <ModalContextProvider>{children}</ModalContextProvider>
+              </SWRConfigContext>
+            </Layout>
+          </FirstVisitorChecker>
+        </HydrationProvider>
       </body>
     </html>
   );

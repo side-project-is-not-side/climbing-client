@@ -6,4 +6,4 @@ export const PATH_NAME: {
   '/map': '지도',
 };
 
-export const FULL_SCREEN_PATHS = ['/map', '/onboarding', '/login'];
+export const FULL_SCREEN_PATHS = ['/onboarding', '/login'];
