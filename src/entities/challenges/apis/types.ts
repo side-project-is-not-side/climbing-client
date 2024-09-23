@@ -1,7 +1,7 @@
 export type UserInfoMain = {
   characterLevel: 1 | 2 | 3 | 4;
   characterName: string;
-  // nickname: string;
+  nickname: string;
   challengingCount: number;
   badgeCount: number;
 };
