@@ -1,2 +1,2 @@
 export * from './useCheckAppVersion';
-export * from './useAppPermission';
+export * from './useCheckPermission';
