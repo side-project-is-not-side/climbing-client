@@ -3,20 +3,14 @@
 import React from 'react';
 
 import { useModalRegister } from '@/app/ModalContext';
+import { useLogout } from '@/features/auth';
 import { ModalKeys } from '@/shared/constants';
-import { useCheckFirstVisit, useToken } from '@/shared/hooks';
 import { Modal } from '@/shared/ui';
 
 const LogoutModal = () => {
   const { visible, close } = useModalRegister(ModalKeys.로그아웃);
-  const { removeToken } = useToken();
-  const { setIsFirstVisit } = useCheckFirstVisit();
 
-  const handleLogout = () => {
-    close();
-    removeToken();
-    setIsFirstVisit(true);
-  };
+  const { handleLogout } = useLogout();
 
   return (
     <Modal.NoContents
