@@ -5,7 +5,7 @@ import React from 'react';
 import useSWR from 'swr';
 
 import { UserInfoMain } from '@/entities/challenges';
-import { LogoutButton } from '@/features/auth';
+import { LogoutButton, WithdrawButton } from '@/features/auth';
 
 const UserInfoPage = () => {
   const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info');
@@ -19,6 +19,7 @@ const UserInfoPage = () => {
       </div>
 
       <LogoutButton />
+      <WithdrawButton />
     </div>
   );
 };
