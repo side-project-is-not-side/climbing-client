@@ -5,3 +5,4 @@ export { default as LoginButtons } from './LoginButtons';
 export { default as LevelInfoDrawer } from './LevelInfoDrawer';
 export { default as LogoutModal } from './LogoutModal';
 export * from './ChallengeStatus';
+export { default as WithdrawalModal } from './WithdrawalModal';

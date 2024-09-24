@@ -2,10 +2,11 @@
 
 import React, { PropsWithChildren } from 'react';
 
-import { useCheckAppVersion } from '@/features/app';
+import { useCheckAppVersion, useCheckPermission } from '@/features/app';
 
 export const HydrationProvider = ({ children }: PropsWithChildren) => {
   useCheckAppVersion();
+  useCheckPermission();
 
   return <>{children}</>;
 };

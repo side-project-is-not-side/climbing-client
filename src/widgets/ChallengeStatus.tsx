@@ -7,7 +7,7 @@ import { ShowInfoButton } from '@/features/main-info/ui';
 import { LEVEL_STANDARD } from '@/shared/constants';
 import { Icon } from '@/shared/icons';
 
-type Props = Omit<UserInfoMain, 'nickname'>;
+type Props = Pick<UserInfoMain, 'characterName' | 'characterLevel' | 'challengingCount' | 'badgeCount'>;
 
 const LEVELS = [
   { progressWidth: 'w-0' },
