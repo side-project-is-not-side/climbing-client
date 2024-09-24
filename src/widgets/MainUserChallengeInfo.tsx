@@ -8,7 +8,7 @@ import { UserInfoMain, useGetChallengesForMain } from '@/entities/challenges';
 import { CompletedChallengeCard, MainCharacter, MainUserInfo, OngoingChallengeCard } from '@/features/main-info/ui';
 
 function MainUserChallengeInfo() {
-  const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info/main');
+  const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info');
   const { ongoingChallenges, successChallenges, isChallengeStarted } = useGetChallengesForMain();
   const [selectedTab, setSelectedTab] = React.useState<'ongoing' | 'completed'>('ongoing');
 
