@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import Link from 'next/link';
-
 import useSWR from 'swr';
 
 import { UserInfoMain } from '@/entities/challenges';
@@ -23,16 +21,19 @@ const MyPage = () => {
     window.open(url, '_blank');
   };
 
+  const onPageMove = () => {
+    window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'NAVIGATE', data: { route: 'user_info' } }));
+  };
   return (
-    <div className="flex flex-col gap-5 pt-[30px]">
-      <Link href="/my/user-info" className="flex justify-between items-center py-[14px]">
+    <div className="flex flex-col gap-5 pt-[70px]">
+      <button type="button" onClick={onPageMove} className="flex justify-between items-center py-[14px]">
         <div className="flex gap-1 items-end">
           <span className="font-header-1 text-neutral-white">{nickname}</span>
           <span className="font-text-2 text-neutral-white">님</span>
         </div>
 
         <Icon name="ArrowRight" size="24" />
-      </Link>
+      </button>
 
       <ChallengeStatus
         characterName={characterName}

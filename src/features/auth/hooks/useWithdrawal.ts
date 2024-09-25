@@ -1,7 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
@@ -10,7 +8,6 @@ import { useCheckFirstVisit, useToken } from '@/shared/hooks';
 
 export const useWithdrawal = () => {
   const { removeToken, token } = useToken();
-  const router = useRouter();
   const { setIsFirstVisit } = useCheckFirstVisit();
   const { close } = useModalRegister(ModalKeys.회원탈퇴);
 
@@ -27,7 +24,6 @@ export const useWithdrawal = () => {
     onSuccess: () => {
       removeToken();
       setIsFirstVisit(true);
-      router.push('/onboarding');
       close();
     },
   });
