@@ -1,5 +1,5 @@
-export const moveToChallengeDetail = (id: number) => {
+export const moveToChallengeDetail = (challengeId: number) => {
   window.ReactNativeWebView?.postMessage?.(
-    JSON.stringify({ type: 'NAVIGATE', data: { route: 'challenge_detail', id } }),
+    JSON.stringify({ type: 'NAVIGATE', data: { route: 'challenge_detail', challengeId } }),
   );
 };
