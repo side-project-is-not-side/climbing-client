@@ -46,7 +46,7 @@ export function BaseDrawer({
                 <motion.dialog
                   key={visible ? 'drawer--open' : 'drawer--close'}
                   className={twMerge(
-                    'fixed inset-x-0 bottom-0 flex-col w-full max-w-none px-5 pt-[10px] pb-[30px] mx-0 mb-0 border-none rounded-t-[20px] rounded-r-[20px] bg-grayscale-700',
+                    'fixed inset-x-0 bottom-0 flex-col w-full max-w-none px-5 pt-[10px] pb-[30px] mx-0 mb-0 border-none rounded-t-[20px] bg-grayscale-700',
                     visible ? 'flex' : 'hidden',
                   )}
                   ref={ref}
