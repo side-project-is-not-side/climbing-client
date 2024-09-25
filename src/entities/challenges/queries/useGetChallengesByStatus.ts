@@ -18,5 +18,5 @@ export const useGetChallengesByStatus = (status: Status) => {
     return url;
   };
 
-  return useSWRInfinite<Challenge[]>(getKey, { revalidateFirstPage: false });
+  return useSWRInfinite<Challenge[]>(getKey);
 };
