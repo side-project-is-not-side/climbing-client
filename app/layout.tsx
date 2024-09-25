@@ -23,6 +23,12 @@ const cafeSurround = localFont({
   variable: '--font-cafeSurround',
 });
 
+const pretendard = localFont({
+  src: '../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+});
+
 export const generateMetadata = async (): Promise<Metadata> => {
   return getMetadata();
 };
@@ -33,7 +39,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable} bg-neutral-black`}>
+    <html
+      lang="ko"
+      className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable} ${pretendard.variable} bg-neutral-black`}
+    >
       <body>
         <HydrationProvider>
           <FirstVisitorChecker>

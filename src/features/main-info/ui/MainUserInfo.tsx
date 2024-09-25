@@ -17,7 +17,7 @@ function MainUserInfo({ userInfo, isInProgress, selectedTab, onTabClick }: MainU
   const { challengingCount, badgeCount } = userInfo;
 
   const buttonStyle = 'flex-1 flex gap-[14px] justify-center items-center py-3 px-6 rounded-[10px] transition-all';
-  const labelStyle = 'font-medium text-base';
+  const labelStyle = 'font-medium text-base font-pretendard';
   const countStyle = 'text-neutral-black text-[24px] font-mPlus font-extrabold';
 
   const handleButtonClick = () => {
