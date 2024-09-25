@@ -19,11 +19,14 @@ function Layout({
 
   const isMain = path === '/';
   const isMyPage = path.includes('my');
-  const isFullScreen = FULL_SCREEN_PATHS.some((item) => item === path);
+  const isFullScreen = FULL_SCREEN_PATHS.includes(path);
+  const isDetailPage = path === `/details/${slug}`;
+  const isSpecialPage = PATH_NAME[path] && !isFullScreen;
+
   const mainClassName = twMerge(
     'w-full min-h-full overflow-auto bg-neutral-700',
     !isFullScreen && 'pb-[80px]',
-    ((PATH_NAME[path] && !isFullScreen) || path === `/details/${slug}`) && 'pt-[60px]',
+    (isSpecialPage || isDetailPage) && !isFullScreen && 'pt-[60px]',
     isMain && 'bg-[#EEEAE5]',
     isMyPage && 'bg-grayscale-800',
   );

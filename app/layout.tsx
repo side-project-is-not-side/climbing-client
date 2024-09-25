@@ -33,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable}`}>
-      <body className="bg-neutral-black">
+    <html lang="ko" className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable} bg-neutral-black`}>
+      <body>
         <HydrationProvider>
           <FirstVisitorChecker>
             <Layout>
