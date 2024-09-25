@@ -25,7 +25,7 @@ const MyPage = () => {
     window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'NAVIGATE', data: { route: 'user_info' } }));
   };
   return (
-    <div className="flex flex-col gap-5 pt-[70px]">
+    <div className="flex flex-col gap-5 pt-[30px]">
       <button type="button" onClick={onPageMove} className="flex justify-between items-center py-[14px]">
         <div className="flex gap-1 items-end">
           <span className="font-header-1 text-neutral-white">{nickname}</span>
