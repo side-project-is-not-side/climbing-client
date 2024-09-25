@@ -43,7 +43,8 @@ const MyPage = () => {
 
       <div>
         <ul>
-          <Menu text="알림 설정" onClick={() => {}} />
+          {/* TODO:" 추후 알림 기능이 픽스되면 구현하도록 합니다" */}
+          {/* <Menu text="알림 설정" onClick={() => {}} /> */}
           <Menu text={MYPAGE_LINKS['공지사항'].text} onClick={onLinkClick(MYPAGE_LINKS['공지사항'].url)} />
           <Menu
             text={MYPAGE_LINKS['개인정보처리방침'].text}

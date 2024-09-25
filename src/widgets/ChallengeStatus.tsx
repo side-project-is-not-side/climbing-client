@@ -55,7 +55,7 @@ export const ChallengeStatus = ({ characterName, characterLevel, challengingCoun
         <div
           className={twMerge(
             'absolute left-0 top-0 bg-primary-400 rounded-[14px] h-full',
-            LEVELS[characterLevel].progressWidth,
+            LEVELS[characterLevel - 1].progressWidth,
           )}
         />
       </div>
