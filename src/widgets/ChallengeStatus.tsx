@@ -47,7 +47,7 @@ export const ChallengeStatus = ({ characterName, characterLevel, challengingCoun
             className={twMerge(
               levelDivStyle,
               index !== 0 && '-ml-8',
-              index > characterLevel ? 'after:bg-neutral-700' : 'after:bg-neutral-white',
+              index >= characterLevel ? 'after:bg-neutral-700' : 'after:bg-neutral-white',
             )}
           />
         ))}

@@ -21,7 +21,7 @@ function MainUserInfo({ userInfo, isInProgress, selectedTab, onTabClick }: MainU
   const countStyle = 'text-neutral-black text-[24px] font-mPlus font-extrabold';
 
   const handleButtonClick = () => {
-    window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'NAVIGATE', data: { route: 'challenge' } }));
+    window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'NAVIGATE', data: { route: 'challenge_group' } }));
   };
 
   return (

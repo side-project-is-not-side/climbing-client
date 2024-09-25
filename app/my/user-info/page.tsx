@@ -11,7 +11,7 @@ const UserInfoPage = () => {
   const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info', null, { revalidateOnFocus: false });
 
   return (
-    <div>
+    <div className="pt-10">
       <div className="flex gap-5 items-center w-full h-20 px-[30px] my-6 rounded-[10px] bg-neutral-700">
         <span className="font-header-1 text-neutral-white">유저 ID</span>
 
