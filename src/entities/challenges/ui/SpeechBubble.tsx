@@ -24,7 +24,7 @@ function SpeechBubble({ showBubble, message }: { showBubble: boolean; message: s
             opacity: 0,
           }}
         >
-          <span className="text-primary-400 font-header-1 break-keep text-center font-cafeSurround">{message}</span>
+          <span className="text-primary-400 font-header-1 break-keep text-center">{message}</span>
         </motion.div>
       )}
     </AnimatePresence>

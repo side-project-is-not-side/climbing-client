@@ -17,7 +17,7 @@ function MainUserInfo({ userInfo, isInProgress, selectedTab, onTabClick }: MainU
   const { challengingCount, badgeCount } = userInfo;
 
   const buttonStyle = 'flex-1 flex gap-[14px] justify-center items-center py-3 px-6 rounded-[10px] transition-all';
-  const labelStyle = 'font-medium text-base font-pretendard';
+  const labelStyle = 'font-medium text-base';
   const countStyle = 'text-neutral-black text-[24px] font-mPlus font-extrabold';
 
   const handleButtonClick = () => {
@@ -71,7 +71,7 @@ function MainUserInfo({ userInfo, isInProgress, selectedTab, onTabClick }: MainU
             className="flex justify-center items-center h-[50px] px-[34px] rounded-[24px] bg-red-400"
             onClick={handleButtonClick}
           >
-            <span className="text-neutral-white font-header-2 font-cafeSurround">챌린지 시작하기</span>
+            <span className="text-neutral-white font-header-2">챌린지 시작하기</span>
           </button>
         </div>
       )}

@@ -70,9 +70,7 @@ const MainCharacter = ({ level }: { level: keyof typeof levelLabel }) => {
       <div className="flex gap-x-2 items-center">
         <div className="flex gap-x-[10px] items-center">
           <span className="font-medium text-[16px] text-[#00000069] leading-[23px]">내 레벨은</span>
-          <span className="font-cafeSurround text-neutral-black font-bold text-[22px] leading-[26px]">
-            {levelLabel[level]}
-          </span>
+          <span className="text-neutral-black font-bold text-[22px] leading-[26px]">{levelLabel[level]}</span>
         </div>
 
         <ShowInfoButton />

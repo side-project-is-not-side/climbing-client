@@ -30,7 +30,6 @@ export const CommonTitle = styled.h4`
   text-align: center;
 
   /* Header 2 */
-  font-family: 'Noto Sans KR';
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
