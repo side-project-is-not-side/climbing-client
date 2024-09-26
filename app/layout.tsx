@@ -7,7 +7,6 @@ import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
 import { FirstVisitorChecker, ModalContextProvider, SWRConfigContext } from '@/app';
-import { HydrationProvider } from '@/app/HydrationProvider';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Layout } from '@/widgets';
 
@@ -32,16 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${mPlus1P.variable} ${pretendard.variable} bg-neutral-black`}>
-      <body className="font-pretendard">
-        <HydrationProvider>
-          <FirstVisitorChecker>
-            <Layout>
-              <SWRConfigContext>
-                <ModalContextProvider>{children}</ModalContextProvider>
-              </SWRConfigContext>
-            </Layout>
-          </FirstVisitorChecker>
-        </HydrationProvider>
+      <body className="font-pretendard select-none">
+        <FirstVisitorChecker>
+          <Layout>
+            <SWRConfigContext>
+              <ModalContextProvider>{children}</ModalContextProvider>
+            </SWRConfigContext>
+          </Layout>
+        </FirstVisitorChecker>
       </body>
     </html>
   );
