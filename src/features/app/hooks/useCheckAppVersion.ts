@@ -2,13 +2,18 @@
 
 import { useEffect } from 'react';
 
+import { useIsMounted } from 'usehooks-ts';
+
 import { useAppVersionStore } from '@/entities/app';
 
 export const useCheckAppVersion = () => {
   const { updateAppState } = useAppVersionStore();
+  const isMounted = useIsMounted();
   // TODO: 추후 앱 버전이 낮을 경우 강제 업데이트 로직이 추가되어야 한다.
 
   useEffect(() => {
+    if (!isMounted) return;
+
     const getOSType = () => {
       const osType = navigator.userAgent.toLocaleLowerCase();
 
@@ -34,5 +39,5 @@ export const useCheckAppVersion = () => {
     const appVersion = getAppVersion();
 
     updateAppState(appVersion, osType);
-  }, []);
+  }, [isMounted]);
 };
