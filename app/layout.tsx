@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${mPlus1P.variable} ${pretendard.variable} bg-neutral-black`}>
-      <body className="font-pretendard">
+      <body className="font-pretendard select-none">
         <FirstVisitorChecker>
           <Layout>
             <SWRConfigContext>
