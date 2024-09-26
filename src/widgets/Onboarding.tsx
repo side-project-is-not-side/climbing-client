@@ -123,7 +123,7 @@ const Onboarding = () => {
       </div>
 
       <Link href={'/login'} className={twMerge(disableButton && 'pointer-events-none')}>
-        <Button disabled={disableButton}>Button</Button>
+        <Button disabled={disableButton}>{disableButton ? '다음' : '시작하기'}</Button>
       </Link>
     </>
   );
