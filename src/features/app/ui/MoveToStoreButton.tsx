@@ -3,10 +3,10 @@ import React from 'react';
 import { STORE_LINK, useAppVersionStore } from '@/entities/app';
 
 export const MoveToStoreButton = () => {
-  const { currentVersion, userAgent } = useAppVersionStore();
+  const { currentVersion, osType } = useAppVersionStore();
 
   const handleClick = () => {
-    if (userAgent === 'iOS') {
+    if (osType === 'iOS') {
       window.open(STORE_LINK.iOS, '_target');
       return;
     }
