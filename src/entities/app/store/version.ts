@@ -1,14 +1,14 @@
 import { StateCreator, create } from 'zustand';
 import { combine, devtools } from 'zustand/middleware';
 
-const initialState: { currentVersion: string | undefined; userAgent: 'iOS' | 'Android' | undefined } = {
+const initialState: { currentVersion: string | undefined; osType: 'iOS' | 'Android' | 'other' } = {
   currentVersion: undefined,
-  userAgent: undefined,
+  osType: 'other',
 };
 
 const reducer = (set: (param: StateCreator<typeof initialState>) => void) => ({
-  updateAppState(currentVersion: string, userAgent: 'iOS' | 'Android') {
-    set(() => ({ currentVersion, userAgent }));
+  updateAppState(currentVersion: string, osType: 'iOS' | 'Android' | 'other') {
+    set(() => ({ currentVersion, osType }));
   },
 });
 
