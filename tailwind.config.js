@@ -10,7 +10,6 @@ const config = {
     },
     fontFamily: {
       mPlus: ['var(--font-mPlus1p)'],
-      cafeSurround: ['var(--font-cafeSurround)'],
       pretendard: ['var(--font-pretendard)'],
     },
     extend: {

@@ -1,4 +1,4 @@
-import { M_PLUS_1p, Noto_Sans_KR } from 'next/font/google';
+import { M_PLUS_1p } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import './globals.css';
@@ -13,15 +13,7 @@ import { Layout } from '@/widgets';
 
 dayjs.locale('ko');
 
-const notoSansKR = Noto_Sans_KR({ subsets: ['latin'] });
-
 const mPlus1P = M_PLUS_1p({ subsets: ['latin'], weight: ['700', '800'], variable: '--font-mPlus1p' });
-
-const cafeSurround = localFont({
-  src: '../public/fonts/Cafe24Ssurround-v2.0.woff2',
-  display: 'swap',
-  variable: '--font-cafeSurround',
-});
 
 const pretendard = localFont({
   src: '../public/fonts/PretendardVariable.woff2',
@@ -39,11 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ko"
-      className={`${notoSansKR.className} ${mPlus1P.variable} ${cafeSurround.variable} ${pretendard.variable} bg-neutral-black`}
-    >
-      <body>
+    <html lang="ko" className={`${mPlus1P.variable} ${pretendard.variable} bg-neutral-black`}>
+      <body className="font-pretendard">
         <HydrationProvider>
           <FirstVisitorChecker>
             <Layout>
