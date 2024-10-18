@@ -3,12 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import Slider, { Settings } from 'react-slick';
-import { twMerge } from 'tailwind-merge';
 
+// import { twMerge } from 'tailwind-merge';
 import { useToken } from '@/shared/hooks/useToken';
 import { cn } from '@/shared/lib/tailwindMerge';
 import { Button } from '@/shared/ui';
@@ -122,9 +122,18 @@ const Onboarding = () => {
         </Slider>
       </div>
 
-      <Link href={'/login'} className={twMerge(disableButton && 'pointer-events-none')}>
-        <Button disabled={disableButton}>{disableButton ? '다음' : '시작하기'}</Button>
-      </Link>
+      <Button
+        disabled={disableButton}
+        onClick={() => {
+          if (window.ReactNativeWebView) {
+            window.ReactNativeWebView.postMessage(
+              JSON.stringify({ type: 'STORAGE_DATA', data: { key: 'Onboarding', data: true } }),
+            );
+          }
+        }}
+      >
+        {disableButton ? '다음' : '시작하기'}
+      </Button>
     </>
   );
 };
