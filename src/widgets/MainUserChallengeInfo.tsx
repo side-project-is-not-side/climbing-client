@@ -17,15 +17,16 @@ function MainUserChallengeInfo() {
   };
   return (
     <div className="flex flex-col gap-[34px] w-full pb-[30px]">
-      {userInfo && <MainCharacter level={userInfo.characterLevel} />}
-
       {userInfo && (
-        <MainUserInfo
-          userInfo={userInfo}
-          isInProgress={isChallengeStarted}
-          selectedTab={selectedTab}
-          onTabClick={onTabClick}
-        />
+        <>
+          <MainCharacter level={userInfo.characterLevel} nickname={userInfo.nickname} />{' '}
+          <MainUserInfo
+            userInfo={userInfo}
+            isInProgress={isChallengeStarted}
+            selectedTab={selectedTab}
+            onTabClick={onTabClick}
+          />
+        </>
       )}
 
       {isChallengeStarted && (
