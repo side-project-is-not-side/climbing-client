@@ -10,7 +10,7 @@ const ShowInfoButton = ({ customIcon }: { customIcon?: ReactNode }) => {
 
   return (
     <>
-      <button type="button" className="w-5 h-5 flex items-center justify-center" onClick={handleModalOpen}>
+      <button type="button" className="relative w-5 h-5 flex items-center justify-center" onClick={handleModalOpen}>
         {customIcon ?? (
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <circle cx="10" cy="10" r="10" fill="#DAD3CB" />
@@ -20,6 +20,12 @@ const ShowInfoButton = ({ customIcon }: { customIcon?: ReactNode }) => {
             />
           </svg>
         )}
+
+        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-b-4 border-b-black" />
+
+        <div className="absolute -bottom-11 -left-2 w-[90px] py-1 px-[10px] rounded-[4px] bg-neutral-black">
+          <span className="text-neutral-white font-header-3">부리부리는?</span>
+        </div>
       </button>
 
       <LevelInfoDrawer />

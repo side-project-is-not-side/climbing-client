@@ -11,14 +11,15 @@ import { useGetSpeechBubbleText } from '@/entities/challenges';
 import SpeechBubble from '@/entities/challenges/ui/SpeechBubble';
 
 const levelLabel = {
-  1: 'LV1 부리',
-  2: 'LV2 부리불',
-  3: 'LV3 부리번',
-  4: 'LV4 부리부리',
+  1: '부리',
+  2: '부리불',
+  3: '부리번',
+  4: '부리부리',
 } as const;
 
-const MainCharacter = ({ level }: { level: keyof typeof levelLabel }) => {
+const MainCharacter = ({ level, nickname }: { level: keyof typeof levelLabel; nickname: string }) => {
   const [showBubble, setShowBubble] = useState(false);
+
   const { message, getBubbleText } = useGetSpeechBubbleText();
 
   const onCharacterClick = () => {
@@ -69,8 +70,8 @@ const MainCharacter = ({ level }: { level: keyof typeof levelLabel }) => {
 
       <div className="flex gap-x-2 items-center">
         <div className="flex gap-x-[10px] items-center">
-          <span className="font-medium text-[16px] text-[#00000069] leading-[23px]">내 레벨은</span>
-          <span className="text-neutral-black font-bold text-[22px] leading-[26px]">{levelLabel[level]}</span>
+          <span className="font-extrabold text-[20px] text-neutral-black leading-normal">{nickname}</span>
+          <span className="text-grayscale-500 font-bold text-[22px] leading-normal">{levelLabel[level]}</span>
         </div>
 
         <ShowInfoButton />
