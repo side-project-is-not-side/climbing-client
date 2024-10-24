@@ -2,11 +2,17 @@ import { useEffect, useState } from 'react';
 
 export function useGetAccessToken() {
   const [token, setToken] = useState<string>();
-  useEffect(() => {
-    const cookies = document.cookie.split(';');
-    const accessToken = cookies.find((cookie) => cookie.trim().startsWith('accessToken='))?.split('=')[1];
-    setToken(accessToken);
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return token;
+  useEffect(() => {
+    const accessToken = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('accessToken='))
+      ?.split('=')[1];
+
+    setToken(accessToken);
+    setIsLoading(false);
+    // window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'CONSOLE_LOG', data: accessToken }));
+  }, []);
+  return { token, isLoading };
 }

@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { useLocalStorage } from 'usehooks-ts';
 
 const KEY = 'accessToken';
@@ -9,12 +11,14 @@ export const useToken = () => {
 
   const token: string = data ? JSON.parse(data) : '';
 
-  const setToken = (token: string) => {
-    if (window.ReactNativeWebView) {
-      window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'STORAGE_DATA', data: { key: KEY, data: token } }));
-    }
-    setData(JSON.stringify(token));
-  };
+  useEffect(() => {
+    const accessToken = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('accessToken='))
+      ?.split('=')[1];
+
+    if (accessToken) setData(accessToken);
+  }, []);
 
   const removeToken = () => {
     if (window.ReactNativeWebView) {
@@ -23,5 +27,5 @@ export const useToken = () => {
     remove();
   };
 
-  return { token, setToken: setToken, removeToken };
+  return { token, removeToken };
 };

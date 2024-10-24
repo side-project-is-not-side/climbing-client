@@ -7,7 +7,7 @@ import { ModalKeys } from '@/shared/constants';
 import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useLogout = () => {
-  const token = useGetAccessToken();
+  const { token } = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.로그아웃);
 
   const logout = async () => {
