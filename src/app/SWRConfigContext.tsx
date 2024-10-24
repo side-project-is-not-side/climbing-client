@@ -1,20 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import { SWRConfig } from 'swr';
 
-import { useToken } from '@/shared/hooks/useToken';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 type Props = {
   children: React.ReactNode;
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const router = useRouter();
-
-  const { token, removeToken } = useToken();
-
+  const token = useGetAccessToken();
   return (
     <SWRConfig
       value={{
@@ -25,11 +20,6 @@ export function SWRConfigContext({ children }: Props) {
             },
           }).then((res) => {
             switch (res.status) {
-              case 403:
-                // 토큰 만료 시 로그아웃
-                removeToken();
-                router.push('/login');
-                return;
               default:
                 return res.json();
             }

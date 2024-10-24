@@ -4,11 +4,10 @@ import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
 import { ModalKeys } from '@/shared/constants';
-import { useCheckFirstVisit, useToken } from '@/shared/hooks';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useWithdrawal = () => {
-  const { removeToken, token } = useToken();
-  const { setIsFirstVisit } = useCheckFirstVisit();
+  const token = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.회원탈퇴);
 
   const withdraw = async () => {
@@ -22,8 +21,9 @@ export const useWithdrawal = () => {
 
   const { trigger } = useSWRMutation('withdraw', withdraw, {
     onSuccess: () => {
-      removeToken();
-      setIsFirstVisit(true);
+      if (window.ReactNativeWebView) {
+        window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'LOGOUT' }));
+      }
       close();
     },
   });

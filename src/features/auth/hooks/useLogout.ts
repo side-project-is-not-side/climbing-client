@@ -1,16 +1,13 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
 import { ModalKeys } from '@/shared/constants';
-import { useToken } from '@/shared/hooks';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useLogout = () => {
-  const { removeToken, token } = useToken();
-  const router = useRouter();
+  const token = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.로그아웃);
 
   const logout = async () => {
@@ -24,8 +21,9 @@ export const useLogout = () => {
 
   const { trigger } = useSWRMutation('logout', logout, {
     onSuccess: () => {
-      removeToken();
-      router.push('/login');
+      if (window.ReactNativeWebView) {
+        window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'LOGOUT' }));
+      }
       close();
     },
   });
