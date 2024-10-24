@@ -3,13 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
-// import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import Slider, { Settings } from 'react-slick';
 
-// import { twMerge } from 'tailwind-merge';
-import { useToken } from '@/shared/hooks/useToken';
 import { cn } from '@/shared/lib/tailwindMerge';
 import { Button } from '@/shared/ui';
 
@@ -29,20 +25,16 @@ const onboardingCopy = [
 ];
 
 const Onboarding = () => {
-  const router = useRouter();
-
   const [disableButton, setDisableButton] = useState(true);
   const [page, setPage] = useState(0);
-
-  const { token, removeToken } = useToken();
 
   const sliderRef = useRef<Slider>(null);
   const sliderOptions: Settings = {
     arrows: false,
     dots: false,
     infinite: false,
-    autoplay: true,
-    autoplaySpeed: 3500,
+    // autoplay: true,
+    // autoplaySpeed: 3500,
     beforeChange(currentSlide, nextSlide) {
       setPage(nextSlide);
       if (disableButton && nextSlide === 2) setDisableButton(false);
@@ -78,12 +70,6 @@ const Onboarding = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (token !== '') {
-      return router.back();
-    }
-    removeToken();
-  }, [router, token, removeToken]);
   return (
     <>
       <div className={'flex justify-end px-5'}>
