@@ -7,7 +7,7 @@ import { ModalKeys } from '@/shared/constants';
 import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useWithdrawal = () => {
-  const token = useGetAccessToken();
+  const { token } = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.회원탈퇴);
 
   const withdraw = async () => {

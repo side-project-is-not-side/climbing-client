@@ -9,7 +9,11 @@ type Props = {
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const token = useGetAccessToken();
+  const { token, isLoading } = useGetAccessToken();
+
+  if (isLoading) return <></>;
+
+  // window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'CONSOLE_LOG', data: token }));
   return (
     <SWRConfig
       value={{
