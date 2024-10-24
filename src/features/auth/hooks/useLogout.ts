@@ -4,10 +4,10 @@ import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
 import { ModalKeys } from '@/shared/constants';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useLogout = () => {
-  const token = getAccessToken();
+  const token = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.로그아웃);
 
   const logout = async () => {

@@ -4,10 +4,10 @@ import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
 import { ModalKeys } from '@/shared/constants';
-import { getAccessToken } from '@/shared/utils/getAccessToken';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useWithdrawal = () => {
-  const token = getAccessToken();
+  const token = useGetAccessToken();
   const { close } = useModalRegister(ModalKeys.회원탈퇴);
 
   const withdraw = async () => {

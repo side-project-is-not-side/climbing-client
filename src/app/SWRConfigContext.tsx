@@ -2,14 +2,14 @@
 
 import { SWRConfig } from 'swr';
 
-import { getAccessToken } from '@/shared/utils/getAccessToken';
+import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 type Props = {
   children: React.ReactNode;
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const token = getAccessToken();
+  const token = useGetAccessToken();
   return (
     <SWRConfig
       value={{
