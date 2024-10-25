@@ -3,11 +3,11 @@
 import useSWRMutation from 'swr/mutation';
 
 import { useModalRegister } from '@/app';
+import { useAuthContext } from '@/app/AuthContextProvider';
 import { ModalKeys } from '@/shared/constants';
-import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 export const useLogout = () => {
-  const { token } = useGetAccessToken();
+  const { token, removeToken } = useAuthContext();
   const { close } = useModalRegister(ModalKeys.로그아웃);
 
   const logout = async () => {
@@ -24,6 +24,7 @@ export const useLogout = () => {
       if (window.ReactNativeWebView) {
         window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'LOGOUT' }));
       }
+      removeToken();
       close();
     },
   });

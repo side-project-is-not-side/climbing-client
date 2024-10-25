@@ -1,36 +1,38 @@
 'use client';
 
+import { useAuthContext } from './AuthContextProvider';
 import { SWRConfig } from 'swr';
-
-import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 type Props = {
   children: React.ReactNode;
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const { token, isLoading } = useGetAccessToken();
+  const { token } = useAuthContext();
 
-  if (isLoading) return <></>;
-
-  // window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type: 'CONSOLE_LOG', data: token }));
   return (
     <SWRConfig
       value={{
-        fetcher: (url: string) =>
-          fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
+        fetcher: async (url: string) => {
+          const res = fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: token ? `Bearer ${token}` : '',
+              'Content-Type': 'application/json',
             },
           }).then((res) => {
             switch (res.status) {
               default:
                 return res.json();
             }
-          }),
+          });
+
+          return res;
+        },
+        suspense: true,
+        revalidateOnMount: true,
       }}
     >
-      {children}
+      {children}{' '}
     </SWRConfig>
   );
 }

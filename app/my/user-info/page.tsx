@@ -8,7 +8,7 @@ import { UserInfoMain } from '@/entities/challenges';
 import { LogoutButton, WithdrawButton } from '@/features/auth';
 
 const UserInfoPage = () => {
-  const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info', null, { revalidateOnFocus: false });
+  const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info');
 
   return (
     <div>
