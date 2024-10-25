@@ -7,6 +7,7 @@ import 'dayjs/locale/ko';
 import type { Metadata } from 'next';
 
 import { ModalContextProvider, SWRConfigContext } from '@/app';
+import AuthContextProvider from '@/app/AuthContextProvider';
 import { getMetadata } from '@/shared/lib/getMetadata';
 import { Layout } from '@/widgets';
 
@@ -33,9 +34,11 @@ export default function RootLayout({
     <html lang="ko" className={`${mPlus1P.variable} ${pretendard.variable} bg-neutral-black`}>
       <body className="font-pretendard select-none">
         <Layout>
-          <SWRConfigContext>
-            <ModalContextProvider>{children}</ModalContextProvider>
-          </SWRConfigContext>
+          <AuthContextProvider>
+            <SWRConfigContext>
+              <ModalContextProvider>{children}</ModalContextProvider>
+            </SWRConfigContext>
+          </AuthContextProvider>
         </Layout>
       </body>
     </html>

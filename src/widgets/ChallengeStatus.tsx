@@ -20,7 +20,7 @@ const LEVELS = [
 const levelDivStyle =
   'relative w-[calc(100%/4+32px)] h-full rounded-[14px] after:absolute after:block after:w-4 after:h-4 after:rounded-lg after:inset-y-0 after:my-auto after:left-1 z-[1]';
 
-export const ChallengeStatus = ({ characterName, characterLevel, challengingCount, badgeCount }: Props) => {
+export const ChallengeStatus = ({ characterName, characterLevel = 1, challengingCount, badgeCount = 0 }: Props) => {
   return (
     <div className="w-full h-[186px] rounded-[20px] bg-neutral-700 px-3">
       <div className="w-full flex gap-2 items-center pt-[22px] justify-center mb-4">

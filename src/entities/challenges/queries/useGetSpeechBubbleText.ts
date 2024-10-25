@@ -6,6 +6,7 @@ const ENDPOINT = '/v1/speech-bubbles/recommend';
 export const useGetSpeechBubbleText = () => {
   const { data, mutate: refetch } = useSWR<{ message: string }>(ENDPOINT, {
     revalidateOnFocus: false,
+    suspense: false,
   });
 
   const getBubbleText = () => refetch();

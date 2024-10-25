@@ -6,15 +6,12 @@ import useSWR from 'swr';
 
 import { UserInfoMain, useGetChallengesForMain } from '@/entities/challenges';
 import { CompletedChallengeCard, MainCharacter, MainUserInfo, OngoingChallengeCard } from '@/features/main-info/ui';
-import { useGetAccessToken } from '@/shared/hooks/useGetAccessToken';
 
 function MainUserChallengeInfo() {
-  const { token } = useGetAccessToken();
   const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info');
+
   const { ongoingChallenges, successChallenges, isChallengeStarted } = useGetChallengesForMain();
   const [selectedTab, setSelectedTab] = React.useState<'ongoing' | 'completed'>('ongoing');
-
-  if (!token) return <></>;
 
   const onTabClick = (tab: 'ongoing' | 'completed') => () => {
     setSelectedTab(tab);

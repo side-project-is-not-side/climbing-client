@@ -12,7 +12,7 @@ import { Icon } from '@/shared/icons';
 import { ChallengeStatus } from '@/widgets';
 
 const MyPage = () => {
-  const { data: userInfo, isLoading } = useSWR<UserInfoMain>('/v1/user-info', null, { revalidateOnFocus: false });
+  const { data: userInfo, isLoading } = useSWR<UserInfoMain>('/v1/user-info');
 
   if (isLoading || !userInfo) return null;
 
