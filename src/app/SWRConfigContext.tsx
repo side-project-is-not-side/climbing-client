@@ -1,7 +1,9 @@
 'use client';
 
 import { useAuthContext } from './AuthContextProvider';
-import { SWRConfig } from 'swr';
+import { SWRConfig, mutate } from 'swr';
+
+import { isError } from '@/shared/utils/isError';
 
 type Props = {
   children: React.ReactNode;
@@ -30,9 +32,16 @@ export function SWRConfigContext({ children }: Props) {
         },
         suspense: true,
         revalidateOnMount: true,
+        onSuccess: (data, key) => {
+          if (isError(data)) {
+            setTimeout(() => {
+              mutate(key);
+            }, 300);
+          }
+        },
       }}
     >
-      {children}{' '}
+      {children}
     </SWRConfig>
   );
 }

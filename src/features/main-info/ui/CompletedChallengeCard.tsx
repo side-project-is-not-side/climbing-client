@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Image from 'next/image';
-
+// import Image from 'next/image';
 import { ACTIVITY_LABEL } from '../constants';
 import { moveToChallengeDetail } from '../util';
 
@@ -10,7 +9,7 @@ import { Challenge } from '@/entities/challenges';
 const CompletedChallengeCard = ({ item }: { item: Challenge }) => {
   const {
     id,
-    imageUrl: { color },
+    // imageUrl: { color },
     completedAt,
     title,
     summary,
@@ -22,7 +21,7 @@ const CompletedChallengeCard = ({ item }: { item: Challenge }) => {
       className="w-full h-[140px] flex p-5 gap-x-[14px] items-center rounded-[20px] bg-neutral-white shadow-custom"
       onClick={() => moveToChallengeDetail(id)}
     >
-      <Image src={color} width={100} height={100} alt="challenge badge" />
+      {/* <Image src={color} width={100} height={100} alt="challenge badge" /> */}
 
       <div className="flex flex-1 flex-col gap-y-[10px]">
         <div className="flex flex-col">
