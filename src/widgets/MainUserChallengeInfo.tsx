@@ -9,7 +9,6 @@ import { CompletedChallengeCard, MainCharacter, MainUserInfo, OngoingChallengeCa
 
 function MainUserChallengeInfo() {
   const { data: userInfo } = useSWR<UserInfoMain>('/v1/user-info');
-
   const { ongoingChallenges, successChallenges, isChallengeStarted } = useGetChallengesForMain();
   const [selectedTab, setSelectedTab] = React.useState<'ongoing' | 'completed'>('ongoing');
 
