@@ -1,6 +1,7 @@
 import React from 'react';
 
-// import Image from 'next/image';
+import Image from 'next/image';
+
 import { ACTIVITY_LABEL } from '../constants';
 import { moveToChallengeDetail } from '../util';
 
@@ -9,7 +10,7 @@ import { Challenge } from '@/entities/challenges';
 const OngoingChallengeCard = ({ item }: { item: Challenge }) => {
   const {
     id,
-    // imageUrl: { black, color },
+    imageUrl: { black, color },
     activityCount,
     successCount,
     title,
@@ -17,7 +18,7 @@ const OngoingChallengeCard = ({ item }: { item: Challenge }) => {
     activityType,
   } = item;
 
-  // const ratio = (activityCount / successCount) * 100;
+  const ratio = (activityCount / successCount) * 100;
 
   return (
     <li
@@ -26,7 +27,7 @@ const OngoingChallengeCard = ({ item }: { item: Challenge }) => {
     >
       <div className="relative w-[100px] h-[100px]">
         {/* TODO: 추후 DB 연결 시 imageUrl props로 변경 */}
-        {/* <Image
+        <Image
           className="absolute inset-0 w-[100px] h-[100px] object-contain object-center"
           src={black}
           width={100}
@@ -40,7 +41,7 @@ const OngoingChallengeCard = ({ item }: { item: Challenge }) => {
           width={100}
           height={100}
           alt={title}
-        /> */}
+        />
       </div>
       <div className="flex flex-1 flex-col gap-y-[10px]">
         <div className="flex flex-col">
