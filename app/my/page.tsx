@@ -8,6 +8,7 @@ import { HydrationProvider } from '@/app/HydrationProvider';
 import { UserInfoMain } from '@/entities/challenges';
 import { MYPAGE_LINKS, Menu } from '@/entities/my';
 import { MoveToStoreButton } from '@/features/app/ui/MoveToStoreButton';
+import { moveToExternalPage } from '@/features/main-info/util';
 import { Icon } from '@/shared/icons';
 import { ChallengeStatus } from '@/widgets';
 
@@ -46,14 +47,9 @@ const MyPage = () => {
 
         <div>
           <ul>
-            {/* TODO:" 추후 알림 기능이 픽스되면 구현하도록 합니다" */}
-            {/* <Menu text="알림 설정" onClick={() => {}} /> */}
-            <Menu text={MYPAGE_LINKS['공지사항'].text} onClick={onLinkClick(MYPAGE_LINKS['공지사항'].url)} />
-            <Menu
-              text={MYPAGE_LINKS['개인정보처리방침'].text}
-              onClick={onLinkClick(MYPAGE_LINKS['개인정보처리방침'].url)}
-            />
-            <Menu text={MYPAGE_LINKS['이용약관'].text} onClick={onLinkClick(MYPAGE_LINKS['이용약관'].url)} />
+            <Menu text={MYPAGE_LINKS['공지사항'].text} onClick={() => moveToExternalPage('NOTICE')} />
+            <Menu text={MYPAGE_LINKS['개인정보처리방침'].text} onClick={() => moveToExternalPage('POLICY')} />
+            <Menu text={MYPAGE_LINKS['이용약관'].text} onClick={() => moveToExternalPage('TERMS')} />
             <Menu text={MYPAGE_LINKS['문의'].text} onClick={onLinkClick(MYPAGE_LINKS['문의'].url)} />
           </ul>
           <MoveToStoreButton />
