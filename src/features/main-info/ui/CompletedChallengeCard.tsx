@@ -20,7 +20,7 @@ const CompletedChallengeCard = ({ item }: { item: Challenge }) => {
   return (
     <li
       className="w-full h-[140px] flex p-5 gap-x-[14px] items-center rounded-[20px] bg-neutral-white shadow-custom"
-      onClick={() => moveToChallengeDetail(id)}
+      onClick={() => moveToChallengeDetail(id, activityType)}
     >
       <Image src={color} width={100} height={100} alt="challenge badge" />
 

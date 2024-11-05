@@ -23,7 +23,7 @@ const OngoingChallengeCard = ({ item }: { item: Challenge }) => {
   return (
     <li
       className="w-full h-[140px] flex p-5 gap-x-[14px] items-center rounded-[20px] bg-neutral-white shadow-custom"
-      onClick={() => moveToChallengeDetail(id)}
+      onClick={() => moveToChallengeDetail(id, activityType)}
     >
       <div className="relative w-[100px] h-[100px]">
         {/* TODO: 추후 DB 연결 시 imageUrl props로 변경 */}
