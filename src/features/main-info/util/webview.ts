@@ -1,8 +1,10 @@
-export const moveToChallengeDetail = (challengeId: number) => {
+import { ActivityType } from '@/entities/challenges';
+
+export const moveToChallengeDetail = (challengeId: number, activityType: ActivityType) => {
   window.ReactNativeWebView?.postMessage?.(
     JSON.stringify({
       type: 'NAVIGATE',
-      data: { isStack: true, parent: 'challenge', route: 'challenge_detail', challengeId },
+      data: { route: 'challenge_detail', challengeId, activityType },
     }),
   );
 };
