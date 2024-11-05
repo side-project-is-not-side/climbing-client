@@ -25,7 +25,7 @@ export const ChallengeStatus = ({ characterName, characterLevel = 1, challenging
     <div className="w-full h-[186px] rounded-[20px] bg-neutral-700 px-3">
       <div className="w-full flex gap-2 items-center pt-[22px] justify-center mb-4">
         <span className="text-lg font-bold text-neutral-white leading-normal">{characterName}</span>
-        <ShowInfoButton customIcon={<Icon name="QuestionMark" size="16" />} />
+        <ShowInfoButton customIcon={<Icon name="QuestionMark" size="16" />} showTooltip={false} />
       </div>
 
       <div className="flex items-center justify-center gap-[30px] mb-6">

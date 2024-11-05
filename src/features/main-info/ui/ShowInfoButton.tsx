@@ -4,7 +4,7 @@ import { useModalContext } from '@/app/ModalContext';
 import { ModalKeys } from '@/shared/constants';
 import { LevelInfoDrawer } from '@/widgets';
 
-const ShowInfoButton = ({ customIcon }: { customIcon?: ReactNode }) => {
+const ShowInfoButton = ({ customIcon, showTooltip }: { customIcon?: ReactNode; showTooltip: boolean }) => {
   const { open } = useModalContext();
   const handleModalOpen = () => open(ModalKeys.레벨설명);
 
@@ -23,9 +23,11 @@ const ShowInfoButton = ({ customIcon }: { customIcon?: ReactNode }) => {
 
         <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-b-4 border-b-black" />
 
-        <div className="absolute -bottom-11 -left-2 w-[90px] py-1 px-[10px] rounded-[4px] bg-neutral-black">
-          <span className="text-neutral-white font-header-3">부리부리는?</span>
-        </div>
+        {showTooltip && (
+          <div className="absolute -bottom-11 -left-2 w-[90px] py-1 px-[10px] rounded-[4px] bg-neutral-black">
+            <span className="text-neutral-white font-flag">부리부리는?</span>
+          </div>
+        )}
       </button>
 
       <LevelInfoDrawer />

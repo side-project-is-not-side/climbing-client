@@ -74,7 +74,7 @@ const MainCharacter = ({ level, nickname }: { level: keyof typeof levelLabel; ni
           <span className="text-grayscale-500 font-bold text-[22px] leading-normal">{levelLabel[level]}</span>
         </div>
 
-        <ShowInfoButton />
+        <ShowInfoButton showTooltip />
       </div>
     </div>
   );
