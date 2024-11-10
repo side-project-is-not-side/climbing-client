@@ -4,7 +4,7 @@ export const moveToChallengeDetail = (challengeId: number, activityType: Activit
   window.ReactNativeWebView?.postMessage?.(
     JSON.stringify({
       type: 'NAVIGATE',
-      data: { route: 'challenge_detail', challengeId, activityType },
+      data: { isStack: true, parent: 'challenge_group', route: 'challenge_detail', challengeId, activityType },
     }),
   );
 };
