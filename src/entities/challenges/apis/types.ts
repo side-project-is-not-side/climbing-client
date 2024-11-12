@@ -5,7 +5,7 @@ export type UserInfoMain = {
   challengingCount: number;
   badgeCount: number;
   email: string;
-  provider: 'KAKAO';
+  provider: 'KAKAO' | 'APPLE';
 };
 
 export type Status = 'SUCCESS' | 'ONGOING' | 'NOT_STARTED';

@@ -10,19 +10,23 @@ type Props = {
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const { token } = useAuthContext();
+  const { token,removeToken } = useAuthContext();
 
   return (
     <SWRConfig
       value={{
         fetcher: async (url: string) => {
-          const res = fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
+          const res = await fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
             headers: {
               Authorization: token ? `Bearer ${token}` : '',
               'Content-Type': 'application/json',
             },
           }).then((res) => {
             switch (res.status) {
+              case 401:
+              case 403:
+                // 토큰 만료 또는 권한 없음
+                return removeToken();
               default:
                 return res.json();
             }
