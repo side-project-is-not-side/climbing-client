@@ -27,7 +27,7 @@ export const useWithdrawal = () => {
   const { trigger } = useSWRMutation('withdraw', withdraw, {
     onSuccess: () => {
       if (window.ReactNativeWebView) {
-        window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'LOGOUT' }));
+        window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'WITHDRAW', data: provider }));
       }
       removeToken();
       close();
