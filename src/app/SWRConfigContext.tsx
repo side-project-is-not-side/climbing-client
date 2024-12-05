@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const { token,removeToken } = useAuthContext();
+  const { token } = useAuthContext();
 
   return (
     <SWRConfig
@@ -23,10 +23,10 @@ export function SWRConfigContext({ children }: Props) {
             },
           }).then((res) => {
             switch (res.status) {
-              case 401:
-              case 403:
-                // 토큰 만료 또는 권한 없음
-                return removeToken();
+              // case 401:
+              // case 403:
+              //   // 토큰 만료 또는 권한 없음
+              //   return removeToken();
               default:
                 return res.json();
             }
