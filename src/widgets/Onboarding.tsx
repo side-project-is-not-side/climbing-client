@@ -109,8 +109,13 @@ const Onboarding = () => {
       </div>
 
       <Button
-        disabled={disableButton}
+        // disabled={disableButton}
+        gray={disableButton}
         onClick={() => {
+          if (page < 2) {
+            setPage((page) => page + 1);
+            sliderRef.current?.slickNext();
+          }
           if (window.ReactNativeWebView) {
             window.ReactNativeWebView.postMessage(
               JSON.stringify({ type: 'STORAGE_DATA', data: { key: 'Onboarding', data: true } }),
