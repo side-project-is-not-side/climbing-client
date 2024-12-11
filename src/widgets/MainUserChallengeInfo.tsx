@@ -19,7 +19,11 @@ function MainUserChallengeInfo() {
     <div className="flex flex-col gap-[34px] w-full pb-[30px]">
       {userInfo && (
         <>
-          <MainCharacter level={userInfo.characterLevel} nickname={userInfo.nickname} />{' '}
+          <MainCharacter
+            characterLevel={userInfo.characterLevel}
+            characterName={userInfo.characterName}
+            nickname={userInfo.nickname}
+          />
           <MainUserInfo
             userInfo={userInfo}
             isInProgress={isChallengeStarted}
