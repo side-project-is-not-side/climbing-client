@@ -16,7 +16,7 @@ function MainUserChallengeInfo() {
     setSelectedTab(tab);
   };
   return (
-    <div className="flex flex-col gap-[34px] w-full pb-[30px]">
+    <div className="flex flex-col w-full pb-[30px]">
       {userInfo && (
         <>
           <MainCharacter

@@ -36,8 +36,8 @@ const MainCharacter = ({
   }, [message]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="mb-7">
+    <div className="flex flex-col items-center mb-[22px]">
+      <div className="mb-[22px]">
         <Image
           className="-mt-5 mb-8"
           src={'/images/main/main-background.png'}
