@@ -23,7 +23,7 @@ const ShowInfoButton = ({ customIcon, showTooltip }: { customIcon?: ReactNode; s
         {showTooltip && (
           <>
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-full w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-b-4 border-b-black" />
-            <div className="absolute -bottom-11 -left-2 w-[90px] py-1 px-[10px] rounded-[4px] bg-neutral-black">
+            <div className="absolute -bottom-10 -left-2 w-[86px] h-[28px] py-1 px-[10px] rounded-[4px] bg-neutral-black flex items-center justify-center">
               <span className="text-neutral-white font-flag">부리부리는?</span>
             </div>
           </>

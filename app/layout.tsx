@@ -1,5 +1,4 @@
 import { M_PLUS_1p } from 'next/font/google';
-import localFont from 'next/font/local';
 
 import './globals.css';
 import dayjs from 'dayjs';
@@ -15,12 +14,6 @@ dayjs.locale('ko');
 
 const mPlus1P = M_PLUS_1p({ subsets: ['latin'], weight: ['700', '800'], variable: '--font-mPlus1p' });
 
-const pretendard = localFont({
-  src: '../public/fonts/PretendardVariable.woff2',
-  display: 'swap',
-  variable: '--font-pretendard',
-});
-
 export const generateMetadata = async (): Promise<Metadata> => {
   return getMetadata();
 };
@@ -31,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${mPlus1P.variable} ${pretendard.variable} bg-neutral-black`}>
+    <html lang="ko" className={`${mPlus1P.variable} bg-neutral-black`}>
       <body className="font-pretendard select-none">
         <Layout>
           <AuthContextProvider>

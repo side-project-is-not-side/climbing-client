@@ -10,7 +10,7 @@ const config = {
     },
     fontFamily: {
       mPlus: ['var(--font-mPlus1p)'],
-      pretendard: ['var(--font-pretendard)'],
+      pretendard: ['Pretendard Variable'],
     },
     extend: {
       boxShadow: {

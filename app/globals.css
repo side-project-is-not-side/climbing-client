@@ -5,16 +5,23 @@
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
 }
 
-
 .slick-slide div {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 .slick-dots li {
