@@ -5,7 +5,13 @@ import useSWR from 'swr';
 
 import { getUrlWithoutHost } from '@/shared/lib/getUrl';
 
-export const useGetChallengesByStatus = (status: Status) => {
+type ChallengesByStatus<S extends Status> = S extends 'SUCCESS'
+  ? CompleteChallenge[]
+  : S extends 'ONGOING'
+    ? Challenge[]
+    : [];
+
+export const useGetChallengesByStatus = <S extends Status>(status: S) => {
   const url = getUrlWithoutHost('/v1/challenges', {
     status,
     page: '0',
@@ -13,9 +19,9 @@ export const useGetChallengesByStatus = (status: Status) => {
     sort: 'LATEST',
   });
 
-  return useSWR<Status extends 'SUCCESS' ? CompleteChallenge[] : Status extends 'ONGOING' ? Challenge[] : []>(url, {
+  return useSWR<ChallengesByStatus<S>>(url, {
     suspense: true,
     revalidateOnMount: true,
-    fallbackData: [],
+    fallbackData: [] as ChallengesByStatus<S>,
   });
 };
