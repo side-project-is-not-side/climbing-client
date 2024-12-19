@@ -18,9 +18,9 @@ export type Challenge = {
   activityCount: number;
   successCount: number;
   activityType: ActivityType;
-  completedAt: string | null;
-  imageUrl: {
-    black: string;
-    color: string;
-  };
+};
+
+export type CompleteChallenge = Challenge & {
+  successImageUrl: string;
+  successAt: string;
 };
