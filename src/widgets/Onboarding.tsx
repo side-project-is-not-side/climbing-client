@@ -11,16 +11,16 @@ import { Button } from '@/shared/ui';
 
 const onboardingCopy = [
   {
+    title: '열정 불꽃 부리부리와 \n함께 성장해요',
+    paragraph: '클라이머의 불꽃 심장 부리를 성장시켜볼까요?',
+  },
+  {
     title: '클라이밍에 대한 열정을 \n챌린지와 함께해요',
-    paragraph: '간단한 챌린지 인증과 함께 \n올라가는 내 실력',
+    paragraph: '간단한 챌린지 인증과 함께 올라가는 내 실력',
   },
   {
     title: '주변 암장을 살펴보고 \n내 기록을 남겨봐요',
-    paragraph: '나만의 암장을 암장찾기로 \n발견하고 그랩하기',
-  },
-  {
-    title: '열정 불꽃 부리부리와 \n함께 성장해요',
-    paragraph: '클라이머의 불꽃 심장 \n부리를 성장시켜볼까요?',
+    paragraph: '나만의 암장을 발견하고 그랩하기',
   },
 ];
 
@@ -72,45 +72,37 @@ const Onboarding = () => {
 
   return (
     <>
-      <div className={'flex justify-end px-5'}>
-        <div className="flex justify-center gap-2">
-          {Array(3)
-            .fill(0)
-            .map((_, idx) => (
-              <span
-                key={idx}
-                className={cn(
-                  'block w-[6px] h-[6px] rounded-full',
-                  page === idx ? 'bg-neutral-white' : 'bg-neutral-400',
-                )}
-              ></span>
-            ))}
-        </div>
-      </div>
-
-      <div id={'slide-container'} className="flex-1 m-5 grow-1 max-h-[calc(100vh-160px)]">
+      <div id={'slide-container'} className="flex-1 mx-3 grow-1 max-h-[calc(100vh-160px)]">
         <Slider ref={sliderRef} {...sliderOptions}>
           {onboardingCopy.map((copy, index) => (
-            <div key={index} className={`slide-box`}>
-              <h3 className="text-2xl font-semibold text-white whitespace-pre">{copy.title}</h3>
-              <p className="mt-5 mb-8 text-lg whitespace-pre text-grayscale-400">{copy.paragraph}</p>
-              <div className="items-center justify-center h-[calc(100%-180px)]">
-                <Image
-                  src={`/images/onboarding-${index + 1}.png`}
-                  alt="on Boarding banner"
-                  width={280}
-                  height={280}
-                  className={cn('object-contain w-[95%] max-w-[300px] mx-auto max-h-[240px]')}
-                />
-              </div>
+            <div key={index} className={`slide-box flex flex-col justify-center items-center mt-4 overflow-hidden`}>
+              <Image
+                src={`/images/onboarding${index + 1}.png`}
+                alt="on Boarding banner"
+                width={280}
+                height={280}
+                className={cn(`object-contain w-full max-h-[calc(100vh-300px)] mx-auto mb-4 `)}
+              />
+              <h3 className="text-center text-2xl font-semibold leading-tight whitespace-pre">{copy.title}</h3>
+              <p className="text-center mt-3 text-lg whitespace-pre leading-tight text-grayscale-700">
+                {copy.paragraph}
+              </p>
             </div>
           ))}
         </Slider>
       </div>
-
+      <div className="flex justify-center gap-2 shrink-0">
+        {Array(3)
+          .fill(0)
+          .map((_, idx) => (
+            <span
+              key={idx}
+              className={cn('block w-[6px] h-[6px] rounded-full', page === idx ? 'bg-neutral-white' : 'bg-neutral-400')}
+            ></span>
+          ))}
+      </div>
       <Button
-        // disabled={disableButton}
-        gray={disableButton}
+        className="shrink-0"
         onClick={() => {
           if (page < 2) {
             setPage((page) => page + 1);
