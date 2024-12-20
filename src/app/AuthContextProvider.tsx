@@ -33,12 +33,18 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
     const handleTokenReceived = (event: CustomEvent<string>) => {
       const newToken = event.detail;
       setToken(newToken);
+      // window.ReactNativeWebView?.postMessage(
+      //   JSON.stringify({ type: 'TOKEN_RECEIVED', data: 'new web token: ' + newToken }),
+      // );
     };
 
     // 초기 토큰 체크
     const initialToken = getTokenFromCookie();
     if (initialToken) {
       setToken(initialToken);
+      // window.ReactNativeWebView?.postMessage(
+      //   JSON.stringify({ type: 'TOKEN_RECEIVED', data: 'initial web token: ' + initialToken }),
+      // );
     }
 
     // 이벤트 리스너 등록

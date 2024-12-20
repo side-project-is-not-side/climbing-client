@@ -18,6 +18,7 @@ function Layout({
   const { slug } = useParams();
 
   const isMain = path === '/';
+  const isOnboarding = path.includes('onboarding');
   const isMyPage = path.includes('my');
   const isFullScreen = FULL_SCREEN_PATHS.includes(path);
   const isDetailPage = path === `/details/${slug}`;
@@ -27,7 +28,7 @@ function Layout({
     'w-full min-h-full overflow-auto bg-neutral-700',
     !isFullScreen && 'pb-[80px]',
     (isSpecialPage || isDetailPage) && !isFullScreen && 'pt-[60px]',
-    isMain && 'bg-[#EEEAE5]',
+    (isMain || isOnboarding) && 'bg-[#EEEAE5]',
     isMyPage && 'bg-grayscale-800',
   );
 
