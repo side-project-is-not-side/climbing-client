@@ -27,7 +27,7 @@ const CompletedChallengeCard = ({ item }: { item: CompleteChallenge }) => {
 
         <div className="flex w-full justify-between items-center">
           <span className="font-bold font-mPlus font-flag text-primary-400">
-            {dayjs(successAt).format('YYYY-MM-DD')} 완료
+            {dayjs(successAt).format('YYYY.MM.DD')} 완료
           </span>
 
           <button
