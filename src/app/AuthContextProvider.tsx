@@ -30,30 +30,30 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
     };
 
     // 토큰 이벤트 리스너
-    const handleTokenReceived = (event: CustomEvent<string>) => {
-      const newToken = event.detail;
-      setToken(newToken);
-      // window.ReactNativeWebView?.postMessage(
-      //   JSON.stringify({ type: 'TOKEN_RECEIVED', data: 'new web token: ' + newToken }),
-      // );
+    const handleTokenReceived = (event: CustomEvent<{ data: string }>) => {
+      if (!event.detail) return;
+
+      const { data } = event.detail ?? {};
+
+      setToken(data);
     };
 
     // 초기 토큰 체크
     const initialToken = getTokenFromCookie();
     if (initialToken) {
       setToken(initialToken);
-      // window.ReactNativeWebView?.postMessage(
-      //   JSON.stringify({ type: 'TOKEN_RECEIVED', data: 'initial web token: ' + initialToken }),
-      // );
     }
 
     // 이벤트 리스너 등록
     window.addEventListener('tokenReceived', handleTokenReceived as EventListener);
+    document.addEventListener('tokenReceived', handleTokenReceived as EventListener);
 
     return () => {
       window.removeEventListener('tokenReceived', handleTokenReceived as EventListener);
+      document.removeEventListener('tokenReceived', handleTokenReceived as EventListener);
     };
   }, []);
+
   return (
     <AuthContext.Provider value={{ token, removeToken }}>
       {pathname.includes('/onboarding') || token ? children : <div>{/* loading... */}</div>}
