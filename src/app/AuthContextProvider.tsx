@@ -30,10 +30,10 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
     };
 
     // 토큰 이벤트 리스너
-    const handleTokenReceived = (event: CustomEvent<{ data: string }>) => {
+    const handleTokenReceived = (event: CustomEvent<string>) => {
       if (!event.detail) return;
 
-      const { data } = event.detail ?? {};
+      const data = event.detail ?? {};
 
       setToken(data);
     };
