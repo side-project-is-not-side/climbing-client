@@ -12,27 +12,29 @@ type Props = {
 export function SWRConfigContext({ children }: Props) {
   const { token } = useAuthContext();
 
+  const fetcher = async (url: string) => {
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => {
+      switch (res.status) {
+        case 403:
+          // 토큰 만료 또는 권한 없음
+          return window.ReactNativeWebView?.postMessage(JSON.stringify({ type: '_ERROR', data: 403 }));
+        default:
+          return res.json();
+      }
+    });
+
+    return res;
+  };
+
   return (
     <SWRConfig
       value={{
-        fetcher: async (url: string) => {
-          const res = await fetch(`https://${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
-            headers: {
-              Authorization: token ? `Bearer ${token}` : '',
-              'Content-Type': 'application/json',
-            },
-          }).then((res) => {
-            switch (res.status) {
-              case 403:
-                // 토큰 만료 또는 권한 없음
-                return window.ReactNativeWebView?.postMessage(JSON.stringify({ type: '_ERROR', data: 403 }));
-              default:
-                return res.json();
-            }
-          });
-
-          return res;
-        },
+        fetcher, // token을 반영한 fetcher를 동적으로 전달
         suspense: true,
         revalidateOnMount: true,
         onSuccess: (data, key) => {
