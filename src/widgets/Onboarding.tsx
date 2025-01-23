@@ -107,8 +107,7 @@ const Onboarding = () => {
           if (page < 2) {
             setPage((page) => page + 1);
             sliderRef.current?.slickNext();
-          }
-          if (window.ReactNativeWebView) {
+          } else if (window.ReactNativeWebView) {
             window.ReactNativeWebView.postMessage(
               JSON.stringify({ type: 'STORAGE_DATA', data: { key: 'Onboarding', data: true } }),
             );

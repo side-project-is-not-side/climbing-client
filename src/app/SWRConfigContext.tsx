@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function SWRConfigContext({ children }: Props) {
-  const { token, removeToken } = useAuthContext();
+  const { token } = useAuthContext();
 
   return (
     <SWRConfig
@@ -25,7 +25,6 @@ export function SWRConfigContext({ children }: Props) {
             switch (res.status) {
               case 403:
                 // 토큰 만료 또는 권한 없음
-                removeToken();
                 return window.ReactNativeWebView?.postMessage(JSON.stringify({ type: '_ERROR', data: 403 }));
               default:
                 return res.json();
