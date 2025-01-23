@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef } from 'react';
+
 import { useAuthContext } from './AuthContextProvider';
 import { SWRConfig, mutate } from 'swr';
 
@@ -10,6 +12,7 @@ type Props = {
 };
 
 export function SWRConfigContext({ children }: Props) {
+  const errCnt = useRef(0);
   const { token } = useAuthContext();
 
   const fetcher = async (url: string) => {
@@ -20,9 +23,6 @@ export function SWRConfigContext({ children }: Props) {
       },
     }).then((res) => {
       switch (res.status) {
-        case 403:
-          // 토큰 만료 또는 권한 없음
-          return window.ReactNativeWebView?.postMessage(JSON.stringify({ type: '_ERROR', data: 403 }));
         default:
           return res.json();
       }
@@ -34,14 +34,22 @@ export function SWRConfigContext({ children }: Props) {
   return (
     <SWRConfig
       value={{
-        fetcher, // token을 반영한 fetcher를 동적으로 전달
+        fetcher,
         suspense: true,
         revalidateOnMount: true,
         onSuccess: (data, key) => {
           if (isError(data)) {
-            setTimeout(() => {
-              mutate(key);
-            }, 300);
+            errCnt.current = errCnt.current + 1;
+            if (errCnt.current < 10) {
+              setTimeout(() => {
+                mutate(key);
+              }, 400);
+            } else {
+              errCnt.current = 0;
+              return window.ReactNativeWebView?.postMessage(JSON.stringify({ type: '_ERROR', data: 403 }));
+            }
+          } else {
+            errCnt.current = 0;
           }
         },
       }}
