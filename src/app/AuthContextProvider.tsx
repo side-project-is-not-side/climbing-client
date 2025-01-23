@@ -24,25 +24,13 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
   };
 
   useEffect(() => {
-    const getTokenFromCookie = (): string | null => {
-      const tokenCookie = document.cookie.split('; ').find((row) => row.startsWith('accessToken='));
-      return tokenCookie ? tokenCookie.split('=')[1] : null;
-    };
-
     // 토큰 이벤트 리스너
     const handleTokenReceived = (event: CustomEvent<string>) => {
       if (!event.detail) return;
 
-      const data = event.detail ?? {};
-
+      const data = event.detail;
       setToken(data);
     };
-
-    // 초기 토큰 체크
-    const initialToken = getTokenFromCookie();
-    if (initialToken) {
-      setToken(initialToken);
-    }
 
     // 이벤트 리스너 등록
     window.addEventListener('tokenReceived', handleTokenReceived as EventListener);
@@ -52,6 +40,19 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
       window.removeEventListener('tokenReceived', handleTokenReceived as EventListener);
       document.removeEventListener('tokenReceived', handleTokenReceived as EventListener);
     };
+  }, []);
+
+  useEffect(() => {
+    // 초기 토큰 체크
+    const getTokenFromCookie = (): string | null => {
+      const tokenCookie = document.cookie.split('; ').find((row) => row.startsWith('accessToken='));
+      return tokenCookie ? tokenCookie.split('=')[1] : null;
+    };
+
+    const initialToken = getTokenFromCookie();
+    if (initialToken) {
+      setToken(initialToken);
+    }
   }, []);
 
   return (
