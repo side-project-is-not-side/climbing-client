@@ -9,6 +9,8 @@ type AuthContext = {
   removeToken: () => void;
 };
 
+const notLoginPath = ['/onboarding', '/services'];
+
 const AuthContext = createContext<AuthContext>({
   token: null,
   removeToken: () => {},
@@ -57,7 +59,7 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <AuthContext.Provider value={{ token, removeToken }}>
-      {pathname.includes('/onboarding') || token ? children : <div>{/* loading... */}</div>}
+      {notLoginPath.some((item) => pathname.includes(item)) || token ? children : <div>{/* loading... */}</div>}
     </AuthContext.Provider>
   );
 };

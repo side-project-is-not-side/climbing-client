@@ -23,12 +23,13 @@ function Layout({
   const isFullScreen = FULL_SCREEN_PATHS.includes(path);
   const isDetailPage = path === `/details/${slug}`;
   const isSpecialPage = PATH_NAME[path] && !isFullScreen;
+  const isServicePage = path.includes('services');
 
   const mainClassName = twMerge(
     'w-full min-h-full overflow-auto bg-neutral-700',
     !isFullScreen && 'pb-[80px]',
     (isSpecialPage || isDetailPage) && !isFullScreen && 'pt-[60px]',
-    (isMain || isOnboarding) && 'bg-[#EEEAE5]',
+    (isMain || isOnboarding || isServicePage) && 'bg-[#EEEAE5]',
     isMyPage && 'bg-grayscale-800',
   );
 
