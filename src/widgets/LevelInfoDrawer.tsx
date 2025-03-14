@@ -13,10 +13,10 @@ const levelDivStyle =
 const levelTextStyle = 'absolute left-3 -translate-x-1/2 -bottom-[34px] font-flag text-grayscale-300';
 
 const LEVELS = [
-  { text: '0', bgStyle: 'bg-[#FFCB44]' },
-  { text: '4', bgStyle: 'bg-[#FF6726]' },
-  { text: '8', bgStyle: 'bg-[#FF4E27]' },
-  { text: '12~', bgStyle: 'bg-[#F53D2A]' },
+  { text: '1', bgStyle: 'bg-[#FFCB44]' },
+  { text: '8', bgStyle: 'bg-[#FF6726]' },
+  { text: '20', bgStyle: 'bg-[#FF4E27]' },
+  { text: '35~', bgStyle: 'bg-[#F53D2A]' },
 ];
 const LevelInfoDrawer = () => {
   const { visible, close } = useModalRegister(ModalKeys.레벨설명);
