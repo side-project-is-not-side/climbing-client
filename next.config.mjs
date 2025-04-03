@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: 'search.pstatic.net',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'grabbers-bucket.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+      },
     ],
   },
   async headers() {
