@@ -18,11 +18,11 @@ const CompletedChallengeCard = ({ item }: { item: CompleteChallenge }) => {
     >
       <Image className="rounded-[10px]" src={successImageUrl} width={100} height={100} alt="challenge badge" />
 
-      <div className="flex flex-1 flex-col gap-y-[10px]">
-        <div className="flex flex-col">
+      <div className="flex flex-1 flex-col gap-y-[10px] min-w-0">
+        <div className="flex flex-col w-full">
           <span className="font-flag text-primary-400 mb-1">{ACTIVITY_LABEL[activityType]}</span>
-          <span className="font-header-1 text-neutral-black mb-0.5 truncate">{title}</span>
-          <p className="font-text-2 text-neutral-400 truncate">{summary}</p>
+          <h3 className="font-header-1 text-neutral-black mb-0.5 truncate max-w-full">{title}</h3>
+          <p className="font-text-2 text-neutral-400 truncate max-w-full">{summary}</p>
         </div>
 
         <div className="flex w-full justify-between items-center">
